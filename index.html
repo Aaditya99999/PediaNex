@@ -101,6 +101,23 @@
   .btn-link{color:var(--blue); font-weight:600; font-size:var(--text-sm); text-decoration:underline; text-underline-offset:3px;}
   @media (prefers-reduced-motion: reduce){ .btn{transition:none;} }
 
+  /* Walkthrough modal */
+  .wt-overlay{position:fixed; inset:0; background:rgba(4,10,18,.6); display:none; align-items:center; justify-content:center; padding:20px; z-index:100;}
+  .wt-overlay.open{display:flex;}
+  .wt-modal{background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--radius); box-shadow:var(--shadow); width:100%; max-width:440px; padding:28px 26px; position:relative; max-height:90vh; overflow-y:auto;}
+  .wt-modal h3{font-size:var(--text-lg); margin:0 0 6px;}
+  .wt-modal .wt-sub{color:var(--ink-soft); font-size:var(--text-sm); margin:0 0 22px;}
+  .wt-close{position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--ink-soft); display:flex; align-items:center; justify-content:center; cursor:pointer;}
+  .wt-close:hover{border-color:var(--blue); color:var(--blue);}
+  .wt-field{margin-bottom:16px;}
+  .wt-field label{display:block; font-size:var(--text-sm); font-weight:600; margin-bottom:6px; color:var(--ink);}
+  .wt-field input{width:100%; font:inherit; font-size:var(--text-sm); padding:11px 13px; border-radius:9px; border:1px solid var(--line); background:var(--surface); color:var(--ink);}
+  .wt-field input:focus{outline:2px solid var(--blue); outline-offset:1px; border-color:var(--blue);}
+  .wt-modal .btn{width:100%; justify-content:center; margin-top:6px;}
+  .wt-err{color:#D6472F; font-size:var(--text-xs); margin-top:4px; display:none;}
+  .wt-field.error input{border-color:#D6472F;}
+  .wt-field.error .wt-err{display:block;}
+
   /* Header */
   header.site{position:sticky; top:0; z-index:40; background:color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft);}
   header.site .wrap{position:relative; display:flex; align-items:center; justify-content:space-between; height:70px;}
@@ -122,7 +139,7 @@
   /* Hero */
   .hero{padding:64px 0 32px;}
   .hero .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:center;}
-  @media (max-width:900px){ .hero .grid{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .hero .grid{grid-template-columns:1fr;} .hero .mock{order:-1;} }
   .hero h1{font-size:var(--h1-size); line-height:1.1; margin:16px 0 20px;}
   .hero .lede{font-size:var(--text-md); line-height:1.6; color:var(--ink-soft); max-width:48ch; margin:0 0 28px;}
   .hero .cta-row{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
@@ -306,8 +323,7 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="header-actions">
-      <a class="btn-link" href="/emr/kid/" style="text-decoration:none;">Log in</a>
-      <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+      <a class="btn btn-primary js-walkthrough-btn" href="#contact-modal">Book a walkthrough</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </button>
@@ -320,12 +336,10 @@
   <section class="hero">
     <div class="wrap grid">
       <div>
-        <span class="eyebrow">Pediatric EMR, proven in a working clinic</span>
-        <h1>The system we built because our own clinic needed it.</h1>
+        <h1>The system we built because your own clinic needed it.</h1>
         <p class="lede">PediaNex started as the day-to-day EMR running The Better Kids Clinic: patient check-in, growth charts, prescriptions, vaccinations. We're now opening it up to other pediatric practices.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
-          <a class="btn btn-ghost" href="https://wa.me/917357397888" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn btn-primary js-walkthrough-btn" href="#contact-modal">Book a walkthrough</a>
         </div>
         <p class="trust-line">Priced for independent practices &middot; Free record migration &middot; Works through patchy clinic wifi</p>
       </div>
@@ -404,7 +418,7 @@
       </div>
       <div class="mid-cta">
         <p>Still doing this on paper and phone calls?</p>
-        <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+        <a class="btn btn-primary js-walkthrough-btn" href="#contact-modal">Book a walkthrough</a>
       </div>
     </div>
   </section>
@@ -607,13 +621,41 @@
       <div class="final-cta">
         <h2>See it running on your own patient workflow.</h2>
         <p>Twenty minutes on real sample data, not a script.</p>
-        <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+        <a class="btn btn-primary js-walkthrough-btn" href="#contact-modal">Book a walkthrough</a>
         <a class="wa" href="https://wa.me/917357397888" target="_blank" rel="noopener">or chat with us on WhatsApp →</a>
       </div>
     </div>
   </section>
 
 </main>
+
+<div class="wt-overlay" id="wtOverlay">
+  <div class="wt-modal" role="dialog" aria-modal="true" aria-labelledby="wtTitle">
+    <button type="button" class="wt-close" id="wtClose" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 1 L13 13 M13 1 L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <h3 id="wtTitle">Book a walkthrough</h3>
+    <p class="wt-sub">Tell us a bit about your practice and we'll open WhatsApp with your details ready to send.</p>
+    <form id="wtForm" novalidate>
+      <div class="wt-field" id="wtNameField">
+        <label for="wtName">Your name</label>
+        <input type="text" id="wtName" name="wtName" autocomplete="name" />
+        <div class="wt-err">Please enter your name.</div>
+      </div>
+      <div class="wt-field" id="wtRoleField">
+        <label for="wtRole">Position in the clinic / hospital</label>
+        <input type="text" id="wtRole" name="wtRole" placeholder="e.g. Pediatrician, Clinic Manager" />
+        <div class="wt-err">Please enter your position.</div>
+      </div>
+      <div class="wt-field" id="wtDoctorsField">
+        <label for="wtDoctors">Number of doctors who'd use the app</label>
+        <input type="number" id="wtDoctors" name="wtDoctors" min="1" inputmode="numeric" />
+        <div class="wt-err">Please enter a number.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Continue to WhatsApp</button>
+    </form>
+  </div>
+</div>
 
 <footer class="site">
   <div class="wrap">
@@ -655,6 +697,60 @@
         nav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       });
+    });
+  })();
+
+  (function () {
+    var overlay = document.getElementById('wtOverlay');
+    var closeBtn = document.getElementById('wtClose');
+    var form = document.getElementById('wtForm');
+    var nameField = document.getElementById('wtName');
+    var roleField = document.getElementById('wtRole');
+    var doctorsField = document.getElementById('wtDoctors');
+    var triggers = document.querySelectorAll('.js-walkthrough-btn');
+    if (!overlay || !form || triggers.length === 0) return;
+
+    function openModal(e) {
+      if (e) e.preventDefault();
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      nameField.focus();
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function clearError(fieldWrap) { fieldWrap.classList.remove('error'); }
+    function setError(fieldWrap) { fieldWrap.classList.add('error'); }
+
+    triggers.forEach(function (btn) { btn.addEventListener('click', openModal); });
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = nameField.value.trim();
+      var role = roleField.value.trim();
+      var doctors = doctorsField.value.trim();
+      var valid = true;
+
+      [ [nameField, name], [roleField, role], [doctorsField, doctors] ].forEach(function (pair) {
+        var fieldWrap = pair[0].closest('.wt-field');
+        if (!pair[1]) { setError(fieldWrap); valid = false; }
+        else { clearError(fieldWrap); }
+      });
+      if (!valid) return;
+
+      var message = "Hello Aaditya, I'm interested in the child pediatric EMR (PediaNex)." +
+        "\n\nName: " + name +
+        "\nPosition: " + role +
+        "\nNumber of doctors who'd use the app: " + doctors;
+
+      var url = "https://wa.me/917357397888?text=" + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener');
+      closeModal();
+      form.reset();
     });
   })();
 </script>
