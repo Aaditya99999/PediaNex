@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PediaNex — Pediatric EMR Software Built Inside a Real Children's Clinic</title>
+<meta name="description" content="PediaNex is the pediatric EMR that grew out of The Better Kids Clinic's own day-to-day practice: WHO and IAP growth charts, an IAP vaccination schedule, QR self check-in, and WhatsApp-delivered prescriptions. Book a walkthrough." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PediaNex — Pediatric EMR Software Built Inside a Real Children's Clinic" />
+<meta property="og:description" content="Growth charts, vaccination tracking, prescriptions, and a parent portal, proven at The Better Kids Clinic before it went anywhere else." />
+<meta property="og:url" content="https://www.thebetterhealth.clinic/marketing/" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "PediaNex",
+      "url": "https://www.thebetterhealth.clinic/marketing/",
+      "description": "Pediatric EMR software built inside The Better Kids Clinic, now available to other pediatric practices.",
+      "knowsAbout": ["Pediatric EMR", "Growth charts", "Vaccination scheduling", "Pediatric practice management"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PediaNex",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "description": "Pediatric-only EMR with WHO and IAP growth charts, an IAP vaccination schedule, QR self check-in, PDF prescriptions delivered over WhatsApp, and a parent portal.",
+      "featureList": ["WHO and IAP growth charts", "Vaccination schedule tracking", "QR self check-in", "Prescription builder with PDF and WhatsApp delivery", "Parent portal", "Offline-friendly caching", "Outreach and camp screening mode"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "How is patient data protected?", "acceptedAnswer": {"@type": "Answer", "text": "Every clinical page sits behind a signed session and every record lives in access-controlled cloud storage. We're tightening this further as we move from a single-clinic tool to a multi-practice product. See the roadmap section for what's in progress."}},
+        {"@type": "Question", "name": "Do I need special hardware?", "acceptedAnswer": {"@type": "Answer", "text": "No. PediaNex runs in any browser and installs as an app on phone, tablet, or desktop."}},
+        {"@type": "Question", "name": "What if my clinic's internet is unreliable?", "acceptedAnswer": {"@type": "Answer", "text": "Recent charts and patient lookups are cached on the device, so you can keep working through a short outage. Everything syncs once you're back online."}},
+        {"@type": "Question", "name": "Can you migrate our existing patient records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This is exactly how The Better Kids Clinic's own historical records got into the system in the first place, so it's a proven path, not a first attempt."}},
+        {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "We're finalizing public pricing while we onboard the first practices outside The Better Kids Clinic, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --paper:#081420; --surface:#0E1F30; --surface-2:#132A3E;
+    --ink:#EAF1FA; --ink-soft:#B7C6D6; --muted:#7E92A5;
+    --blue:#5AA6F2; --blue-deep:#123A61; --blue-tint:#132943;
+    --amber:#EFB35E; --amber-soft:#332508; --amber-deep:#8A5A0F;
+    --green:#4FCB93; --green-soft:#0F2E20; --green-deep:#0F6B4C;
+    --line:rgba(234,241,250,0.16); --line-soft:rgba(234,241,250,0.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px rgba(0,0,0,.4);
+    --radius:16px;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --ui:"Public Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"Spline Sans Mono",ui-monospace,monospace;
+    --text-xs:0.75rem; --text-sm:0.875rem; --text-base:1rem; --text-md:1.125rem;
+    --text-lg:1.375rem; --text-2xl:1.875rem; --text-stat:2.25rem;
+    --h1-size:clamp(2.15rem, 1.65rem + 2.2vw, 2.75rem);
+    --h2-size:clamp(1.6rem, 1.3rem + 1.3vw, 1.95rem);
+    --space-section:clamp(48px, 4vw + 28px, 88px);
+    --space-section-tight:clamp(32px, 3vw + 20px, 56px);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--ui);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  .num{font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  section{padding:var(--space-section) 0;}
+  section.tight{padding:var(--space-section-tight) 0;}
+  @media (max-width:720px){ .wrap{padding:0 20px;} }
+  h1,h2,h3{font-family:var(--display); font-weight:700; letter-spacing:-.01em; text-wrap:balance; margin:0;}
+  h2{font-size:var(--h2-size); line-height:1.16;}
+  h3{font-size:var(--text-lg); line-height:1.3;}
+  p{margin:0;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; text-transform:uppercase; letter-spacing:.07em; font-size:var(--text-xs); font-weight:700; color:var(--blue);}
+  .eyebrow::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--blue);}
+  .section-head{max-width:620px; margin:0 0 42px;}
+  .section-head p{color:var(--ink-soft); font-size:var(--text-md); margin:12px 0 0;}
+  .muted{color:var(--muted);}
+
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:4px;}
+
+  /* Buttons */
+  .btn{display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:var(--text-sm); padding:13px 24px; border-radius:10px; border:1px solid transparent; cursor:pointer; white-space:nowrap; transition:transform .15s ease, box-shadow .15s ease;}
+  @media (max-width:400px){ header.site .btn-primary{padding:11px 14px; font-size:var(--text-xs);} header.site .btn-link{display:none;} }
+  .btn-primary{background:var(--blue-deep); color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(10,47,85,.35);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--blue); color:var(--blue);}
+  .btn-link{color:var(--blue); font-weight:600; font-size:var(--text-sm); text-decoration:underline; text-underline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ .btn{transition:none;} }
+
+  /* Header */
+  header.site{position:sticky; top:0; z-index:40; background:color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft);}
+  header.site .wrap{position:relative; display:flex; align-items:center; justify-content:space-between; height:70px;}
+  .logo{display:flex; align-items:center; gap:8px; font-family:var(--display); font-weight:700; font-size:var(--text-md);}
+  .logo .mark{width:26px; height:26px; border-radius:8px; background:var(--blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  nav.primary{display:flex; align-items:center; gap:28px; font-size:var(--text-sm); font-weight:500;}
+  nav.primary a{color:var(--ink-soft);}
+  nav.primary a:hover{color:var(--blue);}
+  .header-actions{display:flex; align-items:center; gap:14px;}
+  .nav-toggle{display:none; background:transparent; border:1px solid var(--line); border-radius:8px; width:38px; height:38px; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; color:var(--ink);}
+  @media (max-width:820px){
+    nav.primary{display:none; position:absolute; top:70px; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:var(--paper); border-bottom:1px solid var(--line-soft); box-shadow:var(--shadow); padding:4px 24px 14px;}
+    nav.primary.open{display:flex;}
+    nav.primary a{padding:11px 0; border-top:1px solid var(--line-soft);}
+    nav.primary a:first-child{border-top:none;}
+    .nav-toggle{display:flex;}
+  }
+
+  /* Hero */
+  .hero{padding:64px 0 32px;}
+  .hero .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:center;}
+  @media (max-width:900px){ .hero .grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:var(--h1-size); line-height:1.1; margin:16px 0 20px;}
+  .hero .lede{font-size:var(--text-md); line-height:1.6; color:var(--ink-soft); max-width:48ch; margin:0 0 28px;}
+  .hero .cta-row{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .hero .trust-line{margin-top:20px; font-size:var(--text-sm); color:var(--muted);}
+
+  /* Docon-style device mockup: an app screen with an overlapping detail card and floating accent badges */
+  .mock{position:relative; padding:20px 0;}
+  .mock-screen{background:var(--surface); border:1px solid var(--line-soft); border-radius:20px; box-shadow:var(--shadow); overflow:hidden; transform:rotate(-1deg);}
+  .mock-screen .topbar{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--line-soft);}
+  .mock-screen .topbar .greet{font-weight:700; font-size:var(--text-sm);}
+  .mock-screen .topbar .greet span{color:var(--muted); font-weight:500;}
+  .mock-body{padding:18px 20px 64px;}
+  .mock-body .m-label{font-size:var(--text-xs); text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-bottom:10px; font-weight:700;}
+  .queue-row{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 0; border-bottom:1px solid var(--line-soft);}
+  .queue-row:last-child{border-bottom:none;}
+  .queue-row .who{display:flex; align-items:center; gap:10px;}
+  .queue-row .dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
+  .queue-row .dot.due{background:var(--amber);}
+  .queue-row .dot.ok{background:var(--green);}
+  .queue-row .name{font-size:var(--text-sm); font-weight:600;}
+  .queue-row .sub{font-size:var(--text-xs); color:var(--muted);}
+  .queue-row .time{font-size:var(--text-xs); color:var(--muted); font-family:var(--mono);}
+  .mock-card{position:absolute; left:26px; right:26px; bottom:-26px; background:var(--paper); border:1px solid var(--line-soft); border-radius:16px; box-shadow:var(--shadow); padding:18px 20px; transform:rotate(1deg);}
+  .mock-card .mc-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px;}
+  .mock-card .mc-name{font-weight:700; font-size:var(--text-sm);}
+  .mock-card .mc-sub{font-size:var(--text-xs); color:var(--muted); margin-top:2px;}
+  .mock-card .mc-tag{font-size:var(--text-xs); font-weight:700; background:var(--blue-tint); color:var(--blue); padding:3px 9px; border-radius:999px;}
+  .mock-card .mc-actions{display:flex; gap:8px;}
+  .mock-card .mc-btn{flex:1; text-align:center; font-size:var(--text-xs); font-weight:600; padding:9px 0; border-radius:8px;}
+  .mock-card .mc-btn.ghost{border:1px solid var(--line); color:var(--ink-soft);}
+  .mock-card .mc-btn.solid{background:var(--blue-deep); color:#fff;}
+  .badge-float{position:absolute; width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow);}
+  .badge-float.b1{top:6px; right:-10px; background:var(--green);}
+  .badge-float.b2{bottom:44px; left:-14px; background:var(--amber);}
+  @media (max-width:640px){ .badge-float{display:none;} .mock-card{left:16px; right:16px;} }
+
+  /* Proof band — real, specific product facts, not invented business metrics */
+  .proof{border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);}
+  .proof .lead{text-align:center; max-width:54ch; margin:0 auto 40px; color:var(--ink-soft); font-size:var(--text-md);}
+  .proof .lead strong{color:var(--ink);}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:760px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat-tile{text-align:center;}
+  .stat-tile .stat-num{font-family:var(--display); font-size:var(--text-stat); font-weight:700; color:var(--blue); display:block;}
+  .stat-tile .cap{font-size:var(--text-sm); color:var(--ink-soft); margin-top:6px;}
+
+  /* Problems — a divided list, not a card grid; the first item leads, the rest follow at one weight */
+  .pain-list{display:flex; flex-direction:column;}
+  .pain-item{display:flex; align-items:flex-start; gap:18px; padding:22px 0; border-top:1px solid var(--line-soft);}
+  .pain-item:first-child{border-top:none; padding-top:0; padding-bottom:30px;}
+  .pain-item .ic{width:38px; height:38px; border-radius:10px; background:var(--blue-tint); color:var(--blue); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:var(--text-sm); flex-shrink:0;}
+  .pain-item:first-child .ic{width:54px; height:54px; border-radius:14px; background:var(--blue-deep); color:#fff; font-size:var(--text-base);}
+  .pain-body{flex:1; min-width:0;}
+  .pain-item h3{font-size:var(--text-base); margin-bottom:6px;}
+  .pain-item:first-child h3{font-size:var(--text-lg);}
+  .pain-item p{color:var(--ink-soft); font-size:var(--text-sm); margin:0 0 8px; max-width:52ch;}
+  .pain-item .solved{font-size:var(--text-xs); font-weight:700; color:var(--blue);}
+
+  /* Visit flow — a real sequence, so numbering is earned */
+  .flow-track{display:grid; grid-template-columns:repeat(6,1fr); gap:0; position:relative;}
+  @media (max-width:900px){ .flow-track{grid-template-columns:1fr; gap:0;} }
+  .flow-track::before{content:""; position:absolute; top:13px; left:0; right:0; height:1px; background:var(--line); z-index:0;}
+  @media (max-width:900px){ .flow-track::before{top:0; bottom:0; left:13px; width:1px; height:auto; right:auto;} }
+  .flow-step{position:relative; z-index:1; padding:0 16px 0 0;}
+  @media (max-width:900px){ .flow-step{padding:0 0 30px 34px;} }
+  .flow-dot{width:26px; height:26px; border-radius:50%; background:var(--paper); border:2px solid var(--blue); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:var(--text-xs); font-weight:600; color:var(--blue); margin-bottom:14px;}
+  @media (max-width:900px){ .flow-dot{position:absolute; left:0; top:0; margin-bottom:0;} }
+  .flow-step h3{font-family:var(--ui); font-size:var(--text-sm); font-weight:700; letter-spacing:normal; margin:0 0 6px;}
+  .flow-step p{font-size:var(--text-sm); color:var(--muted); margin:0; line-height:1.55;}
+
+  /* Feature deep-dive: each visual is a small "screenshot" frame, Docon-style */
+  .feature-row{display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:center; padding:38px 0; border-top:1px solid var(--line-soft);}
+  .feature-row:first-of-type{border-top:none;}
+  .feature-row.reverse .feature-copy{order:2;}
+  @media (max-width:800px){ .feature-row, .feature-row.reverse{grid-template-columns:1fr;} .feature-row.reverse .feature-copy{order:0;} }
+  .feature-copy .tag{display:inline-block; font-size:var(--text-xs); font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--blue); background:var(--blue-tint); padding:4px 10px; border-radius:999px; margin-bottom:12px;}
+  .feature-copy h3{font-size:var(--text-lg); margin-bottom:10px;}
+  .feature-copy p{color:var(--ink-soft); font-size:var(--text-base); max-width:60ch; margin:0;}
+  .fscreen{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);}
+  .fscreen .fbar{display:flex; gap:6px; padding:10px 14px; background:var(--surface-2); border-bottom:1px solid var(--line-soft);}
+  .fscreen .fbar span{width:8px; height:8px; border-radius:50%; background:var(--line);}
+  .fscreen .fbody{padding:20px; min-height:118px; display:flex; flex-direction:column; justify-content:center; gap:10px;}
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{font-size:var(--text-xs); padding:6px 11px; border-radius:8px; font-weight:600;}
+  .chip.overdue{background:var(--amber-soft); color:var(--amber);}
+  .chip.ok{background:var(--green-soft); color:var(--green);}
+  .chip.neutral{background:var(--blue-tint); color:var(--blue);}
+  .sched-row{display:flex; justify-content:space-between; align-items:center; font-size:var(--text-sm); padding:6px 0;}
+  .sched-row .lbl{font-weight:600;}
+  .sched-row .st{font-size:var(--text-xs); font-weight:700; padding:3px 8px; border-radius:6px;}
+  .sched-row .st.overdue{background:var(--amber-soft); color:var(--amber);}
+  .sched-row .st.given{background:var(--green-soft); color:var(--green);}
+  .sched-row .st.due{background:var(--blue-tint); color:var(--blue);}
+  .field-mock{background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:9px 12px; font-size:var(--text-xs); color:var(--muted);}
+  .fbig{font-family:var(--display); font-size:var(--text-2xl); font-weight:700; color:var(--blue);}
+  .fsmall{font-size:var(--text-xs); color:var(--muted);}
+
+  .mid-cta{margin:36px 0 0; background:var(--blue-tint); border-radius:14px; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;}
+  .mid-cta p{margin:0; font-weight:600;}
+
+  /* Works everywhere — Docon's device-carousel idea, tied to the real installable PWA */
+  .everywhere-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:800px){ .everywhere-grid{grid-template-columns:1fr;} }
+  .ew-card{border-radius:20px; padding:26px 22px 68px; position:relative; overflow:hidden; color:#fff;}
+  .ew-card.c-blue{background:var(--blue-deep);}
+  .ew-card.c-green{background:var(--green-deep);}
+  .ew-card.c-amber{background:var(--amber-deep);}
+  .ew-card .ew-frame{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); border-radius:12px; padding:12px; transform:rotate(-3deg);}
+  .ew-card .ew-frame .ew-bar{display:flex; gap:5px; margin-bottom:8px;}
+  .ew-card .ew-frame .ew-bar span{width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.5);}
+  .ew-card .ew-frame .ew-line{height:7px; border-radius:3px; background:rgba(255,255,255,.32); margin-bottom:6px;}
+  .ew-card .ew-frame .ew-line:last-child{margin-bottom:0; width:60%;}
+  .ew-card .ew-label{position:absolute; left:22px; bottom:22px; font-family:var(--display); font-weight:700; font-size:var(--text-md);}
+
+  /* Origin section */
+  .origin{background:var(--blue-deep); border-radius:24px; padding:52px 44px; color:#EEF3FA;}
+  .origin .eyebrow{color:#9DC2ED;}
+  .origin .eyebrow::before{background:#9DC2ED;}
+  .origin h2{color:#fff; margin:14px 0 18px;}
+  .origin p{color:#C7D9EE; font-size:var(--text-base); line-height:1.7; max-width:62ch; margin:0 0 14px;}
+  .origin p:last-of-type{margin-bottom:0;}
+  .origin strong{color:#fff;}
+  .origin-quote{margin-top:26px; padding-top:22px; border-top:1px dashed rgba(255,255,255,.25);}
+  .origin-quote .quote-text{font-style:italic; color:#B9CEE8; font-size:var(--text-sm); line-height:1.6; margin:0 0 10px; max-width:52ch;}
+  .origin-quote .quote-who{font-family:var(--ui); font-size:var(--text-xs); color:#9DC2ED; font-weight:600;}
+  .origin-quote .quote-who span{font-weight:400; color:#93B4D9;}
+
+  /* Roadmap — grouped by status; column widths follow how many items are actually in each group */
+  .roadmap-groups{display:grid; grid-template-columns:1fr 2fr 1fr; gap:28px;}
+  @media (max-width:860px){ .roadmap-groups{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .roadmap-groups{grid-template-columns:1fr;} }
+  .roadmap-group{display:flex; flex-direction:column; gap:2px;}
+  .roadmap-group.featured{background:var(--amber-soft); border-radius:14px; padding:18px 20px;}
+  .rg-label{font-family:var(--ui); font-size:var(--text-xs); font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin:0 0 12px;}
+  .roadmap-group.featured .rg-label{color:var(--amber-deep);}
+  .roadmap-item{padding:12px 0; border-top:1px solid var(--line-soft);}
+  .roadmap-group > .roadmap-item:first-of-type{border-top:none; padding-top:0;}
+  .roadmap-group.featured .roadmap-item{border-top-color:rgba(138,90,15,.18);}
+  .roadmap-item h4{font-size:var(--text-sm); font-weight:700; margin:0 0 4px;}
+  .roadmap-item p{font-size:var(--text-sm); color:var(--muted); margin:0;}
+
+  /* FAQ */
+  .faq-group{margin-bottom:26px;}
+  .faq-group > .glabel{font-size:var(--text-xs); text-transform:uppercase; letter-spacing:.07em; color:var(--muted); font-weight:700; margin-bottom:10px;}
+  details{border-bottom:1px solid var(--line-soft); padding:16px 0;}
+  details summary{cursor:pointer; font-weight:600; font-size:var(--text-md); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{content:"+"; font-size:20px; color:var(--muted); flex-shrink:0;}
+  details[open] summary::after{content:"–";}
+  details p{color:var(--ink-soft); margin:12px 0 0; font-size:var(--text-base); max-width:64ch;}
+
+  /* Final CTA */
+  .final-cta{background:var(--surface); border:1px solid var(--line-soft); border-radius:24px; padding:56px 40px; text-align:center;}
+  .final-cta h2{margin-bottom:12px;}
+  .final-cta p{color:var(--ink-soft); max-width:46ch; margin:0 auto 26px; font-size:var(--text-base);}
+  .final-cta .wa{display:block; margin-top:16px; color:var(--muted); font-size:var(--text-sm); text-decoration:underline;}
+
+  /* Footer */
+  footer.site{background:var(--blue-deep); color:#DCE6F5; padding:56px 0 26px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.14);}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-grid h3{font-family:var(--ui); font-size:var(--text-xs); font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#9FB6DC; margin:0 0 14px;}
+  .foot-grid ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; font-size:var(--text-sm);}
+  .foot-grid a:hover{color:#fff;}
+  .foot-grid p{font-size:var(--text-sm); color:#9FB6DC; max-width:30ch;}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:22px; font-size:var(--text-xs); color:#9FB6DC; flex-wrap:wrap; gap:10px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <span class="mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 9 C 3 9, 3 3, 5 3 C 7 3, 7 7, 9 7 C 10.5 7, 11.5 5, 13 5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      PediaNex
+    </a>
+    <nav class="primary" aria-label="Primary" id="primaryNav">
+      <a href="#product">Product</a>
+      <a href="#flow">How it works</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn-link" href="/emr/kid/" style="text-decoration:none;">Log in</a>
+      <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Pediatric EMR, proven in a working clinic</span>
+        <h1>The system we built because our own clinic needed it.</h1>
+        <p class="lede">PediaNex started as the day-to-day EMR running The Better Kids Clinic: patient check-in, growth charts, prescriptions, vaccinations. We're now opening it up to other pediatric practices.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+          <a class="btn btn-ghost" href="https://wa.me/917357397888" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <p class="trust-line">Priced for independent practices &middot; Free record migration &middot; Works through patchy clinic wifi</p>
+      </div>
+
+      <div class="mock">
+        <span class="badge-float b1" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="badge-float b2" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v10H8l-4 4V5z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="mock-screen">
+          <div class="topbar">
+            <div class="greet">Hello, Dr. Shah <span>&middot; Today's queue</span></div>
+          </div>
+          <div class="mock-body">
+            <div class="m-label">Waiting &middot; 3</div>
+            <div class="queue-row"><div class="who"><span class="dot due"></span><div><div class="name">Aarav Mehta, 6y</div><div class="sub">Vaccination due</div></div></div><span class="time">10:30</span></div>
+            <div class="queue-row"><div class="who"><span class="dot ok"></span><div><div class="name">Ishita Rao, 3y</div><div class="sub">Follow-up visit</div></div></div><span class="time">10:45</span></div>
+            <div class="queue-row"><div class="who"><span class="dot ok"></span><div><div class="name">Kabir Singh, 9m</div><div class="sub">New patient, QR intake</div></div></div><span class="time">11:00</span></div>
+          </div>
+        </div>
+        <div class="mock-card">
+          <div class="mc-top">
+            <div><div class="mc-name">Aarav Mehta</div><div class="mc-sub">IAP height-for-age &middot; 72nd percentile</div></div>
+            <span class="mc-tag">Chart ready</span>
+          </div>
+          <div class="mc-actions">
+            <span class="mc-btn ghost">Add vitals</span>
+            <span class="mc-btn solid">Send on WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof tight" id="product">
+    <div class="wrap">
+      <p class="lead">Not a pitch deck rendering. This is what's actually running. <strong>Every number below is a real product detail</strong>, not a business metric we invented for this page.</p>
+      <div class="stat-grid">
+        <div class="stat-tile"><span class="stat-num">14</span><div class="cap">growth chart templates: WHO (0–5) and IAP (5–18), boy and girl</div></div>
+        <div class="stat-tile"><span class="stat-num">~40</span><div class="cap">scheduled doses, the full IAP childhood immunization schedule</div></div>
+        <div class="stat-tile"><span class="stat-num">2</span><div class="cap">ways every chart renders, instantly on screen and as a print-ready PDF</div></div>
+        <div class="stat-tile"><span class="stat-num">1</span><div class="cap">QR code, from front-desk check-in to an approved record with no paper form</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problems">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Problems we actually solved</span>
+        <h2>The parts of a pediatric day that shouldn't take this long.</h2>
+      </div>
+      <div class="pain-list">
+        <div class="pain-item"><div class="ic">QR</div><div class="pain-body"><h3>"New patients fill the same form twice."</h3><p>Once on paper at the desk, again when someone re-types it into the system.</p><div class="solved">→ QR self check-in</div></div></div>
+        <div class="pain-item"><div class="ic">%</div><div class="pain-body"><h3>"Growth percentiles get calculated by hand, or skipped."</h3><p>Slow, error-prone, and hard to trend across visits.</p><div class="solved">→ WHO + IAP growth charts</div></div></div>
+        <div class="pain-item"><div class="ic">Rx</div><div class="pain-body"><h3>"Prescriptions get texted as blurry photos."</h3><p>If they get sent at all. Otherwise it's a phone call for a refill.</p><div class="solved">→ PDF prescriptions over WhatsApp</div></div></div>
+        <div class="pain-item"><div class="ic">+</div><div class="pain-body"><h3>"Vaccination status lives in someone's memory."</h3><p>Or a paper card the family has to remember to bring.</p><div class="solved">→ IAP schedule, tracked per dose</div></div></div>
+        <div class="pain-item"><div class="ic">&#8942;</div><div class="pain-body"><h3>"The clinic wifi drops mid-visit."</h3><p>And whatever you were charting is suddenly at risk.</p><div class="solved">→ Local caching, syncs when back online</div></div></div>
+        <div class="pain-item"><div class="ic">&#9737;</div><div class="pain-body"><h3>"Outreach camps need their own paperwork."</h3><p>School screenings and vaccination camps don't fit a patient-record workflow.</p><div class="solved">→ Standalone screening mode</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow" class="flow">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How a visit actually flows</span>
+        <h2>Six steps, in the order they really happen.</h2>
+        <p>This is the literal sequence a child moves through, not a features list rearranged to look like one.</p>
+      </div>
+      <div class="flow-track">
+        <div class="flow-step"><div class="flow-dot">01</div><h3>QR check-in</h3><p>A parent fills the intake form on their own phone before they reach the desk.</p></div>
+        <div class="flow-step"><div class="flow-dot">02</div><h3>One-tap approval</h3><p>Staff review the submission and approve it. The patient record is created automatically.</p></div>
+        <div class="flow-step"><div class="flow-dot">03</div><h3>Vitals &amp; growth</h3><p>Weight, height, and head circumference are plotted live against WHO or IAP curves.</p></div>
+        <div class="flow-step"><div class="flow-dot">04</div><h3>Prescribe</h3><p>A searchable note builder with daily, interval, or meal-relative dosing fields.</p></div>
+        <div class="flow-step"><div class="flow-dot">05</div><h3>Check vaccines</h3><p>Due and overdue doses surface automatically against the IAP schedule.</p></div>
+        <div class="flow-step"><div class="flow-dot">06</div><h3>Sent, not printed</h3><p>The PDF prescription lands in the parent's WhatsApp before they leave the room.</p></div>
+      </div>
+      <div class="mid-cta">
+        <p>Still doing this on paper and phone calls?</p>
+        <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">A closer look</span>
+        <h2>Built pediatric-first, not adapted from an adult chart.</h2>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="tag">Clinical</span>
+          <h3>Growth charts, two ways</h3>
+          <p>WHO standards for under-5s and IAP standards for ages 5 to 18: height, weight, BMI, and head circumference, matched automatically by age and sex. Every chart renders instantly on screen, then again as a clinic-grade PDF.</p>
+        </div>
+        <div class="fscreen">
+          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbody">
+            <div class="fsmall">IAP &middot; Height-for-age &middot; Boy, 6y</div>
+            <svg width="100%" height="70" viewBox="0 0 300 70" aria-hidden="true">
+              <path d="M10 60 C 90 48, 170 32, 290 12" fill="none" stroke="var(--line)" stroke-width="1"/>
+              <path d="M10 65 C 90 58, 170 50, 290 34" fill="none" stroke="var(--line)" stroke-width="1"/>
+              <path d="M10 62 C 90 52, 170 36, 290 18" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="290" cy="18" r="4.5" fill="var(--blue)"/>
+            </svg>
+            <div class="chip-row"><span class="chip neutral">72nd percentile</span><span class="chip ok">PDF ready</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <span class="tag">Clinical</span>
+          <h3>Vaccination schedule, tracked per dose</h3>
+          <p>The full IAP immunization schedule from birth through 16–18 years, grouped into milestones with automatic due/overdue status, plus the brand and date for every dose actually given.</p>
+        </div>
+        <div class="fscreen">
+          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbody" style="justify-content:flex-start; gap:2px;">
+            <div class="sched-row"><span class="lbl">DTwP &middot; dose 2</span><span class="st overdue">Overdue</span></div>
+            <div class="sched-row"><span class="lbl">MMR &middot; dose 1</span><span class="st given">Given, 12 Jun</span></div>
+            <div class="sched-row"><span class="lbl">Hep B &middot; dose 3</span><span class="st due">Due in 6d</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="tag">Workflow</span>
+          <h3>A prescription builder that learns the clinic</h3>
+          <p>Symptoms, findings, diagnosis, medications, and instructions: each a searchable picker that ranks a doctor's own most-used items to the top, with saved templates for the visits that repeat every week.</p>
+        </div>
+        <div class="fscreen">
+          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbody">
+            <div class="fsmall">Medications</div>
+            <div class="chip-row">
+              <span class="chip neutral">Fever</span><span class="chip neutral">Cough</span><span class="chip ok">Amoxicillin 125mg/5mL</span>
+            </div>
+            <div class="field-mock">Twice daily &middot; after food &middot; 5 days</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <span class="tag">Reach</span>
+          <h3>A screening mode for outside the clinic</h3>
+          <p>Vaccination camps and school health checks don't need a full patient record, just vitals and a chart. This runs as its own standalone tool, saved locally and printed on the spot.</p>
+        </div>
+        <div class="fscreen">
+          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbody" style="align-items:center; text-align:center;">
+            <span class="fbig">42</span>
+            <span class="fsmall">children screened today &middot; 6 charts printed on-site</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="tag">For families</span>
+          <h3>A parent portal that needs no app</h3>
+          <p>Parents look up visit history with their child's patient ID and date of birth, in any mobile browser: every prescription and growth record they've been sent, in one place.</p>
+        </div>
+        <div class="fscreen">
+          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbody">
+            <div class="fsmall">Portal lookup</div>
+            <div class="field-mock">Patient ID &nbsp; TBK0142</div>
+            <div class="field-mock">Date of birth &nbsp; 14 / 02 / 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="everywhere" class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Works wherever the clinic does</span>
+        <h2>Reception desktop, doctor's tablet, or a phone on the go.</h2>
+        <p>PediaNex installs as an app on any device: the same record, the same session, no separate install for each screen.</p>
+      </div>
+      <div class="everywhere-grid">
+        <div class="ew-card c-blue">
+          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-label">Desktop</div>
+        </div>
+        <div class="ew-card c-green">
+          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-label">Tablet</div>
+        </div>
+        <div class="ew-card c-amber">
+          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-label">Phone</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="origin-wrap">
+    <div class="wrap">
+      <div class="origin">
+        <span class="eyebrow">Why this exists</span>
+        <h2>We didn't set out to build software.</h2>
+        <p>The Better Kids Clinic needed a way off paper charts and Excel vaccination trackers, so <strong>PediaNex is the tool that clinic runs on every single day</strong>, not a demo built to look good on a call.</p>
+        <p>What you've seen on this page (the check-in flow, the growth charts, the WhatsApp prescriptions) is the actual product a working pediatric practice depends on. We're opening it up to a small number of other clinics next.</p>
+        <div class="origin-quote">
+          <p class="quote-text">"We're collecting Dr. Srinivas's actual words instead of writing something that sounds good. Check back soon."</p>
+          <div class="quote-who">Dr. Gunda Srinivas <span>&middot; The Better Health Clinic, uses this system daily</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What's next</span>
+        <h2>Built in the open: here's what's still coming.</h2>
+        <p>We'd rather tell you what isn't finished yet than let a features list imply otherwise.</p>
+      </div>
+      <div class="roadmap-groups">
+        <div class="roadmap-group featured">
+          <h3 class="rg-label">In progress</h3>
+          <div class="roadmap-item"><h4>Per-staff logins &amp; roles</h4><p>Separate accounts for doctors, reception, and admin, with a record of who did what.</p></div>
+        </div>
+        <div class="roadmap-group">
+          <h3 class="rg-label">Planned</h3>
+          <div class="roadmap-item"><h4>Appointment scheduling</h4><p>A real calendar and slot booking, beyond today's same-day queue.</p></div>
+          <div class="roadmap-item"><h4>Automatic recall reminders</h4><p>WhatsApp nudges sent ahead of a due vaccine or missed follow-up, not just on request.</p></div>
+          <div class="roadmap-item"><h4>Billing &amp; invoicing</h4><p>Payment records tied to each visit.</p></div>
+          <div class="roadmap-item"><h4>Allergy &amp; interaction checks</h4><p>A flag in the prescription builder before a known allergy gets prescribed around.</p></div>
+        </div>
+        <div class="roadmap-group">
+          <h3 class="rg-label">Exploring</h3>
+          <div class="roadmap-item"><h4>AI-assisted note drafting</h4><p>A first-draft summary from the structured visit notes already being captured.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap" style="max-width:720px;">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions clinic owners ask before switching.</h2>
+      </div>
+
+      <div class="faq-group">
+        <div class="glabel">Security</div>
+        <details open><summary>How is patient data protected?</summary><p>Every clinical page sits behind a signed session, and every record lives in access-controlled cloud storage. We're actively tightening this further as we move from a single-clinic tool to a multi-practice product. See the roadmap above for what's in progress.</p></details>
+      </div>
+      <div class="faq-group">
+        <div class="glabel">Using it day to day</div>
+        <details><summary>Do I need special hardware?</summary><p>No. PediaNex runs in any browser and installs as an app on phone, tablet, or desktop.</p></details>
+        <details><summary>What if my clinic's internet is unreliable?</summary><p>Recent charts and patient lookups are cached on the device, so you can keep working through a short outage. Everything syncs once you're back online.</p></details>
+        <details><summary>Do parents need to download an app?</summary><p>No. The parent portal works in any mobile browser.</p></details>
+      </div>
+      <div class="faq-group">
+        <div class="glabel">Onboarding</div>
+        <details><summary>Can you migrate our existing patient records?</summary><p>Yes. This is exactly how The Better Kids Clinic's own historical records got into the system in the first place, so it's a proven path, not a first attempt.</p></details>
+        <details><summary>How long does setup take?</summary><p>It depends on how much existing data needs migrating. We'll give you a real estimate on the walkthrough call, not a number picked to sound good on a landing page.</p></details>
+      </div>
+      <div class="faq-group">
+        <div class="glabel">Commercial</div>
+        <details><summary>What does it cost?</summary><p>We're finalizing public pricing while we onboard the first practices outside The Better Kids Clinic, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size.</p></details>
+        <details><summary>Can I see it before committing?</summary><p>Yes. A live walkthrough on your own sample workflow is the first step, before any commitment.</p></details>
+      </div>
+
+      <div style="text-align:center; margin-top:8px;"><a class="btn-link" href="#contact">Still have questions? Talk to us →</a></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>See it running on your own patient workflow.</h2>
+        <p>Twenty minutes on real sample data, not a script.</p>
+        <a class="btn btn-primary" href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a>
+        <a class="wa" href="https://wa.me/917357397888" target="_blank" rel="noopener">or chat with us on WhatsApp →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff; margin-bottom:10px;">
+          <span class="mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 9 C 3 9, 3 3, 5 3 C 7 3, 7 7, 9 7 C 10.5 7, 11.5 5, 13 5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          PediaNex
+        </div>
+        <p>Pediatric EMR built inside The Better Kids Clinic, now open to other practices.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <ul><li><a href="#product">Product</a></li><li><a href="#flow">How it works</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul><li><a href="https://wa.me/917357397888" target="_blank" rel="noopener">Book a walkthrough</a></li><li><a href="https://wa.me/917357397888" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="/emr/kid/">Clinic log in</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 PediaNex.</span>
+      <span>Built at The Better Kids Clinic, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
