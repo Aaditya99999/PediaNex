@@ -4,11 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PediaNex — Pediatric EMR Software Built Inside a Real Children's Clinic</title>
-<meta name="description" content="PediaNex is the pediatric EMR that grew out of The Better Kids Clinic's own day-to-day practice: WHO and IAP growth charts, an IAP vaccination schedule, QR self check-in, and WhatsApp-delivered prescriptions. Book a walkthrough." />
+<meta name="description" content="PediaNex is the pediatric EMR that grew out of a real pediatric practice's own day-to-day operations: WHO and IAP growth charts, an IAP vaccination schedule, QR self check-in, and WhatsApp-delivered prescriptions. Book a walkthrough." />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="PediaNex — Pediatric EMR Software Built Inside a Real Children's Clinic" />
-<meta property="og:description" content="Growth charts, vaccination tracking, prescriptions, and a parent portal, proven at The Better Kids Clinic before it went anywhere else." />
-<meta property="og:url" content="https://www.thebetterhealth.clinic/marketing/" />
+<meta property="og:description" content="Growth charts, vaccination tracking, prescriptions, and a parent portal, proven in daily clinical use before it went anywhere else." />
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,8 +19,7 @@
     {
       "@type": "Organization",
       "name": "PediaNex",
-      "url": "https://www.thebetterhealth.clinic/marketing/",
-      "description": "Pediatric EMR software built inside The Better Kids Clinic, now available to other pediatric practices.",
+      "description": "Pediatric EMR software built inside a real pediatric practice, now available to other pediatric practices.",
       "knowsAbout": ["Pediatric EMR", "Growth charts", "Vaccination scheduling", "Pediatric practice management"]
     },
     {
@@ -38,8 +36,8 @@
         {"@type": "Question", "name": "How is patient data protected?", "acceptedAnswer": {"@type": "Answer", "text": "Every clinical page sits behind a signed session and every record lives in access-controlled cloud storage. We're tightening this further as we move from a single-clinic tool to a multi-practice product. See the roadmap section for what's in progress."}},
         {"@type": "Question", "name": "Do I need special hardware?", "acceptedAnswer": {"@type": "Answer", "text": "No. PediaNex runs in any browser and installs as an app on phone, tablet, or desktop."}},
         {"@type": "Question", "name": "What if my clinic's internet is unreliable?", "acceptedAnswer": {"@type": "Answer", "text": "Recent charts and patient lookups are cached on the device, so you can keep working through a short outage. Everything syncs once you're back online."}},
-        {"@type": "Question", "name": "Can you migrate our existing patient records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This is exactly how The Better Kids Clinic's own historical records got into the system in the first place, so it's a proven path, not a first attempt."}},
-        {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "We're finalizing public pricing while we onboard the first practices outside The Better Kids Clinic, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size."}}
+        {"@type": "Question", "name": "Can you migrate our existing patient records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This is exactly how our own historical records got into the system in the first place, so it's a proven path, not a first attempt."}},
+        {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "We're finalizing public pricing while we onboard the first practices, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size."}}
       ]
     }
   ]
@@ -141,6 +139,23 @@
   .hero .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:center;}
   @media (max-width:900px){ .hero .grid{grid-template-columns:1fr;} .hero .mock{order:-1;} }
   .hero h1{font-size:var(--h1-size); line-height:1.1; margin:16px 0 20px;}
+  .hero h1 .spice{
+    font-style:italic;
+    color:var(--amber);
+    position:relative;
+    white-space:nowrap;
+  }
+  .hero h1 .spice::after{
+    content:"";
+    position:absolute;
+    left:-2px; right:-2px; bottom:-2px;
+    height:6px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 8 2, 16 8 T 32 8 T 48 8 T 64 8 T 80 8 T 100 8' fill='none' stroke='%23EFB35E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;
+    background-size:34px 6px;
+    opacity:.5;
+  }
+  @media (max-width:520px){ .hero h1 .spice{white-space:normal;} }
   .hero .lede{font-size:var(--text-md); line-height:1.6; color:var(--ink-soft); max-width:48ch; margin:0 0 28px;}
   .hero .cta-row{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
   .hero .trust-line{margin-top:20px; font-size:var(--text-sm); color:var(--muted);}
@@ -187,16 +202,13 @@
   .stat-tile .cap{font-size:var(--text-sm); color:var(--ink-soft); margin-top:6px;}
 
   /* Problems — a divided list, not a card grid; the first item leads, the rest follow at one weight */
-  .pain-list{display:flex; flex-direction:column;}
-  .pain-item{display:flex; align-items:flex-start; gap:18px; padding:22px 0; border-top:1px solid var(--line-soft);}
-  .pain-item:first-child{border-top:none; padding-top:0; padding-bottom:30px;}
-  .pain-item .ic{width:38px; height:38px; border-radius:10px; background:var(--blue-tint); color:var(--blue); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:var(--text-sm); flex-shrink:0;}
-  .pain-item:first-child .ic{width:54px; height:54px; border-radius:14px; background:var(--blue-deep); color:#fff; font-size:var(--text-base);}
-  .pain-body{flex:1; min-width:0;}
-  .pain-item h3{font-size:var(--text-base); margin-bottom:6px;}
-  .pain-item:first-child h3{font-size:var(--text-lg);}
-  .pain-item p{color:var(--ink-soft); font-size:var(--text-sm); margin:0 0 8px; max-width:52ch;}
-  .pain-item .solved{font-size:var(--text-xs); font-weight:700; color:var(--blue);}
+  .problem-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:44px 28px; margin-top:40px;}
+  .problem-card{display:flex; flex-direction:column; align-items:center; text-align:center;}
+  .problem-card .picon{width:78px; height:90px; margin-bottom:16px;}
+  .problem-card h3{font-size:var(--text-md); margin-bottom:8px; font-family:var(--display); font-weight:700;}
+  .problem-card p{color:var(--ink-soft); font-size:var(--text-sm); line-height:1.55; max-width:30ch; margin:0;}
+  @media (max-width:860px){ .problem-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .problem-grid{grid-template-columns:1fr; gap:36px;} }
 
   /* Visit flow — a real sequence, so numbering is earned */
   .flow-track{display:grid; grid-template-columns:repeat(6,1fr); gap:0; position:relative;}
@@ -336,8 +348,8 @@
   <section class="hero">
     <div class="wrap grid">
       <div>
-        <h1>The system we built because your own clinic needed it.</h1>
-        <p class="lede">PediaNex started as the day-to-day EMR running The Better Kids Clinic: patient check-in, growth charts, prescriptions, vaccinations. We're now opening it up to other pediatric practices.</p>
+        <h1>The system we built because <span class="spice">your clinic</span> needed it.</h1>
+        <p class="lede">Built by a working pediatric practice to handle check-in, growth charts, prescriptions, and vaccinations — now open to other clinics.</p>
         <div class="cta-row">
           <a class="btn btn-primary js-walkthrough-btn" href="#contact-modal">Book a walkthrough</a>
         </div>
@@ -390,13 +402,87 @@
         <span class="eyebrow">Problems we actually solved</span>
         <h2>The parts of a pediatric day that shouldn't take this long.</h2>
       </div>
-      <div class="pain-list">
-        <div class="pain-item"><div class="ic">QR</div><div class="pain-body"><h3>"New patients fill the same form twice."</h3><p>Once on paper at the desk, again when someone re-types it into the system.</p><div class="solved">→ QR self check-in</div></div></div>
-        <div class="pain-item"><div class="ic">%</div><div class="pain-body"><h3>"Growth percentiles get calculated by hand, or skipped."</h3><p>Slow, error-prone, and hard to trend across visits.</p><div class="solved">→ WHO + IAP growth charts</div></div></div>
-        <div class="pain-item"><div class="ic">Rx</div><div class="pain-body"><h3>"Prescriptions get texted as blurry photos."</h3><p>If they get sent at all. Otherwise it's a phone call for a refill.</p><div class="solved">→ PDF prescriptions over WhatsApp</div></div></div>
-        <div class="pain-item"><div class="ic">+</div><div class="pain-body"><h3>"Vaccination status lives in someone's memory."</h3><p>Or a paper card the family has to remember to bring.</p><div class="solved">→ IAP schedule, tracked per dose</div></div></div>
-        <div class="pain-item"><div class="ic">&#8942;</div><div class="pain-body"><h3>"The clinic wifi drops mid-visit."</h3><p>And whatever you were charting is suddenly at risk.</p><div class="solved">→ Local caching, syncs when back online</div></div></div>
-        <div class="pain-item"><div class="ic">&#9737;</div><div class="pain-body"><h3>"Outreach camps need their own paperwork."</h3><p>School screenings and vaccination camps don't fit a patient-record workflow.</p><div class="solved">→ Standalone screening mode</div></div></div>
+      <div class="problem-grid">
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <rect x="26" y="32" width="10" height="10" rx="2" fill="var(--ink-soft)"/>
+            <rect x="48" y="32" width="10" height="10" rx="2" fill="var(--ink-soft)"/>
+            <rect x="26" y="54" width="10" height="10" rx="2" fill="var(--ink-soft)"/>
+            <rect x="48" y="54" width="10" height="10" rx="2" fill="var(--amber)"/>
+          </svg>
+          <h3>No double paperwork</h3>
+          <p>New patients scan a QR code once, instead of filling the same form twice.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <line x1="24" y1="70" x2="60" y2="70" stroke="var(--line)" stroke-width="2"/>
+            <polyline points="26,66 38,54 50,58 62,34" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="62" cy="34" r="4" fill="var(--amber)"/>
+          </svg>
+          <h3>Growth, calculated instantly</h3>
+          <p>WHO and IAP percentiles plot automatically and trend across every visit.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <text x="42" y="48" text-anchor="middle" font-family="var(--display)" font-weight="700" font-size="18" fill="var(--ink-soft)">Rx</text>
+            <line x1="26" y1="58" x2="58" y2="58" stroke="var(--line)" stroke-width="2"/>
+            <line x1="26" y1="64" x2="52" y2="64" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="58" cy="76" r="9" fill="var(--amber)"/>
+            <path d="M54 76l3 3 6-6" stroke="var(--paper)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Prescriptions that arrive clearly</h3>
+          <p>PDF prescriptions land on WhatsApp, no blurry photos or refill calls.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <rect x="24" y="32" width="8" height="8" rx="2" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>
+            <line x1="38" y1="36" x2="58" y2="36" stroke="var(--line)" stroke-width="2"/>
+            <rect x="24" y="46" width="8" height="8" rx="2" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>
+            <line x1="38" y1="50" x2="58" y2="50" stroke="var(--line)" stroke-width="2"/>
+            <rect x="24" y="60" width="8" height="8" rx="2" fill="var(--amber)"/>
+            <path d="M25.5 64l1.5 1.5 3-3" stroke="var(--paper)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="38" y1="64" x2="58" y2="64" stroke="var(--line)" stroke-width="2"/>
+          </svg>
+          <h3>Vaccination status, tracked</h3>
+          <p>The full IAP schedule, tracked per dose, not memory or a paper card.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <path d="M28 52a20 20 0 0 1 28 0" stroke="var(--blue)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M34 60a11 11 0 0 1 16 0" stroke="var(--blue)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="42" cy="68" r="3.5" fill="var(--amber)"/>
+          </svg>
+          <h3>Works through patchy wifi</h3>
+          <p>Charts are cached locally and sync the moment you're back online.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="picon" viewBox="0 0 84 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 6h16a4 4 0 0 1 4 4v4H30v-4a4 4 0 0 1 4-4z" fill="var(--amber)"/>
+            <rect x="14" y="14" width="56" height="72" rx="10" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="3"/>
+            <path d="M42 32l16 34H26z" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linejoin="round"/>
+            <line x1="42" y1="32" x2="42" y2="66" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="42" cy="26" r="4" fill="var(--amber)"/>
+          </svg>
+          <h3>Built for outreach too</h3>
+          <p>A standalone mode for school screenings and vaccination camps.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -547,11 +633,11 @@
       <div class="origin">
         <span class="eyebrow">Why this exists</span>
         <h2>We didn't set out to build software.</h2>
-        <p>The Better Kids Clinic needed a way off paper charts and Excel vaccination trackers, so <strong>PediaNex is the tool that clinic runs on every single day</strong>, not a demo built to look good on a call.</p>
+        <p>We needed a way off paper charts and Excel vaccination trackers, so <strong>PediaNex is the tool our clinic runs on every single day</strong>, not a demo built to look good on a call.</p>
         <p>What you've seen on this page (the check-in flow, the growth charts, the WhatsApp prescriptions) is the actual product a working pediatric practice depends on. We're opening it up to a small number of other clinics next.</p>
         <div class="origin-quote">
           <p class="quote-text">"We're collecting Dr. Srinivas's actual words instead of writing something that sounds good. Check back soon."</p>
-          <div class="quote-who">Dr. Gunda Srinivas <span>&middot; The Better Health Clinic, uses this system daily</span></div>
+          <div class="quote-who">Dr. Gunda Srinivas <span>&middot; uses this system daily</span></div>
         </div>
       </div>
     </div>
@@ -603,12 +689,12 @@
       </div>
       <div class="faq-group">
         <div class="glabel">Onboarding</div>
-        <details><summary>Can you migrate our existing patient records?</summary><p>Yes. This is exactly how The Better Kids Clinic's own historical records got into the system in the first place, so it's a proven path, not a first attempt.</p></details>
+        <details><summary>Can you migrate our existing patient records?</summary><p>Yes. This is exactly how our own historical records got into the system in the first place, so it's a proven path, not a first attempt.</p></details>
         <details><summary>How long does setup take?</summary><p>It depends on how much existing data needs migrating. We'll give you a real estimate on the walkthrough call, not a number picked to sound good on a landing page.</p></details>
       </div>
       <div class="faq-group">
         <div class="glabel">Commercial</div>
-        <details><summary>What does it cost?</summary><p>We're finalizing public pricing while we onboard the first practices outside The Better Kids Clinic, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size.</p></details>
+        <details><summary>What does it cost?</summary><p>We're finalizing public pricing while we onboard the first practices, but the target is simple: less than what the established EMR vendors charge independent practices. Book a walkthrough and we'll quote a fair number for your practice size.</p></details>
         <details><summary>Can I see it before committing?</summary><p>Yes. A live walkthrough on your own sample workflow is the first step, before any commitment.</p></details>
       </div>
 
@@ -665,7 +751,7 @@
           <span class="mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 9 C 3 9, 3 3, 5 3 C 7 3, 7 7, 9 7 C 10.5 7, 11.5 5, 13 5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
           PediaNex
         </div>
-        <p>Pediatric EMR built inside The Better Kids Clinic, now open to other practices.</p>
+        <p>Pediatric EMR built inside a real pediatric practice, now open to other practices.</p>
       </div>
       <div>
         <h3>Product</h3>
@@ -678,7 +764,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PediaNex.</span>
-      <span>Built at The Better Kids Clinic, India</span>
+      <span>Built in India</span>
     </div>
   </div>
 </footer>
