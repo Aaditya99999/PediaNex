@@ -47,13 +47,13 @@
 </script>
 <style>
   :root{
-    --paper:#FFFFFF; --surface:#F5F8FB; --surface-2:#EAF0F6;
-    --ink:#0B1E33; --ink-soft:#3E5266; --muted:#5A6D80;
-    --blue:#0B6FD6; --blue-deep:#0A2F55; --blue-tint:#E5F1FD;
-    --amber:#E58E1A; --amber-soft:#FCEED8; --amber-deep:#8A5A0F;
-    --green:#1E9E6B; --green-soft:#DFF5EA; --green-deep:#0F6B4C;
-    --line:rgba(11,30,51,0.14); --line-soft:rgba(11,30,51,0.08);
-    --shadow:0 1px 2px rgba(11,30,51,.06),0 14px 30px rgba(11,30,51,.09);
+    --paper:#081420; --surface:#0E1F30; --surface-2:#132A3E;
+    --ink:#EAF1FA; --ink-soft:#B7C6D6; --muted:#7E92A5;
+    --blue:#5AA6F2; --blue-deep:#123A61; --blue-tint:#132943;
+    --amber:#EFB35E; --amber-soft:#332508; --amber-deep:#8A5A0F;
+    --green:#4FCB93; --green-soft:#0F2E20; --green-deep:#0F6B4C;
+    --line:rgba(234,241,250,0.16); --line-soft:rgba(234,241,250,0.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px rgba(0,0,0,.4);
     --radius:16px;
     --display:"Bricolage Grotesque",system-ui,sans-serif;
     --ui:"Public Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -64,33 +64,6 @@
     --h2-size:clamp(1.6rem, 1.3rem + 1.3vw, 1.95rem);
     --space-section:clamp(48px, 4vw + 28px, 88px);
     --space-section-tight:clamp(32px, 3vw + 20px, 56px);
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --paper:#081420; --surface:#0E1F30; --surface-2:#132A3E;
-      --ink:#EAF1FA; --ink-soft:#B7C6D6; --muted:#7E92A5;
-      --blue:#5AA6F2; --blue-deep:#123A61; --blue-tint:#132943;
-      --amber:#EFB35E; --amber-soft:#332508;
-      --green:#4FCB93; --green-soft:#0F2E20;
-      --line:rgba(234,241,250,0.16); --line-soft:rgba(234,241,250,0.08);
-      --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#081420; --surface:#0E1F30; --surface-2:#132A3E;
-    --ink:#EAF1FA; --ink-soft:#B7C6D6; --muted:#7E92A5;
-    --blue:#5AA6F2; --blue-deep:#123A61; --blue-tint:#132943;
-    --amber:#EFB35E; --amber-soft:#332508;
-    --green:#4FCB93; --green-soft:#0F2E20;
-    --line:rgba(234,241,250,0.16); --line-soft:rgba(234,241,250,0.08);
-  }
-  :root[data-theme="light"]{
-    --paper:#FFFFFF; --surface:#F5F8FB; --surface-2:#EAF0F6;
-    --ink:#0B1E33; --ink-soft:#3E5266; --muted:#5A6D80;
-    --blue:#0B6FD6; --blue-deep:#0A2F55; --blue-tint:#E5F1FD;
-    --amber:#E58E1A; --amber-soft:#FCEED8;
-    --green:#1E9E6B; --green-soft:#DFF5EA;
-    --line:rgba(11,30,51,0.14); --line-soft:rgba(11,30,51,0.08);
   }
 
   *{box-sizing:border-box;}
