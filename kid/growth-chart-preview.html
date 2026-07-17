@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Growth Chart Preview | The Better Kids Clinic EMR</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <meta name="description" content="Growth Chart Preview page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <link rel="canonical" href="https://www.thebetterhealth.clinic/emr/kid/growth-chart-preview" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Better Health Clinic" />
+  <meta property="og:title" content="Growth Chart Preview | The Better Kids Clinic EMR" />
+  <meta property="og:description" content="Growth Chart Preview page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <meta property="og:url" content="https://www.thebetterhealth.clinic/emr/kid/growth-chart-preview" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Growth Chart Preview | The Better Kids Clinic EMR" />
+  <meta name="twitter:description" content="Growth Chart Preview page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.thebetterhealth.clinic/#website",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/"
+    },
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://www.thebetterhealth.clinic/#clinic",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/",
+      "telephone": [
+        "+919686183999",
+        "+919513988840"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#155, 2nd Cross, 1st stage, Arekere MICO Layout, Off Bannerghatta Road",
+        "addressLocality": "Bengaluru",
+        "postalCode": "560076",
+        "addressCountry": "IN"
+      },
+      "medicalSpecialty": [
+        "Pediatrics",
+        "Pulmonology"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.thebetterhealth.clinic/emr/kid/growth-chart-preview#webpage",
+      "url": "https://www.thebetterhealth.clinic/emr/kid/growth-chart-preview",
+      "name": "Growth Chart Preview | The Better Kids Clinic EMR",
+      "description": "Growth Chart Preview page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic.",
+      "isPartOf": {
+        "@id": "https://www.thebetterhealth.clinic/#website"
+      },
+      "about": {
+        "@id": "https://www.thebetterhealth.clinic/#clinic"
+      }
+    }
+  ]
+}
+  </script><script type="module" src="./auth-guard.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef4ef;
+      --panel: #fcfdf8;
+      --ink: #1b2a21;
+      --muted: #607067;
+      --line: #d7e2d9;
+      --brand: #166534;
+      --brand-soft: #dcfce7;
+      --brand-strong: #14532d;
+      --shadow: 0 18px 45px rgba(22, 38, 29, 0.08);
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 28%),
+        linear-gradient(180deg, #f5faf3 0%, #edf5ef 100%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 252, 248, 0.85);
+      border-bottom: 1px solid rgba(215, 226, 217, 0.95);
+      box-shadow: 0 8px 24px rgba(22, 38, 29, 0.05);
+    }
+
+    .topbar {
+      width: min(1180px, calc(100% - 28px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, #166534, #22c55e);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(22, 101, 52, 0.22);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .topbar-actions,
+    .nav-links,
+    .preview-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links,
+    .topbar-actions {
+      margin-left: auto;
+    }
+
+    .nav-link,
+    .btn-primary,
+    .btn-secondary {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--brand-strong);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      border-color: #166534;
+      background: #166534;
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.18);
+    }
+
+    .nav-link:hover,
+    .btn-secondary:hover {
+      border-color: #b9cabe;
+      background: #f8fbf9;
+      color: var(--brand-strong);
+    }
+
+    .btn-primary:hover {
+      background: #14532d;
+      color: #ffffff;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 22px auto 42px;
+    }
+
+    .content-panel {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(215, 226, 217, 0.95);
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .preview-workbar {
+      position: sticky;
+      top: 86px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 24px rgba(22, 38, 29, 0.08);
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f8fbf9;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+    }
+
+    .document-stage {
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+      overflow: auto;
+      padding: 14px;
+      border-radius: 18px;
+      background: #eef4ef;
+    }
+
+    .chart-sheet {
+      width: min(100%, 794px);
+      min-height: 1123px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 34px;
+      background: #ffffff;
+      border: 1px solid #e5ebe7;
+      box-shadow: 0 18px 36px rgba(22, 38, 29, 0.16);
+      page-break-after: always;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sheet-header h1 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      color: var(--brand-strong);
+    }
+
+    .sheet-header p,
+    .sheet-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .sheet-meta {
+      text-align: right;
+    }
+
+    .patient-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: #fbfdfb;
+    }
+
+    .patient-item {
+      display: grid;
+      gap: 2px;
+      font-size: 12px;
+    }
+
+    .patient-item span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .chart-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chart-image-wrap {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      min-height: 0;
+    }
+
+    .chart-image {
+      display: block;
+      max-width: 100%;
+      max-height: 870px;
+      object-fit: contain;
+    }
+
+    .sheet-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .empty-state {
+      width: min(100%, 620px);
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #ffffff;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .empty-state h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .empty-state p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 720px) {
+      .topbar,
+      .preview-workbar,
+      .sheet-header,
+      .patient-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar,
+      .preview-workbar {
+        align-items: stretch;
+      }
+
+      .topbar-actions,
+      .preview-actions {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .nav-link,
+      .btn-primary,
+      .btn-secondary {
+        flex: 1;
+      }
+
+      .sheet-meta {
+        text-align: left;
+      }
+
+      .chart-sheet {
+        min-height: auto;
+        padding: 18px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .site-header,
+      .preview-workbar {
+        display: none !important;
+      }
+
+      .page-shell,
+      .content-panel,
+      .document-stage {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background: #ffffff;
+      }
+
+      .chart-sheet {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 10mm;
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">+</div>
+        <div class="brand-copy">
+          <strong>The Better Health Clinic</strong>
+          <span>Growth Monitoring Portal</span>
+        </div>
+      </div>
+
+      
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="/emr/kid/">Dashboard</a>
+        <a class="nav-link active" href="/emr/kid/search">Enter Clinic</a>
+        <a class="nav-link" href="/emr/kid/pending-approvals">Approvals</a>
+        <a class="nav-link" href="/emr/kid/settings">Settings</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="content-panel">
+      <div class="preview-workbar">
+        <div id="preview-status" class="status-chip" role="status" aria-live="polite">
+          <span class="status-dot"></span>Loading preview...
+        </div>
+        <div class="preview-actions">
+          <button id="download-pdf-btn" class="btn-primary" type="button">Download PDF</button>
+        </div>
+      </div>
+
+      <div id="document-stage" class="document-stage"></div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { jsPDF } from 'https://cdn.jsdelivr.net/npm/jspdf@3.0.3/+esm';
+
+    const GROWTH_CHART_PREVIEW_DB = 'kidGrowthChartPreviewDb';
+    const GROWTH_CHART_PREVIEW_STORE = 'previews';
+    const GROWTH_CHART_PREVIEW_SESSION_PREFIX = 'kidGrowthChartPreview:';
+    const stage = document.getElementById('document-stage');
+    const statusChip = document.getElementById('preview-status');
+    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+    let previewRecord = null;
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
+
+    function openPreviewDb() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+          reject(new Error('Preview storage is unavailable.'));
+          return;
+        }
+
+        const request = indexedDB.open(GROWTH_CHART_PREVIEW_DB, 1);
+        request.addEventListener('upgradeneeded', () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains(GROWTH_CHART_PREVIEW_STORE)) {
+            db.createObjectStore(GROWTH_CHART_PREVIEW_STORE, { keyPath: 'id' });
+          }
+        });
+        request.addEventListener('success', () => resolve(request.result));
+        request.addEventListener('error', () => reject(request.error || new Error('Preview storage failed.')));
+      });
+    }
+
+    async function loadPreviewRecord(id) {
+      const sessionRecord = sessionStorage.getItem(`${GROWTH_CHART_PREVIEW_SESSION_PREFIX}${id}`);
+      if (sessionRecord) {
+        return JSON.parse(sessionRecord);
+      }
+
+      const db = await openPreviewDb();
+      const record = await new Promise((resolve, reject) => {
+        const transaction = db.transaction(GROWTH_CHART_PREVIEW_STORE, 'readonly');
+        const request = transaction.objectStore(GROWTH_CHART_PREVIEW_STORE).get(id);
+        request.addEventListener('success', () => resolve(request.result || null));
+        request.addEventListener('error', () => reject(request.error || new Error('Preview could not be loaded.')));
+      });
+      db.close();
+      return record;
+    }
+
+    function setStatus(message) {
+      statusChip.innerHTML = `<span class="status-dot"></span>${escapeHtml(message)}`;
+    }
+
+    function renderEmptyState(message) {
+      stage.innerHTML = `
+        <section class="empty-state">
+          <h1>Preview not available</h1>
+          <p>${escapeHtml(message)}</p>
+          <a class="nav-link" href="/emr/kid/growth-chart-dashboard">Generate Chart</a>
+        </section>
+      `;
+      downloadPdfBtn.disabled = true;
+    }
+
+    function patientValue(value) {
+      return value ? escapeHtml(value) : '-';
+    }
+
+    function renderPreview(record) {
+      const pages = Array.isArray(record?.pages) ? record.pages.filter((page) => page?.dataUrl) : [];
+      const patient = record?.patient || {};
+      const vitals = Array.isArray(record?.vitals) ? record.vitals.join('   ') : '';
+
+      if (pages.length === 0) {
+        renderEmptyState('No chart pages were found. Please go back and generate the chart again.');
+        return;
+      }
+
+      stage.innerHTML = pages.map((page, index) => `
+        <article class="chart-sheet">
+          <header class="sheet-header">
+            <div>
+              <h1>The Better Health Clinic</h1>
+              <p>Growth Monitoring Portal</p>
+            </div>
+            <div class="sheet-meta">
+              <strong>${escapeHtml(page.label || `Chart ${index + 1}`)}</strong><br>
+              ${escapeHtml(record.generatedAt || '')}
+            </div>
+          </header>
+
+          <section class="patient-grid">
+            <div class="patient-item"><span>Child</span>${patientValue(patient.childName)}</div>
+            <div class="patient-item"><span>Parent</span>${patientValue(patient.parentName)}</div>
+            <div class="patient-item"><span>Gender</span>${patientValue(patient.gender)}</div>
+            <div class="patient-item"><span>DOB</span>${patientValue(patient.dob)}</div>
+            <div class="patient-item"><span>Age</span>${patientValue(patient.age)}</div>
+            <div class="patient-item"><span>Vitals</span>${patientValue(vitals)}</div>
+          </section>
+
+          <h2 class="chart-title">${escapeHtml(page.label || `Chart ${index + 1}`)}</h2>
+          <div class="chart-image-wrap">
+            <img class="chart-image" src="${page.dataUrl}" alt="${escapeHtml(page.label || `Growth chart ${index + 1}`)}">
+          </div>
+
+          <footer class="sheet-footer">
+            <span>Generated for clinical review. Doctor confirms final interpretation.</span>
+            <span>Page ${index + 1} of ${pages.length}</span>
+          </footer>
+        </article>
+      `).join('');
+
+      setStatus(`${pages.length} chart${pages.length === 1 ? '' : 's'} ready`);
+    }
+
+    function buildPdf() {
+      const pages = Array.isArray(previewRecord?.pages) ? previewRecord.pages.filter((page) => page?.dataUrl) : [];
+      const patient = previewRecord?.patient || {};
+      const vitals = Array.isArray(previewRecord?.vitals) ? previewRecord.vitals.join('   ') : '';
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+      pages.forEach((page, index) => {
+        if (index > 0) {
+          pdf.addPage('a4', 'portrait');
+        }
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const margin = 12;
+        const usableWidth = pageWidth - margin * 2;
+        const headerBottom = 42;
+        const footerTop = pageHeight - 13;
+        const usableHeight = footerTop - headerBottom - 4;
+        const imageWidth = page.width || 1725;
+        const imageHeight = page.height || 2367;
+        const scale = Math.min(usableWidth / imageWidth, usableHeight / imageHeight);
+        const renderWidth = imageWidth * scale;
+        const renderHeight = imageHeight * scale;
+        const renderX = margin + (usableWidth - renderWidth) / 2;
+
+        pdf.setTextColor(22, 101, 52);
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(13);
+        pdf.text('The Better Health Clinic', margin, 11);
+        pdf.setFontSize(9);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setTextColor(80, 95, 87);
+        pdf.text('Growth Monitoring Portal', margin, 16);
+        pdf.text(`Child: ${patient.childName || '-'}`, margin, 23);
+        pdf.text(`DOB: ${patient.dob || '-'}${patient.parentName ? `   Parent: ${patient.parentName}` : ''}`, margin, 28);
+        if (vitals) {
+          pdf.text(vitals, margin, 33);
+        }
+        pdf.setDrawColor(215, 226, 217);
+        pdf.line(margin, vitals ? 35 : 30, pageWidth - margin, vitals ? 35 : 30);
+
+        pdf.setTextColor(27, 42, 33);
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(11);
+        pdf.text(page.label || `Chart ${index + 1}`, margin, vitals ? 42 : 37);
+        pdf.addImage(page.dataUrl, 'PNG', renderX, vitals ? 45 : 40, renderWidth, renderHeight, undefined, 'FAST');
+
+        pdf.setDrawColor(215, 226, 217);
+        pdf.line(margin, footerTop, pageWidth - margin, footerTop);
+        pdf.setTextColor(96, 112, 103);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(8);
+        pdf.text('Generated for clinical review. Doctor confirms final interpretation.', margin, pageHeight - 7);
+        pdf.text(`Page ${index + 1} of ${pages.length}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
+      });
+
+      return pdf;
+    }
+
+    function getFileName() {
+      const childName = previewRecord?.patient?.childName || 'growth-chart';
+      const cleanName = childName.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'growth-chart';
+      return `${cleanName}-growth-chart.pdf`;
+    }
+
+    downloadPdfBtn.addEventListener('click', () => {
+      if (!previewRecord) return;
+      downloadPdfBtn.disabled = true;
+      downloadPdfBtn.textContent = 'Preparing...';
+      try {
+        buildPdf().save(getFileName());
+      } finally {
+        downloadPdfBtn.disabled = false;
+        downloadPdfBtn.textContent = 'Download PDF';
+      }
+    });
+
+    (async () => {
+      const previewId = new URLSearchParams(window.location.search).get('id');
+      if (!previewId) {
+        renderEmptyState('Please generate the chart again to open a fresh preview.');
+        setStatus('No preview found');
+        return;
+      }
+
+      try {
+        previewRecord = await loadPreviewRecord(previewId);
+        if (!previewRecord) {
+          renderEmptyState('This preview could not be found. Please generate the chart again.');
+          setStatus('No preview found');
+          return;
+        }
+
+        renderPreview(previewRecord);
+      } catch (error) {
+        renderEmptyState(error.message || 'Please generate the chart again.');
+        setStatus('Preview not available');
+      }
+    })();
+  </script>
+</body>
+</html>

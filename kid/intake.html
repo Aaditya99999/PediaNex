@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Intake | The Better Kids Clinic EMR</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <meta name="description" content="Intake page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <link rel="canonical" href="https://www.thebetterhealth.clinic/emr/kid/intake" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Better Health Clinic" />
+  <meta property="og:title" content="Intake | The Better Kids Clinic EMR" />
+  <meta property="og:description" content="Intake page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <meta property="og:url" content="https://www.thebetterhealth.clinic/emr/kid/intake" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Intake | The Better Kids Clinic EMR" />
+  <meta name="twitter:description" content="Intake page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.thebetterhealth.clinic/#website",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/"
+    },
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://www.thebetterhealth.clinic/#clinic",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/",
+      "telephone": [
+        "+919686183999",
+        "+919513988840"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#155, 2nd Cross, 1st stage, Arekere MICO Layout, Off Bannerghatta Road",
+        "addressLocality": "Bengaluru",
+        "postalCode": "560076",
+        "addressCountry": "IN"
+      },
+      "medicalSpecialty": [
+        "Pediatrics",
+        "Pulmonology"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.thebetterhealth.clinic/emr/kid/intake#webpage",
+      "url": "https://www.thebetterhealth.clinic/emr/kid/intake",
+      "name": "Intake | The Better Kids Clinic EMR",
+      "description": "Intake page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic.",
+      "isPartOf": {
+        "@id": "https://www.thebetterhealth.clinic/#website"
+      },
+      "about": {
+        "@id": "https://www.thebetterhealth.clinic/#clinic"
+      }
+    }
+  ]
+}
+  </script><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#eef4ef; --panel:#fff; --ink:#1b2a21; --muted:#607067; --line:#d7e2d9; --brand:#166534; --brand-soft:#dcfce7; --brand-strong:#14532d; --shadow:0 18px 45px rgba(22,38,29,0.08); --radius-lg:24px; --radius-md:16px; --radius-sm:12px; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; font-family:'Outfit',system-ui,sans-serif; color:var(--ink); background:radial-gradient(circle at top left, rgba(34,197,94,0.14), transparent 28%), linear-gradient(180deg, #f5faf3 0%, #edf5ef 100%); }
+    .page-shell { width:min(760px, calc(100% - 28px)); margin:28px auto 40px; }
+    .hero { margin-bottom:20px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--brand-soft); color:var(--brand-strong); font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+    h1 { margin:14px 0 10px; font-size:clamp(28px,5vw,42px); line-height:1.04; }
+    .hero p { margin:0; color:var(--muted); line-height:1.7; font-size:15px; max-width:60ch; }
+    .panel { background:rgba(255,255,255,0.88); backdrop-filter:blur(12px); border:1px solid rgba(215,226,217,0.95); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:22px; }
+    .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:20px; }
+    .panel-head h2 { margin:0 0 6px; font-size:24px; }
+    .panel-head p { margin:0; color:var(--muted); font-size:14px; line-height:1.55; max-width:48ch; }
+    .privacy-chip { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:16px; background:#f8fbf9; border:1px solid var(--line); font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
+    form { display:grid; gap:18px; }
+    .field-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+    .field,.field-full { display:grid; gap:8px; }
+    .field-full { grid-column:1 / -1; }
+    label,.field-label { font-size:14px; font-weight:700; color:var(--ink); }
+    input,select { width:100%; min-height:50px; border-radius:var(--radius-sm); border:1px solid var(--line); padding:12px 14px; font:inherit; color:var(--ink); background:#fbfdfb; transition:border-color .18s ease,box-shadow .18s ease,background .18s ease; }
+    input:focus,select:focus { outline:none; border-color:rgba(22,101,52,0.32); box-shadow:0 0 0 4px rgba(34,197,94,0.12); background:#fff; }
+    .dob-group { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; }
+    .radio-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .radio-pill { position:relative; min-width:120px; }
+    .radio-pill input { position:absolute; opacity:0; pointer-events:none; }
+    .radio-pill label { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; padding:0 16px; border-radius:999px; border:1px solid var(--line); background:#fbfdfb; color:var(--muted); cursor:pointer; transition:border-color .18s ease,background .18s ease,color .18s ease; }
+    .radio-pill input:checked + label { border-color:rgba(22,101,52,0.32); background:var(--brand-soft); color:var(--brand-strong); font-weight:700; }
+    .field-hint { color:var(--muted); font-size:12px; line-height:1.45; }
+    .required { color:#b91c1c; }
+    .submit-row { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .status-note { min-height:20px; color:var(--muted); font-size:13px; line-height:1.45; }
+    .status-note.success { color:var(--brand-strong); } .status-note.error { color:#b91c1c; }
+    .btn-primary,.btn-secondary { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 22px; border-radius:999px; border:none; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease; }
+    .btn-primary { color:#fff; background:linear-gradient(135deg, #166534, #22c55e); box-shadow:0 14px 26px rgba(22,101,52,0.22); }
+    .btn-secondary { color:var(--brand-strong); background:#f8fbf9; border:1px solid var(--line); }
+    .btn-primary:hover,.btn-secondary:hover { transform:translateY(-1px); }
+    .confirmation { display:none; margin-top:18px; padding:18px; border-radius:18px; border:1px solid rgba(34,197,94,0.28); background:linear-gradient(180deg, rgba(240,253,244,0.96), rgba(236,252,242,0.96)); }
+    .confirmation.visible { display:grid; gap:10px; }
+    .confirmation strong { font-size:18px; }
+    .confirmation p { margin:0; color:var(--muted); line-height:1.6; }
+    .confirmation-code { display:inline-flex; align-items:center; width:fit-content; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,0.9); border:1px solid rgba(22,101,52,0.14); font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--brand-strong); }
+    @media (max-width:720px) { .field-grid { grid-template-columns:1fr; } .panel { padding:18px; } .panel-head,.submit-row { flex-direction:column; align-items:stretch; } }
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <section class="hero">
+      <div class="eyebrow">Patient Intake</div>
+      <h1>Register before you meet the doctor.</h1>
+      <p>Share your details once so the clinic can review and confirm your record.</p>
+    </section>
+    <section class="panel">
+      <div class="panel-head">
+        <div class="privacy-chip">Checked by clinic staff before approval</div>
+      </div>
+      <form id="intake-form" novalidate>
+        <div class="field-grid">
+          <div class="field">
+            <label for="mobile-number">Phone Number <span class="required">*</span></label>
+            <input id="mobile-number" name="mobileNumber" type="tel" inputmode="tel" placeholder="Enter phone number" required>
+            <span class="field-hint">Use the main contact number for this patient.</span>
+          </div>
+          <div class="field">
+            <label for="parent-name">Parent Name</label>
+            <input id="parent-name" name="parentName" type="text" placeholder="Enter parent or guardian name">
+            <span class="field-hint">Leave blank only if not available.</span>
+          </div>
+          <div class="field">
+            <label for="child-name">Child Name <span class="required">*</span></label>
+            <input id="child-name" name="childName" type="text" placeholder="Enter child name" required>
+            <span class="field-hint">Use the same spelling you want in clinic records.</span>
+          </div>
+          <div class="field">
+            <span class="field-label">Date of Birth <span class="required">*</span></span>
+            <div class="dob-group">
+              <input id="dob-day" name="dobDay" type="text" inputmode="numeric" placeholder="DD" maxlength="2" required>
+              <input id="dob-month" name="dobMonth" type="text" inputmode="numeric" placeholder="MM" maxlength="2" required>
+              <input id="dob-year" name="dobYear" type="text" inputmode="numeric" placeholder="YYYY" maxlength="4" required>
+            </div>
+            <span class="field-hint">Enter the child date of birth carefully.</span>
+          </div>
+          <div class="field">
+            <span class="field-label">Gender <span class="required">*</span></span>
+            <div class="radio-row" role="radiogroup" aria-label="Gender selection">
+              <div class="radio-pill"><input id="gender-male" name="gender" type="radio" value="Male" required><label for="gender-male">Male</label></div>
+              <div class="radio-pill"><input id="gender-female" name="gender" type="radio" value="Female" required><label for="gender-female">Female</label></div>
+            </div>
+            <span class="field-hint">Choose the gender used for clinic charting.</span>
+          </div>
+          <div class="field">
+            <label for="blood-group">Blood Group</label>
+            <input id="blood-group" name="bloodGroup" type="text" placeholder="e.g. O+">
+            <span class="field-hint">Leave blank if not known.</span>
+          </div>
+          <div class="field field-full">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Enter email address">
+            <span class="field-hint">Optional, but helpful for later communication.</span>
+          </div>
+        </div>
+        <div class="submit-row">
+          <div id="status-note" class="status-note"></div>
+          <button id="submit-btn" class="btn-primary" type="submit">Send To Clinic Review</button>
+        </div>
+      </form>
+      <div id="confirmation" class="confirmation" aria-live="polite">
+        <strong>Submitted successfully.</strong>
+        <p>Your details are now waiting in the clinic review queue. The doctor or reception team can still correct anything before the record is approved.</p>
+        <div id="confirmation-code" class="confirmation-code"></div>
+        <button id="submit-another-btn" class="btn-secondary" type="button">Submit Another Patient</button>
+      </div>
+    </section>
+  </div>
+  <script type="module">
+    import { addDoc, collection, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js';
+    import { db } from './lib/firebase-init.js';
+    const CLINIC_FIREBASE_NAMESPACE = 'clinics/kid';
+    const FIREBASE_COLLECTIONS = {
+      patients: `${CLINIC_FIREBASE_NAMESPACE}/patients`,
+      pendingPatients: `${CLINIC_FIREBASE_NAMESPACE}/pendingPatients`,
+      history: `${CLINIC_FIREBASE_NAMESPACE}/history`,
+      prescription: `${CLINIC_FIREBASE_NAMESPACE}/prescription`
+    };
+    const CLINIC_STORAGE_PREFIX = CLINIC_FIREBASE_NAMESPACE;
+    const intakeForm = document.getElementById('intake-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusNote = document.getElementById('status-note');
+    const confirmation = document.getElementById('confirmation');
+    const confirmationCode = document.getElementById('confirmation-code');
+    const submitAnotherBtn = document.getElementById('submit-another-btn');
+    const dobDayInput = document.getElementById('dob-day');
+    const dobMonthInput = document.getElementById('dob-month');
+    const dobYearInput = document.getElementById('dob-year');
+    function normalizePhone(value) {
+      const digits = String(value || '').replace(/\D/g, '');
+      if (!digits) {
+        return '';
+      }
+      return digits.length > 10 ? digits.slice(-10) : digits;
+    }
+
+    function parseDobInput(dayValue, monthValue, yearValue) {
+      const day = Number.parseInt(dayValue.trim(), 10);
+      const month = Number.parseInt(monthValue.trim(), 10);
+      const year = Number.parseInt(yearValue.trim(), 10);
+      if (!day || !month || !yearValue.trim().match(/^\d{4}$/)) return '';
+      const parsed = new Date(year, month - 1, day);
+      if (Number.isNaN(parsed.getTime()) || parsed.getFullYear() !== year || parsed.getMonth() !== month - 1 || parsed.getDate() !== day) return '';
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+    function setStatus(message, tone = '') { statusNote.textContent = message; statusNote.className = `status-note${tone ? ` ${tone}` : ''}`; }
+    function resetConfirmation() { confirmation.classList.remove('visible'); confirmationCode.textContent = ''; intakeForm.hidden = false; }
+    intakeForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const normalizedDob = parseDobInput(dobDayInput.value, dobMonthInput.value, dobYearInput.value);
+      if (!normalizedDob) { dobYearInput.setCustomValidity('Please enter a valid date of birth.'); dobYearInput.reportValidity(); return; }
+      dobYearInput.setCustomValidity('');
+      if (!db) { setStatus('Cloud records are not configured right now. Please tell the clinic staff.', 'error'); return; }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      setStatus('Sending your details to the clinic review queue...');
+      const normalizedPhone = normalizePhone(intakeForm.elements.mobileNumber.value);
+      const payload = { childName: intakeForm.elements.childName.value.trim(), parentName: intakeForm.elements.parentName.value.trim(), gender: intakeForm.elements.gender.value, dob: normalizedDob, phone: normalizedPhone, mobileNumber: normalizedPhone, email: intakeForm.elements.email.value.trim(), bloodGroup: intakeForm.elements.bloodGroup.value.trim(), status: 'pending', decision: 'pending', submittedBy: 'qr-intake', submittedAt: serverTimestamp(), reviewedAt: null, reviewedBy: '', approvedPatientId: '', notes: '' };
+      try {
+        const docRef = await addDoc(collection(db, FIREBASE_COLLECTIONS.pendingPatients), payload);
+        const queueId = docRef.id;
+        intakeForm.reset();
+        resetConfirmation();
+        intakeForm.hidden = true;
+        confirmation.classList.add('visible');
+        confirmationCode.textContent = `Queue ID: ${queueId}`;
+        setStatus('Submitted successfully.', 'success');
+      } catch (error) {
+        setStatus(`Unable to submit right now: ${error.message}`, 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send To Clinic Review';
+      }
+    });
+    [dobDayInput, dobMonthInput, dobYearInput].forEach((input) => input.addEventListener('input', () => { dobYearInput.setCustomValidity(''); }));
+    submitAnotherBtn.addEventListener('click', () => { resetConfirmation(); setStatus(''); intakeForm.reset(); document.getElementById('mobile-number').focus(); });
+  </script>
+</body>
+</html>

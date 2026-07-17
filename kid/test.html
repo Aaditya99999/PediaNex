@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Test Growth Charts | The Better Kids Clinic EMR</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <meta name="description" content="Growth Chart Dashboard page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <link rel="canonical" href="https://www.thebetterhealth.clinic/emr/kid/growth-chart-dashboard" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Better Health Clinic" />
+  <meta property="og:title" content="Growth Chart Dashboard | The Better Kids Clinic EMR" />
+  <meta property="og:description" content="Growth Chart Dashboard page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <meta property="og:url" content="https://www.thebetterhealth.clinic/emr/kid/growth-chart-dashboard" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Growth Chart Dashboard | The Better Kids Clinic EMR" />
+  <meta name="twitter:description" content="Growth Chart Dashboard page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic." />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.thebetterhealth.clinic/#website",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/"
+    },
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://www.thebetterhealth.clinic/#clinic",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/",
+      "telephone": [
+        "+919686183999",
+        "+919513988840"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#155, 2nd Cross, 1st stage, Arekere MICO Layout, Off Bannerghatta Road",
+        "addressLocality": "Bengaluru",
+        "postalCode": "560076",
+        "addressCountry": "IN"
+      },
+      "medicalSpecialty": [
+        "Pediatrics",
+        "Pulmonology"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.thebetterhealth.clinic/emr/kid/growth-chart-dashboard#webpage",
+      "url": "https://www.thebetterhealth.clinic/emr/kid/growth-chart-dashboard",
+      "name": "Growth Chart Dashboard | The Better Kids Clinic EMR",
+      "description": "Growth Chart Dashboard page for The Better Kids Clinic EMR, supporting clinic workflows and patient care operations at The Better Health Clinic.",
+      "isPartOf": {
+        "@id": "https://www.thebetterhealth.clinic/#website"
+      },
+      "about": {
+        "@id": "https://www.thebetterhealth.clinic/#clinic"
+      }
+    }
+  ]
+}
+  </script><script type="module" src="./auth-guard.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef4ef;
+      --panel: #fcfdf8;
+      --panel-strong: #ffffff;
+      --ink: #1b2a21;
+      --muted: #607067;
+      --line: #d7e2d9;
+      --brand: #166534;
+      --brand-soft: #dcfce7;
+      --brand-strong: #14532d;
+      --accent: #b45309;
+      --accent-soft: #ffedd5;
+      --danger: #b91c1c;
+      --danger-soft: #fee2e2;
+      --shadow: 0 18px 45px rgba(22, 38, 29, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 28%),
+        linear-gradient(180deg, #f5faf3 0%, #edf5ef 100%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 252, 248, 0.85);
+      border-bottom: 1px solid rgba(215, 226, 217, 0.95);
+      box-shadow: 0 8px 24px rgba(22, 38, 29, 0.05);
+    }
+
+    .topbar {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, #166534, #22c55e);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(22, 101, 52, 0.22);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-left: auto;
+      min-width: 0;
+    }
+
+    .nav-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #5f6f66;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: #dcfce7;
+      color: #14532d;
+    }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(22, 38, 29, 0.08);
+    }
+
+    .menu-toggle-bar {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .menu-toggle-inner {
+      display: grid;
+      gap: 4px;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .topbar-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f8fbf9;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 16px auto 34px;
+    }
+
+    .page-intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .page-intro h1 {
+      margin: 10px 0 6px;
+      font-size: clamp(28px, 3.4vw, 40px);
+      line-height: 1.05;
+    }
+
+    .page-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 64ch;
+    }
+
+    .page-meta {
+      padding: 14px 16px;
+      min-width: 220px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(215, 226, 217, 0.95);
+      box-shadow: var(--shadow);
+    }
+
+    .page-meta strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .page-meta span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .page-intro > div:first-child {
+      min-width: 0;
+    }
+
+    .form-card,
+    .preview-card {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(215, 226, 217, 0.95);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .form-card,
+    .preview-card {
+      padding: 14px;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247, 251, 247, 0.94));
+      padding: 14px 16px;
+    }
+
+    .section + .section {
+      margin-top: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-sub:empty,
+    .section-note:empty {
+      display: none;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin: 0 0 4px;
+    }
+
+    .section-sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .section-note {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: #9a3412;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 18px;
+      row-gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    label,
+    .field-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .field-hint {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--ink);
+      background: var(--panel-strong);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(22, 101, 52, 0.55);
+      box-shadow: 0 0 0 4px rgba(22, 101, 52, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .radio-pill {
+      position: relative;
+    }
+
+    .radio-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-pill label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 110px;
+      min-height: 40px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .radio-pill input:checked + label {
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      border-color: rgba(22, 101, 52, 0.35);
+      box-shadow: inset 0 0 0 1px rgba(22, 101, 52, 0.1);
+    }
+
+    .measurement-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .dob-input-row {
+      display: grid;
+      grid-template-columns: minmax(64px, 0.7fr) minmax(64px, 0.7fr) minmax(110px, 1.25fr);
+      gap: 10px;
+    }
+
+    .dob-input-row input {
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .metric-card {
+      padding: 8px 10px;
+      border: 1px solid #d6e4db;
+      border-radius: 12px;
+      background: #f9fcf8;
+      display: grid;
+      grid-template-columns: minmax(132px, 0.42fr) minmax(220px, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .metric-card.visible {
+      display: grid;
+    }
+
+    .metric-meta {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .metric-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .metric-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .metric-helper {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.25;
+    }
+
+    .metric-input-wrap {
+      display: grid;
+      gap: 4px;
+    }
+
+    .vitals-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .vitals-tool {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 26px;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--brand-strong);
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .vitals-tool.is-live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      margin-right: 6px;
+      border-radius: 50%;
+      background: #16a34a;
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+    }
+
+    .preview-card {
+      position: sticky;
+      top: 22px;
+    }
+
+    .preview-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .preview-banner {
+      padding: 18px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 34%),
+        linear-gradient(180deg, #f7fff8 0%, #eefbf1 100%);
+      border: 1px solid #d7f2df;
+    }
+
+    .preview-banner h2 {
+      margin: 10px 0 6px;
+      font-size: 24px;
+    }
+
+    .preview-banner p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .template-canvas {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .template-status {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f6faf7;
+      border: 1px solid #dce9de;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .template-status.ready {
+      color: var(--brand-strong);
+      background: #f2fbf4;
+      border-color: #d4ebd9;
+    }
+
+    .template-status.warning {
+      color: #9a3412;
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    .summary-box,
+    .action-box,
+    .validation-box {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+    }
+
+    .summary-count {
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .summary-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .chart-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 30px;
+    }
+
+    .chart-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f2f7f2;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .chart-pill.active-template {
+      background: var(--brand-soft);
+      border-color: rgba(22, 101, 52, 0.34);
+      color: var(--brand-strong);
+    }
+
+    .placeholder-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .btn-row {
+      display: grid;
+      gap: 10px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #166534, #15803d);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(22, 101, 52, 0.22);
+    }
+
+    .btn-secondary {
+      background: #f8fbf9;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary[hidden] {
+      display: none;
+    }
+
+    .validation-box {
+      background: #fffdf8;
+    }
+
+    .validation-title {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    .validation-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .status-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .status-note.visible {
+      display: block;
+    }
+
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    @media (max-width: 1100px) {
+      .topbar {
+        width: min(100% - 24px, 100%);
+        gap: 14px;
+      }
+
+      .page-shell {
+        width: min(100% - 24px, 100%);
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr) 360px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: static;
+      }
+
+      .topbar {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        flex: 1 1 260px;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        gap: 10px;
+      }
+
+      .nav-link {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+        padding: 12px 14px;
+      }
+
+      .topbar-actions {
+        margin-left: auto;
+      }
+
+      .page-intro {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .page-meta {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-card {
+        position: static;
+      }
+
+      .section-head {
+        flex-direction: column;
+      }
+
+      .section-note {
+        width: 100%;
+      }
+
+      .measurement-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .measurement-grid,
+      .fields {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        position: static;
+      }
+
+      .topbar {
+        width: min(100% - 20px, 100%);
+        padding: 12px 0;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .brand {
+        width: auto;
+        flex: 1 1 auto;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        order: 3;
+        margin-left: 0;
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 14px 28px rgba(22, 38, 29, 0.08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .topbar-actions {
+        margin-left: 0;
+        width: 100%;
+        order: 4;
+      }
+
+      .page-shell {
+        width: min(100% - 20px, 100%);
+        margin: 16px auto 22px;
+      }
+
+      .form-card,
+      .preview-card {
+        padding: 12px;
+      }
+
+      .section {
+        padding: 12px;
+        border-radius: 14px;
+      }
+
+      .radio-row {
+        flex-direction: column;
+      }
+
+      .radio-pill label {
+        width: 100%;
+      }
+
+      .page-intro h1 {
+        font-size: clamp(24px, 8vw, 32px);
+      }
+
+      .page-intro p,
+      .section-sub,
+      .validation-list {
+        font-size: 13px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 18px;
+      }
+
+      .brand-copy strong {
+        font-size: 14px;
+      }
+
+      .brand-copy span {
+        font-size: 11px;
+      }
+
+      .status-chip {
+        width: 100%;
+        justify-content: center;
+        border-radius: 14px;
+      }
+
+      .nav-link {
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--line);
+      }
+
+      .fields,
+      .measurement-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .metric-card {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .vitals-toolbar {
+        justify-content: flex-start;
+      }
+
+      .section-head {
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .summary-count {
+        font-size: 38px;
+      }
+
+      .btn-row button {
+        padding: 12px 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .topbar {
+        padding: 10px 0;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+
+      .brand-copy strong {
+        font-size: 13px;
+      }
+
+      .brand-copy span {
+        font-size: 10px;
+      }
+
+      .nav-links {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-link {
+        min-height: 40px;
+      }
+    }
+
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">🩺</div>
+        <div class="brand-copy">
+          <strong>The Better Health Clinic</strong>
+          <span>Growth Monitoring Portal</span>
+        </div>
+      </div>
+
+      
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="/emr/kid/">Dashboard</a>
+        <a class="nav-link active" href="/emr/kid/search">Enter Clinic</a>
+        <a class="nav-link" href="/emr/kid/pending-approvals">Approvals</a>
+        <a class="nav-link" href="/emr/kid/settings">Settings</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <div class="grid">
+      <main class="form-card">
+        <form id="chart-form" novalidate>
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Step 1</div>
+                <h2 class="section-title">Chart Test Details</h2>
+              </div>
+            </div>
+
+            <div class="fields">
+              <div class="field">
+                <label for="child-name">Child's Name</label>
+                <input id="child-name" name="childName" type="text" placeholder="Test child">
+              </div>
+
+              <div class="field">
+                <label for="parent-name">Parent's Name</label>
+                <input id="parent-name" name="parentName" type="text" placeholder="Test parent">
+              </div>
+
+              <div class="field field-full">
+                <span class="field-label">Gender <span class="required">*</span></span>
+                <div class="radio-row" role="radiogroup" aria-label="Gender selection">
+                  <div class="radio-pill">
+                    <input id="gender-male" name="gender" type="radio" value="Male" required>
+                    <label for="gender-male">Male</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input id="gender-female" name="gender" type="radio" value="Female" required>
+                    <label for="gender-female">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="dob">Date of Birth <span class="required">*</span></label>
+                <input id="dob" name="dob" type="hidden" required>
+                <div class="dob-input-row" aria-label="Date of birth">
+                  <input id="dob-day" type="text" inputmode="numeric" maxlength="2" placeholder="DD" autocomplete="bday-day" required>
+                  <input id="dob-month" type="text" inputmode="numeric" maxlength="2" placeholder="MM" autocomplete="bday-month" required>
+                  <input id="dob-year" type="text" inputmode="numeric" maxlength="4" placeholder="YYYY" autocomplete="bday-year" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="age">Age (Auto)</label>
+                <input id="age" name="age" type="text" placeholder="Calculated from DOB" readonly>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Step 2</div>
+                <h2 class="section-title">Vitals</h2>
+              </div>
+            </div>
+
+            <div class="measurement-grid">
+              <div id="metric-weight" class="metric-card" data-field="weight">
+                <div class="metric-meta">
+                  <span class="metric-chip">Growth</span>
+                  <label class="metric-title" for="weight">Weight (kg) <span class="required">*</span></label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="weight" name="weight" type="number" min="0" step="0.1" placeholder="e.g. 12.4">
+                  <span class="metric-helper">Enter the most recent measured weight in kilograms.</span>
+                </div>
+              </div>
+
+              <div id="metric-height" class="metric-card" data-field="height">
+                <div class="metric-meta">
+                  <span class="metric-chip">Growth</span>
+                  <label class="metric-title" for="height">Height (cm) <span class="required">*</span></label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="height" name="height" type="number" min="0" step="0.1" placeholder="e.g. 88.0">
+                  <span class="metric-helper">Enter height or length in centimeters.</span>
+                </div>
+              </div>
+
+              <div id="metric-head" class="metric-card" data-field="head">
+                <div class="metric-meta">
+                  <span class="metric-chip">Growth</span>
+                  <label class="metric-title" for="head">OFC (cm) <span class="required">*</span></label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="head" name="head" type="number" min="0" step="0.1" placeholder="e.g. 48.5">
+                  <span class="metric-helper">Occipito-frontal circumference in centimeters.</span>
+                </div>
+              </div>
+
+              <div id="metric-spo2" class="metric-card" data-field="spo2">
+                <div class="metric-meta">
+                  <span class="metric-chip">Vitals</span>
+                  <label class="metric-title" for="spo2">SPO2 (%)</label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="spo2" name="spo2" type="number" min="0" max="100" step="1" placeholder="e.g. 99">
+                  <span class="metric-helper">Peripheral oxygen saturation percentage.</span>
+                </div>
+              </div>
+
+              <div id="metric-pulse" class="metric-card" data-field="pulse">
+                <div class="metric-meta">
+                  <span class="metric-chip">Vitals</span>
+                  <label class="metric-title" for="pulse">Pulse (/min)</label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="pulse" name="pulse" type="number" min="0" step="1" placeholder="e.g. 108">
+                  <span class="metric-helper">Heart rate in beats per minute.</span>
+                </div>
+              </div>
+
+              <div id="metric-systolic" class="metric-card" data-field="systolic">
+                <div class="metric-meta">
+                  <span class="metric-chip">Vitals</span>
+                  <label class="metric-title" for="systolic">Systolic (mmHg)</label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="systolic" name="systolic" type="number" min="0" step="1" placeholder="e.g. 100">
+                  <span class="metric-helper">Upper blood pressure reading.</span>
+                </div>
+              </div>
+
+              <div id="metric-diastolic" class="metric-card" data-field="diastolic">
+                <div class="metric-meta">
+                  <span class="metric-chip">Vitals</span>
+                  <label class="metric-title" for="diastolic">Diastolic (mmHg)</label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="diastolic" name="diastolic" type="number" min="0" step="1" placeholder="e.g. 64">
+                  <span class="metric-helper">Lower blood pressure reading.</span>
+                </div>
+              </div>
+
+              <div id="metric-temperature" class="metric-card" data-field="temperature">
+                <div class="metric-meta">
+                  <span class="metric-chip">Vitals</span>
+                  <label class="metric-title" for="temperature">Temp (C)</label>
+                </div>
+                <div class="metric-input-wrap">
+                  <input id="temperature" name="temperature" type="number" min="0" step="0.1" placeholder="e.g. 37.1">
+                  <span class="metric-helper">Body temperature in Celsius.</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </form>
+      </main>
+
+      <aside class="preview-card">
+        <div class="preview-stack">
+          <div class="preview-banner">
+            <div class="eyebrow">Step 4</div>
+            <h2>Chart Actions</h2>
+            <p></p>
+          </div>
+
+          <div class="template-status" id="chart-preview-status">
+            Add the available measurements, then click Generate Chart to open the chart preview.
+          </div>
+
+          <div class="summary-box">
+            <div id="selected-count" class="summary-count mono">0</div>
+            <div class="summary-label">auto-detected charts</div>
+            <div id="selected-list" class="chart-list">
+              <span class="placeholder-text">No chart can be made yet.</span>
+            </div>
+          </div>
+
+          <div class="action-box">
+            <div class="btn-row">
+              <button id="generate-btn" class="btn-primary" type="button">Generate Chart</button>
+            </div>
+            <div id="status-note" class="status-note">
+              Chart actions are ready once patient details and measurements are complete.
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <canvas id="chart-canvas" class="template-canvas" width="1725" height="2367"></canvas>
+
+  <script type="module">
+    const metricInputs = {
+      weight: document.getElementById('weight'),
+      height: document.getElementById('height'),
+      head: document.getElementById('head')
+    };
+    const vitalInputs = {
+      spo2: document.getElementById('spo2'),
+      pulse: document.getElementById('pulse'),
+      systolic: document.getElementById('systolic'),
+      diastolic: document.getElementById('diastolic'),
+      temperature: document.getElementById('temperature')
+    };
+    const selectedCount = document.getElementById('selected-count');
+    const selectedList = document.getElementById('selected-list');
+    const generateBtn = document.getElementById('generate-btn');
+    const statusNote = document.getElementById('status-note');
+    const chartCanvas = document.getElementById('chart-canvas');
+    const chartContext = chartCanvas.getContext('2d');
+    chartContext.imageSmoothingEnabled = true;
+    chartContext.imageSmoothingQuality = 'high';
+    const chartPreviewStatus = document.getElementById('chart-preview-status');
+    const form = document.getElementById('chart-form');
+    const dobInput = document.getElementById('dob');
+    const dobPartInputs = {
+      day: document.getElementById('dob-day'),
+      month: document.getElementById('dob-month'),
+      year: document.getElementById('dob-year')
+    };
+    const ageInput = document.getElementById('age');
+    const menuToggle = document.getElementById('menu-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    const navLinks = [...document.querySelectorAll('#primary-nav .nav-link')];
+    const CHART_ASSET_VERSION = '2026-05-22-growth-recalibrated';
+
+    function presentElements(elements) {
+      return Object.values(elements).filter(Boolean);
+    }
+
+    function versionedChartAssetPath(path) {
+      return `${path}${path.includes('?') ? '&' : '?'}v=${CHART_ASSET_VERSION}`;
+    }
+
+    const templateLibrary = {
+      girlsHeight0to5: {
+        label: 'Girls Height vs Age 0-5y',
+                path: 'assets/iap-official-png/girls-height-0-5-minimal.png',
+        regions: {
+          height: {
+            label: 'Height',
+            shortLabel: 'Ht',
+            color: '#dc2626',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'height', min: 40, max: 120, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysHeight0to5: {
+        label: 'Boys Height vs Age 0-5y',
+                path: 'assets/iap-official-png/boys-height-0-5-minimal.png',
+        regions: {
+          height: {
+            label: 'Height',
+            shortLabel: 'Ht',
+            color: '#dc2626',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'height', min: 40, max: 120, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsWeight0to5: {
+        label: 'Girls Weight vs Age 0-5y',
+                path: 'assets/iap-official-png/girls-weight-0-5-minimal.png',
+        regions: {
+          weight: {
+            label: 'Weight',
+            shortLabel: 'Wt',
+            color: '#2563eb',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'weight', min: 0, max: 25, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysWeight0to5: {
+        label: 'Boys Weight vs Age 0-5y',
+                path: 'assets/iap-official-png/boys-weight-0-5-minimal.png',
+        regions: {
+          weight: {
+            label: 'Weight',
+            shortLabel: 'Wt',
+            color: '#2563eb',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'weight', min: 0, max: 25, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsHead0to5: {
+        label: 'Girls OFC vs Age 0-5y',
+                path: 'assets/iap-official-png/girls-head-0-5-minimal.png',
+        regions: {
+          head: {
+            label: 'Head Circumference',
+            shortLabel: 'HC',
+            color: '#059669',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'head', min: 30, max: 55, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysHead0to5: {
+        label: 'Boys OFC vs Age 0-5y',
+                path: 'assets/iap-official-png/boys-head-0-5-minimal.png',
+        regions: {
+          head: {
+            label: 'Head Circumference',
+            shortLabel: 'HC',
+            color: '#059669',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'head', min: 30, max: 55, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsBmi0to5: {
+        label: 'Girls BMI vs Age 0-5y',
+                path: 'assets/iap-official-png/girls-bmi-0-5-minimal.png',
+        regions: {
+          bmi: {
+            label: 'BMI',
+            shortLabel: 'BMI',
+            color: '#7c3aed',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'bmi', min: 10, max: 25, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysBmi0to5: {
+        label: 'Boys BMI vs Age 0-5y',
+                path: 'assets/iap-official-png/boys-bmi-0-5-minimal.png',
+        regions: {
+          bmi: {
+            label: 'BMI',
+            shortLabel: 'BMI',
+            color: '#7c3aed',
+            x: { source: 'ageMonths', min: 0, max: 60, start: 0.1731, end: 0.8269 },
+            y: { source: 'bmi', min: 10, max: 25, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsHeight5to18: {
+        label: 'Girls Height vs Age 5-18y',
+                path: 'assets/iap-official-png/girls-height-5-18-minimal.png',
+        regions: {
+          height: {
+            label: 'Height',
+            shortLabel: 'Ht',
+            color: '#dc2626',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'height', min: 60, max: 180, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysHeight5to18: {
+        label: 'Boys Height vs Age 5-18y',
+                path: 'assets/iap-official-png/boys-height-5-18-minimal.png',
+        regions: {
+          height: {
+            label: 'Height',
+            shortLabel: 'Ht',
+            color: '#dc2626',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'height', min: 60, max: 210, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsWeight5to18: {
+        label: 'Girls Weight vs Age 5-18y',
+                path: 'assets/iap-official-png/girls-weight-5-18-minimal.png',
+        regions: {
+          weight: {
+            label: 'Weight',
+            shortLabel: 'Wt',
+            color: '#2563eb',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'weight', min: 10, max: 80, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysWeight5to18: {
+        label: 'Boys Weight vs Age 5-18y',
+                path: 'assets/iap-official-png/boys-weight-5-18-minimal.png',
+        regions: {
+          weight: {
+            label: 'Weight',
+            shortLabel: 'Wt',
+            color: '#2563eb',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'weight', min: 0, max: 100, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      girlsBmi5to18: {
+        label: 'Girls BMI vs Age 5-18y',
+                path: 'assets/iap-official-png/girls-bmi-5-18-minimal.png',
+        regions: {
+          bmi: {
+            label: 'BMI',
+            shortLabel: 'BMI',
+            color: '#7c3aed',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'bmi', min: 10, max: 30, start: 0.8617, end: 0.117 }
+          }
+        }
+      },
+      boysBmi5to18: {
+        label: 'Boys BMI vs Age 5-18y',
+                path: 'assets/iap-official-png/boys-bmi-5-18-minimal.png',
+        regions: {
+          bmi: {
+            label: 'BMI',
+            shortLabel: 'BMI',
+            color: '#7c3aed',
+            x: { source: 'ageYears', min: 5, max: 18, start: 0.1731, end: 0.8269 },
+            y: { source: 'bmi', min: 10, max: 30, start: 0.8617, end: 0.117 }
+          }
+        }
+      }
+    };
+    const templateImages = new Map();
+    let generatedTemplates = [];
+    let generatedPreviewPages = [];
+    const CHART_RENDER_MAX_WIDTH = 760;
+    const CHART_POINT_RADIUS = 7;
+    const GROWTH_CHART_PREVIEW_DB = 'kidGrowthChartPreviewDb';
+    const GROWTH_CHART_PREVIEW_STORE = 'previews';
+    const GROWTH_CHART_PREVIEW_SESSION_PREFIX = 'kidGrowthChartPreview:';
+    const GROWTH_CHART_DEBUG = new URLSearchParams(window.location.search).has('growthDebug')
+      || localStorage.getItem('growthChartDebug') === '1';
+    const CAN_USE_PYTHON_CHART_SERVICE = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+    async function loadSharedGrowthChartConfigs() {
+      try {
+        const response = await fetch(versionedChartAssetPath('growth_chart_config.json'), { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        return await response.json();
+      } catch (error) {
+        console.warn(`Using embedded chart config fallback: ${error.message}`);
+        return { charts: [] };
+      }
+    }
+
+    function applySharedGrowthChartConfigs(library, sharedConfig) {
+      (sharedConfig?.charts || []).forEach((chart) => {
+        const dataKey = chart.dataKey || chart.metric;
+        const template = library[chart.templateKey] || {
+          label: chart.label,
+          path: chart.backgroundImage,
+          regions: {
+            [dataKey]: {
+              label: chart.metric === 'ofc' ? 'Head Circumference' : chart.metric,
+              shortLabel: chart.metric === 'ofc' ? 'HC' : chart.metric,
+              color: '#111111'
+            }
+          }
+        };
+        library[chart.templateKey] = template;
+        if (!template) {
+          return;
+        }
+
+        const region = template.regions[dataKey] || {
+          label: chart.metric === 'ofc' ? 'Head Circumference' : chart.metric,
+          shortLabel: chart.metric === 'ofc' ? 'HC' : chart.metric,
+          color: '#111111'
+        };
+        template.regions[dataKey] = region;
+        if (!region) {
+          return;
+        }
+
+        template.label = chart.label;
+        template.path = chart.backgroundImage;
+        region.chartId = chart.chartId;
+        region.referenceSource = chart.referenceSource;
+        region.metric = chart.metric;
+        region.backgroundImage = chart.backgroundImage;
+        region.x = {
+          source: chart.xUnit === 'months' ? 'ageMonths' : 'ageYears',
+          min: chart.xMin,
+          max: chart.xMax,
+          start: chart.plotArea.left,
+          end: chart.plotArea.right
+        };
+        region.y = {
+          source: dataKey,
+          min: chart.yMin,
+          max: chart.yMax,
+          start: chart.plotArea.bottom,
+          end: chart.plotArea.top
+        };
+      });
+    }
+
+    applySharedGrowthChartConfigs(templateLibrary, await loadSharedGrowthChartConfigs());
+
+    function parseDobValue(dobValue) {
+      const rawValue = String(dobValue || '').trim();
+      if (!rawValue) return null;
+      const parts = rawValue.split(/\D+/).filter(Boolean);
+      if (parts.length !== 3) return null;
+
+      const [dayPart, monthPart, yearPart] = parts;
+      const day = Number(dayPart);
+      const month = Number(monthPart);
+      const year = Number(yearPart);
+      if (!Number.isInteger(day) || !Number.isInteger(month) || !Number.isInteger(year)) return null;
+      if (year < 1900 || year > 2100 || month < 1 || month > 12 || day < 1 || day > 31) return null;
+
+      const parsed = new Date(year, month - 1, day);
+      if (parsed.getFullYear() !== year || parsed.getMonth() !== month - 1 || parsed.getDate() !== day) return null;
+      return parsed;
+    }
+
+    function getDobPartsValue() {
+      return [
+        dobPartInputs.day.value,
+        dobPartInputs.month.value,
+        dobPartInputs.year.value
+      ].map((part) => String(part || '').trim()).join(' ');
+    }
+
+    function syncDobFromParts() {
+      dobInput.value = getDobPartsValue();
+      updateDobValidity();
+    }
+
+    function formatDobForDisplay(dateValue) {
+      if (!dateValue) return '';
+      const day = String(dateValue.getDate()).padStart(2, '0');
+      const month = String(dateValue.getMonth() + 1).padStart(2, '0');
+      return `${day} ${month} ${dateValue.getFullYear()}`;
+    }
+
+    function formatDobForPayload(dobValue) {
+      const parsed = parseDobValue(dobValue);
+      if (!parsed) return '';
+      const day = String(parsed.getDate()).padStart(2, '0');
+      const month = String(parsed.getMonth() + 1).padStart(2, '0');
+      return `${parsed.getFullYear()}-${month}-${day}`;
+    }
+
+    function updateDobValidity() {
+      const parsed = parseDobValue(dobInput.value);
+      const hasAnyDobPart = Object.values(dobPartInputs).some((input) => input.value.trim());
+      Object.values(dobPartInputs).forEach((input) => input.setCustomValidity(''));
+
+      if (!hasAnyDobPart) {
+        dobInput.setCustomValidity('Enter DOB as DD MM YYYY.');
+        dobPartInputs.day.setCustomValidity('Enter DOB as DD MM YYYY.');
+        return false;
+      }
+      if (!parsed || parsed > new Date()) {
+        dobInput.setCustomValidity('Enter a valid DOB as DD MM YYYY.');
+        dobPartInputs.day.setCustomValidity('Enter a valid DOB as DD MM YYYY.');
+        return false;
+      }
+      dobInput.setCustomValidity('');
+      return true;
+    }
+
+    function normalizeDobInput() {
+      const parsed = parseDobValue(dobInput.value);
+      if (parsed) {
+        const day = String(parsed.getDate()).padStart(2, '0');
+        const month = String(parsed.getMonth() + 1).padStart(2, '0');
+        const year = String(parsed.getFullYear());
+        dobPartInputs.day.value = day;
+        dobPartInputs.month.value = month;
+        dobPartInputs.year.value = year;
+        dobInput.value = `${day} ${month} ${year}`;
+      }
+      updateDobValidity();
+    }
+
+    function calculateAgeLabel(dobValue) {
+      if (!dobValue) return '';
+
+      const today = new Date();
+      const dob = parseDobValue(dobValue);
+
+      if (!dob || dob > today) {
+        return '';
+      }
+
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += previousMonth.getDate();
+        months -= 1;
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      return `${years} year${years === 1 ? '' : 's'} ${months} month${months === 1 ? '' : 's'} ${days} day${days === 1 ? '' : 's'}`;
+    }
+
+    function updateAge() {
+      updateDobValidity();
+      ageInput.value = calculateAgeLabel(dobInput.value);
+    }
+
+    function getAgeInYears(dobValue) {
+      if (!dobValue) return NaN;
+
+      const dob = parseDobValue(dobValue);
+      const today = new Date();
+
+      if (!dob || dob > today) {
+        return NaN;
+      }
+
+      return (today - dob) / (365.25 * 24 * 60 * 60 * 1000);
+    }
+
+    function getAgeInMonths(dobValue) {
+      const ageYears = getAgeInYears(dobValue);
+      return Number.isFinite(ageYears) ? ageYears * 12 : NaN;
+    }
+
+    function setChartPreviewMessage(message, tone = '') {
+      chartPreviewStatus.textContent = message;
+      chartPreviewStatus.className = 'template-status';
+      if (tone) {
+        chartPreviewStatus.classList.add(tone);
+      }
+    }
+
+    function drawBaseTemplate(image) {
+      chartContext.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+
+      if (image) {
+        chartContext.drawImage(image, 0, 0, chartCanvas.width, chartCanvas.height);
+        return;
+      }
+
+      chartContext.fillStyle = '#f4f7f4';
+      chartContext.fillRect(0, 0, chartCanvas.width, chartCanvas.height);
+      chartContext.fillStyle = '#607067';
+      chartContext.font = '700 44px Outfit, sans-serif';
+      chartContext.fillText('Loading IAP Template...', 90, 120);
+    }
+
+    function clampRatio(value) {
+      return Math.min(1, Math.max(0, value));
+    }
+
+    function mapPoint(region, patientData) {
+      const xValue = patientData[region.x.source];
+      const yValue = patientData[region.y.source];
+
+      if (!Number.isFinite(xValue) || !Number.isFinite(yValue)) {
+        return null;
+      }
+
+      const rawXRatio = (xValue - region.x.min) / (region.x.max - region.x.min);
+      const rawYRatio = (yValue - region.y.min) / (region.y.max - region.y.min);
+      const xRatio = clampRatio(rawXRatio);
+      const yRatio = clampRatio(rawYRatio);
+
+      const x = (region.x.start + (region.x.end - region.x.start) * xRatio) * chartCanvas.width;
+      const y = (region.y.start - (region.y.start - region.y.end) * yRatio) * chartCanvas.height;
+
+      return {
+        x,
+        y,
+        xValue,
+        yValue,
+        outOfRange: rawXRatio < 0 || rawXRatio > 1 || rawYRatio < 0 || rawYRatio > 1
+      };
+    }
+
+    function getPlotBounds(region, inset = 0) {
+      const left = Math.min(region.x.start, region.x.end) * chartCanvas.width + inset;
+      const right = Math.max(region.x.start, region.x.end) * chartCanvas.width - inset;
+      const top = Math.min(region.y.start, region.y.end) * chartCanvas.height + inset;
+      const bottom = Math.max(region.y.start, region.y.end) * chartCanvas.height - inset;
+      return {
+        left: Math.min(left, right),
+        right: Math.max(left, right),
+        top: Math.min(top, bottom),
+        bottom: Math.max(top, bottom)
+      };
+    }
+
+    function constrainPointToBounds(point, bounds) {
+      return {
+        x: Math.min(Math.max(point.x, bounds.left), bounds.right),
+        y: Math.min(Math.max(point.y, bounds.top), bounds.bottom)
+      };
+    }
+
+    function withPlotClip(region, callback) {
+      const bounds = getPlotBounds(region, 0);
+      chartContext.save();
+      chartContext.beginPath();
+      chartContext.rect(
+        bounds.left,
+        bounds.top,
+        Math.max(0, bounds.right - bounds.left),
+        Math.max(0, bounds.bottom - bounds.top)
+      );
+      chartContext.clip();
+      try {
+        callback();
+      } finally {
+        chartContext.restore();
+      }
+    }
+
+    function drawMarker(region, patientData, metricKey) {
+      const mappedPoint = mapPoint(region, patientData);
+
+      if (!mappedPoint) {
+        return false;
+      }
+
+      const point = constrainPointToBounds(mappedPoint, getPlotBounds(region, CHART_POINT_RADIUS));
+
+      if (mappedPoint.outOfRange) {
+        console.warn('Growth chart measurement outside chart range; plotting at nearest chart edge.', {
+          metric: metricKey,
+          xValue: mappedPoint.xValue,
+          yValue: mappedPoint.yValue,
+          xMin: region.x.min,
+          xMax: region.x.max,
+          yMin: region.y.min,
+          yMax: region.y.max
+        });
+      }
+
+      if (GROWTH_CHART_DEBUG) {
+        console.log({
+          chartId: region.chartId,
+          referenceSource: region.referenceSource,
+          sex: region.chartId?.startsWith('boys') ? 'male' : region.chartId?.startsWith('girls') ? 'female' : '',
+          ageGroup: region.chartId?.includes('0-5') ? '0-5' : region.chartId?.includes('5-18') ? '5-18' : '',
+          ageMonths: patientData.ageMonths,
+          ageYears: patientData.ageYears,
+          metric: region.metric || metricKey,
+          value: mappedPoint.yValue,
+          bmi: patientData.bmi,
+          xMin: region.x.min,
+          xMax: region.x.max,
+          yMin: region.y.min,
+          yMax: region.y.max,
+          plotLeft: getPlotBounds(region, 0).left,
+          plotTop: getPlotBounds(region, 0).top,
+          plotRight: getPlotBounds(region, 0).right,
+          plotBottom: getPlotBounds(region, 0).bottom,
+          xPixel: point.x,
+          yPixel: point.y,
+          backgroundImage: region.backgroundImage
+        });
+      }
+
+      withPlotClip(region, () => {
+        chartContext.beginPath();
+        chartContext.arc(point.x, point.y, CHART_POINT_RADIUS, 0, Math.PI * 2);
+        chartContext.fillStyle = '#111111';
+        chartContext.fill();
+      });
+      return true;
+    }
+
+    function normalizePlotSeriesEntry(entry = {}) {
+      return {
+        measuredAt: entry.measuredAt || entry.createdAtIso || new Date().toISOString(),
+        weight: entry.weight || '',
+        height: entry.height || '',
+        head: entry.head || ''
+      };
+    }
+
+    function getVitalsSummaryParts() {
+      const parts = [];
+      if (metricInputs.weight.value) parts.push(`Wt ${metricInputs.weight.value} kg`);
+      if (metricInputs.height.value) parts.push(`Ht ${metricInputs.height.value} cm`);
+      if (metricInputs.head.value) parts.push(`OFC ${metricInputs.head.value} cm`);
+      if (vitalInputs.spo2.value) parts.push(`SPO2 ${vitalInputs.spo2.value}%`);
+      if (vitalInputs.pulse.value) parts.push(`Pulse ${vitalInputs.pulse.value}/min`);
+      if (vitalInputs.systolic.value || vitalInputs.diastolic.value) parts.push(`BP ${vitalInputs.systolic.value || '-'} / ${vitalInputs.diastolic.value || '-'} mmHg`);
+      if (vitalInputs.temperature.value) parts.push(`Temp ${vitalInputs.temperature.value} C`);
+      return parts;
+    }
+
+    function buildChartGenerationPayload() {
+      const currentEntry = normalizePlotSeriesEntry({
+        createdAtIso: new Date().toISOString(),
+        weight: metricInputs.weight.value,
+        height: metricInputs.height.value,
+        head: metricInputs.head.value
+      });
+
+      return {
+        dob: formatDobForPayload(dobInput.value),
+        templateRequests: generatedTemplates.map((template) => ({
+          key: template.key,
+          label: template.label,
+          metrics: [...template.metrics]
+        })),
+        plotSeries: {
+          weight: String(currentEntry.weight).trim() ? [currentEntry] : [],
+          height: String(currentEntry.height).trim() ? [currentEntry] : [],
+          head: String(currentEntry.head).trim() ? [currentEntry] : [],
+          bmi: String(currentEntry.weight).trim() && String(currentEntry.height).trim() ? [currentEntry] : []
+        }
+      };
+    }
+
+    function loadPreviewImage(dataUrl) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.addEventListener('load', () => resolve(image));
+        image.addEventListener('error', () => reject(new Error('Unable to load the generated chart preview.')));
+        image.src = dataUrl;
+      });
+    }
+
+    async function renderCanvasFromGeneratedPreview(preview) {
+      if (!preview?.dataUrl) {
+        drawBaseTemplate(null);
+        return;
+      }
+
+      const image = await loadPreviewImage(preview.dataUrl);
+      const renderScale = Math.min(1, CHART_RENDER_MAX_WIDTH / image.naturalWidth);
+      chartCanvas.width = Math.round(image.naturalWidth * renderScale);
+      chartCanvas.height = Math.round(image.naturalHeight * renderScale);
+      chartContext.imageSmoothingEnabled = true;
+      chartContext.imageSmoothingQuality = 'high';
+      drawBaseTemplate(image);
+    }
+
+    function getPythonChartEndpoint() {
+      return '/api/growth_charts';
+    }
+
+    async function requestPythonGeneratedCharts(payload) {
+      const response = await fetch(getPythonChartEndpoint(payload), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const error = new Error(result.error || 'Chart generation failed.');
+        error.status = response.status;
+        throw error;
+      }
+
+      return result;
+    }
+
+    function openPreviewDb() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+          reject(new Error('Preview storage is unavailable.'));
+          return;
+        }
+
+        const request = indexedDB.open(GROWTH_CHART_PREVIEW_DB, 1);
+        request.addEventListener('upgradeneeded', () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains(GROWTH_CHART_PREVIEW_STORE)) {
+            db.createObjectStore(GROWTH_CHART_PREVIEW_STORE, { keyPath: 'id' });
+          }
+        });
+        request.addEventListener('success', () => resolve(request.result));
+        request.addEventListener('error', () => reject(request.error || new Error('Preview storage failed.')));
+      });
+    }
+
+    async function saveGrowthChartPreview(payload) {
+      const id = window.crypto?.randomUUID ? window.crypto.randomUUID() : `growth-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      const record = {
+        id,
+        ...payload,
+        savedAt: new Date().toISOString()
+      };
+
+      try {
+        const db = await openPreviewDb();
+        await new Promise((resolve, reject) => {
+          const transaction = db.transaction(GROWTH_CHART_PREVIEW_STORE, 'readwrite');
+          transaction.objectStore(GROWTH_CHART_PREVIEW_STORE).put(record);
+          transaction.addEventListener('complete', resolve);
+          transaction.addEventListener('error', () => reject(transaction.error || new Error('Preview could not be prepared.')));
+        });
+        db.close();
+      } catch (error) {
+        sessionStorage.setItem(`${GROWTH_CHART_PREVIEW_SESSION_PREFIX}${id}`, JSON.stringify(record));
+      }
+
+      return id;
+    }
+
+    function buildGrowthChartPreviewPayload() {
+      return {
+        pages: generatedPreviewPages,
+        patient: {
+          childName: form.elements.childName.value.trim() || 'Test child',
+          parentName: form.elements.parentName.value.trim() || 'Test parent',
+          gender: form.elements.gender.value,
+          dob: formatDobForDisplay(parseDobValue(dobInput.value)),
+          age: ageInput.value.trim()
+        },
+        vitals: getVitalsSummaryParts(),
+        generatedAt: new Date().toLocaleString('en-IN')
+      };
+    }
+
+    async function openGrowthChartPreview() {
+      if (generatedPreviewPages.length === 0) {
+        throw new Error('No chart could be made for preview.');
+      }
+
+      const previewId = await saveGrowthChartPreview(buildGrowthChartPreviewPayload());
+      const previewUrl = `/emr/kid/growth-chart-preview?id=${encodeURIComponent(previewId)}`;
+      window.location.href = previewUrl;
+    }
+
+    function getPatientData() {
+      const ageYears = getAgeInYears(dobInput.value);
+      const height = Number.parseFloat(metricInputs.height.value);
+      const weight = Number.parseFloat(metricInputs.weight.value);
+
+      return {
+        ageYears,
+        ageMonths: getAgeInMonths(dobInput.value),
+        weight,
+        height,
+        head: Number.parseFloat(metricInputs.head.value),
+        bmi: Number.isFinite(weight) && Number.isFinite(height) && height > 0 ? weight / ((height / 100) ** 2) : NaN
+      };
+    }
+
+    function buildTemplateRequests() {
+      const selectedValues = getSelectedCharts().map((option) => option.value);
+      const patientData = getPatientData();
+      const genderValue = form.elements.gender.value;
+
+      if (!genderValue || !Number.isFinite(patientData.ageYears)) {
+        return [];
+      }
+
+      const sexPrefix = genderValue === 'Male' ? 'boys' : 'girls';
+      const ageBand = patientData.ageYears < 5 ? '0to5' : patientData.ageYears <= 18 ? '5to18' : '';
+
+      if (!ageBand) {
+        return [];
+      }
+
+      const requests = [];
+      const addMetricRequest = (templateKey, metricKey) => {
+        const template = templateLibrary[templateKey];
+        if (!template) {
+          return;
+        }
+
+        requests.push({
+          key: templateKey,
+          label: template.label,
+          metrics: [metricKey]
+        });
+      };
+
+      if (selectedValues.includes('Height')) {
+        addMetricRequest(`${sexPrefix}Height${ageBand}`, 'height');
+      }
+
+      if (selectedValues.includes('Weight')) {
+        addMetricRequest(`${sexPrefix}Weight${ageBand}`, 'weight');
+      }
+
+      if (selectedValues.includes('Head Circumference-for-Age') && ageBand === '0to5') {
+        addMetricRequest(`${sexPrefix}Head${ageBand}`, 'head');
+      }
+
+      if (selectedValues.includes('BMI')) {
+        addMetricRequest(`${sexPrefix}Bmi${ageBand}`, 'bmi');
+      }
+
+      return requests;
+    }
+
+    function buildWarnings(selectedValues, patientData) {
+      const warnings = [];
+
+      if ((selectedValues.includes('Head Circumference-for-Age') || selectedValues.includes('BMI')) && patientData.ageYears > 18) {
+        warnings.push('The available age-based chart templates are supported here up to 18 years.');
+      }
+      if (selectedValues.includes('Head Circumference-for-Age') && patientData.ageYears >= 5 && patientData.ageYears <= 18) {
+        warnings.push('OFC chart is not shown for 5-18 years.');
+      }
+      generatedTemplates.forEach((templateRequest) => {
+        const template = templateLibrary[templateRequest.key];
+        templateRequest.metrics.forEach((metricKey) => {
+          const region = template?.regions?.[metricKey];
+          const value = patientData[region?.y?.source];
+          if (region && Number.isFinite(value) && (value < region.y.min || value > region.y.max)) {
+            warnings.push(`${region.label} value outside chart range.`);
+          }
+        });
+      });
+
+      return warnings;
+    }
+
+    function renderLegendItems(templateKey, templateRequest, patientData) {
+      const template = templateLibrary[templateKey];
+      return templateRequest.metrics
+        .map((metricKey) => {
+          const region = template.regions[metricKey];
+          const value = patientData[region.y.source];
+
+          if (!region || !Number.isFinite(value)) {
+            return null;
+          }
+
+          const formattedValue = metricKey === 'bmi' ? value.toFixed(1) : value.toFixed(1);
+          const unit = metricKey === 'height' || metricKey === 'head' ? 'cm' : metricKey === 'bmi' ? '' : 'kg';
+          return {
+            color: region.color,
+            label: `${region.label} ${formattedValue}${unit ? ` ${unit}` : ''}`
+          };
+        })
+        .filter(Boolean);
+    }
+
+    async function drawTemplateRequest(templateRequest, patientData) {
+      const image = await loadTemplateImage(templateRequest.key);
+      const renderScale = Math.min(1, CHART_RENDER_MAX_WIDTH / image.naturalWidth);
+      chartCanvas.width = Math.round(image.naturalWidth * renderScale);
+      chartCanvas.height = Math.round(image.naturalHeight * renderScale);
+      chartContext.imageSmoothingEnabled = true;
+      chartContext.imageSmoothingQuality = 'high';
+      drawBaseTemplate(image);
+
+      const template = templateLibrary[templateRequest.key];
+      templateRequest.metrics.forEach((metricKey) => {
+        const region = template.regions[metricKey];
+        if (region) {
+          drawMarker(region, patientData, metricKey);
+        }
+      });
+
+      return {
+        dataUrl: chartCanvas.toDataURL('image/png'),
+        width: chartCanvas.width,
+        height: chartCanvas.height
+      };
+    }
+
+    async function renderAllGeneratedPreviews() {
+      const patientData = getPatientData();
+      const previews = [];
+
+      for (const templateRequest of generatedTemplates) {
+        try {
+          const rendered = await drawTemplateRequest(templateRequest, patientData);
+          previews.push({
+            label: templateRequest.label,
+            dataUrl: rendered.dataUrl,
+            width: rendered.width,
+            height: rendered.height
+          });
+        } catch (error) {
+          previews.push({
+            label: `${templateRequest.label} (failed to load)`,
+            dataUrl: ''
+          });
+        }
+      }
+      generatedPreviewPages = previews.filter((preview) => preview.dataUrl);
+    }
+
+    function loadTemplateImage(templateKey) {
+      if (templateImages.has(templateKey)) {
+        return Promise.resolve(templateImages.get(templateKey));
+      }
+
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.addEventListener('load', () => {
+          templateImages.set(templateKey, image);
+          resolve(image);
+        });
+        image.addEventListener('error', () => reject(new Error(`Unable to load ${templateLibrary[templateKey].label}.`)));
+        image.src = encodeURI(versionedChartAssetPath(templateLibrary[templateKey].path));
+      });
+    }
+
+    async function renderGeneratedChart() {
+      const selectedValues = getSelectedCharts().map((option) => option.value);
+      const patientData = getPatientData();
+      generatedTemplates = buildTemplateRequests();
+
+      if (generatedTemplates.length === 0) {
+        setChartPreviewMessage('No matching IAP template could be selected for the entered age, gender, and chart combination.', 'warning');
+        generatedPreviewPages = [];
+        drawBaseTemplate(null);
+        return;
+      }
+
+      try {
+        if (!CAN_USE_PYTHON_CHART_SERVICE) {
+          throw new Error('Python chart service is not enabled for this deployment.');
+        }
+
+        const generatedResult = await requestPythonGeneratedCharts(buildChartGenerationPayload());
+        generatedPreviewPages = Array.isArray(generatedResult.pages) ? generatedResult.pages.filter((preview) => preview?.dataUrl) : [];
+        await renderCanvasFromGeneratedPreview(generatedPreviewPages[0] || null);
+      } catch (error) {
+        await renderAllGeneratedPreviews();
+        await renderCanvasFromGeneratedPreview(generatedPreviewPages[0] || null);
+
+        const warnings = buildWarnings(selectedValues, patientData);
+        const fallbackNote = CAN_USE_PYTHON_CHART_SERVICE
+          ? 'Python chart service is unavailable, so the chart was generated in browser mode.'
+          : 'This deployment is using browser chart rendering.';
+        setChartPreviewMessage(
+          `Generated ${generatedPreviewPages.length} chart${generatedPreviewPages.length === 1 ? '' : 's'} for preview. ${fallbackNote}${warnings.length ? ` ${warnings.join(' ')}` : ''}`,
+          'warning'
+        );
+        return;
+      }
+
+      const warnings = buildWarnings(selectedValues, patientData);
+      if (warnings.length > 0) {
+        setChartPreviewMessage(`Generated ${generatedPreviewPages.length} chart${generatedPreviewPages.length === 1 ? '' : 's'} for preview. ${warnings.join(' ')}`, 'warning');
+      } else {
+        setChartPreviewMessage(`Generated ${generatedPreviewPages.length} chart${generatedPreviewPages.length === 1 ? '' : 's'} for preview.`, 'ready');
+      }
+    }
+
+    function getSelectedCharts() {
+      const selected = [];
+      const ageYears = getAgeInYears(dobInput.value);
+      const weight = Number.parseFloat(metricInputs.weight.value);
+      const height = Number.parseFloat(metricInputs.height.value);
+      const head = Number.parseFloat(metricInputs.head.value);
+
+      if (Number.isFinite(height) && height > 0) {
+        selected.push({ value: 'Height' });
+      }
+
+      if (Number.isFinite(weight) && weight > 0) {
+        selected.push({ value: 'Weight' });
+      }
+
+      if (Number.isFinite(head) && head > 0 && Number.isFinite(ageYears) && ageYears < 5) {
+        selected.push({ value: 'Head Circumference-for-Age' });
+      }
+
+      if (Number.isFinite(weight) && weight > 0 && Number.isFinite(height) && height > 0) {
+        selected.push({ value: 'BMI' });
+      }
+
+      return selected;
+    }
+
+    function updatePreview() {
+      const selected = getSelectedCharts();
+      selectedCount.textContent = String(selected.length);
+      selectedList.innerHTML = '';
+
+      if (selected.length === 0) {
+        const placeholder = document.createElement('span');
+        placeholder.className = 'placeholder-text';
+        placeholder.textContent = 'No chart can be made yet.';
+        selectedList.appendChild(placeholder);
+        return;
+      }
+
+      selected.forEach((option) => {
+        const pill = document.createElement('span');
+        pill.className = 'chart-pill';
+        pill.textContent = option.value;
+        selectedList.appendChild(pill);
+      });
+    }
+
+    function closeMobileMenu() {
+      if (!menuToggle || !primaryNav) return;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      primaryNav.classList.remove('is-open');
+    }
+
+    function toggleMobileMenu() {
+      if (!menuToggle || !primaryNav) return;
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      primaryNav.classList.toggle('is-open', !isOpen);
+    }
+
+    function updateMeasurements() {
+      document.querySelectorAll('.metric-card').forEach((card) => card.classList.add('visible'));
+    }
+
+    function handleDobPartInput(event) {
+      const target = event.target;
+      target.value = target.value.replace(/\D+/g, '').slice(0, target.maxLength || 4);
+      syncDobFromParts();
+      updateAge();
+      updatePreview();
+
+      if (target.value.length >= Number(target.maxLength || 0)) {
+        if (target === dobPartInputs.day) dobPartInputs.month.focus();
+        if (target === dobPartInputs.month) dobPartInputs.year.focus();
+      }
+    }
+
+    dobInput.addEventListener('change', updateAge);
+    dobInput.addEventListener('input', updateAge);
+    dobInput.addEventListener('blur', normalizeDobInput);
+    dobInput.addEventListener('change', updatePreview);
+    dobInput.addEventListener('input', updatePreview);
+    presentElements(dobPartInputs).forEach((input) => {
+      input.addEventListener('input', handleDobPartInput);
+      input.addEventListener('change', () => {
+        syncDobFromParts();
+        updateAge();
+        updatePreview();
+      });
+      input.addEventListener('blur', normalizeDobInput);
+    });
+    presentElements(metricInputs).forEach((input) => {
+      input.addEventListener('input', updatePreview);
+      input.addEventListener('change', updatePreview);
+    });
+    if (menuToggle) {
+      menuToggle.addEventListener('click', toggleMobileMenu);
+    }
+    navLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 640) {
+        closeMobileMenu();
+      }
+    });
+
+    updateMeasurements();
+    updatePreview();
+    updateAge();
+    drawBaseTemplate(null);
+
+    generateBtn.addEventListener('click', async () => {
+      const isValid = form.reportValidity();
+
+      if (!isValid) {
+        return;
+      }
+
+      if (getSelectedCharts().length === 0) {
+        statusNote.textContent = 'Add height, weight, or OFC to generate charts.';
+        statusNote.classList.add('visible');
+        return;
+      }
+
+      try {
+        await renderGeneratedChart();
+        await openGrowthChartPreview();
+        statusNote.textContent = `Chart preview prepared with ${generatedPreviewPages.length} page${generatedPreviewPages.length === 1 ? '' : 's'}. Nothing was saved.`;
+        statusNote.classList.add('visible');
+      } catch (error) {
+        statusNote.textContent = error.message || 'Unable to prepare chart preview.';
+        statusNote.classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>
+
+

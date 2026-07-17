@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-07-03T04:29:10.384Z",
+  "mode": "dry-run",
+  "rule": "same normalized name and 10-digit phone; exactly one record in the group has DOB; merge non-DOB records into DOB record",
+  "totals": {
+    "patientsScanned": 1728,
+    "candidateGroups": 0,
+    "affectedGroups": 0,
+    "duplicateRecordsToDelete": 0,
+    "skippedGroups": 0
+  },
+  "skipped": [],
+  "groups": []
+}

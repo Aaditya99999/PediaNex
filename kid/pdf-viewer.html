@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer | The Better Health Clinic</title>
+  <style>
+    body {
+      margin: 0;
+      background: #eef4ef;
+      color: #102018;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .viewer-header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 16px;
+      background: #ffffff;
+      border-bottom: 1px solid #d8e3da;
+    }
+
+    .viewer-header strong {
+      font-size: 15px;
+    }
+
+    .viewer-header a {
+      color: #0f6b3a;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    #status {
+      padding: 18px 16px;
+      color: #4f6257;
+      font-size: 14px;
+    }
+
+    #pages {
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+      padding: 14px;
+    }
+
+    canvas {
+      width: min(100%, 920px);
+      height: auto;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(18, 38, 28, 0.16);
+    }
+
+    body.embed {
+      background: #ffffff;
+    }
+
+    body.embed .viewer-header {
+      display: none;
+    }
+
+    body.embed #pages {
+      width: 100%;
+      gap: 0;
+      padding: 0;
+      align-items: start;
+      overflow: hidden;
+    }
+
+    body.embed canvas {
+      width: 100%;
+      max-width: none;
+      box-shadow: none;
+      display: block;
+    }
+
+    body.embed canvas + canvas {
+      display: none;
+    }
+
+    .fallback-viewer {
+      width: 100%;
+      height: calc(100vh - 58px);
+      border: 0;
+      background: #ffffff;
+    }
+
+    body.embed .fallback-viewer {
+      height: 100vh;
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+</head>
+<body>
+  <header class="viewer-header">
+    <strong>Prescription PDF</strong>
+    <a id="open-original" href="#" target="_blank" rel="noopener noreferrer">Open original</a>
+  </header>
+  <div id="status">Loading PDF...</div>
+  <main id="pages" aria-label="PDF pages"></main>
+
+  <script type="module">
+    import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/build/pdf.mjs';
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/build/pdf.worker.mjs';
+
+    const params = new URLSearchParams(window.location.search);
+    const pdfUrl = params.get('url') || '';
+    const isEmbed = params.get('embed') === '1';
+    const isFramed = window.self !== window.top;
+    const useEmbedLayout = isEmbed || isFramed;
+    const status = document.getElementById('status');
+    const pages = document.getElementById('pages');
+    const openOriginal = document.getElementById('open-original');
+
+    document.body.classList.toggle('embed', useEmbedLayout);
+
+    function setStatus(message) {
+      status.textContent = message;
+      status.hidden = !message;
+    }
+
+    async function renderPage(pdf, pageNumber) {
+      const page = await pdf.getPage(pageNumber);
+      const containerWidth = useEmbedLayout ? window.innerWidth : Math.min(window.innerWidth - 28, 920);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const scale = containerWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale });
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+
+      canvas.width = Math.floor(viewport.width * pixelRatio);
+      canvas.height = Math.floor(viewport.height * pixelRatio);
+      canvas.style.width = `${Math.floor(viewport.width)}px`;
+      canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+      await page.render({
+        canvasContext: context,
+        viewport,
+        transform: pixelRatio === 1 ? null : [pixelRatio, 0, 0, pixelRatio, 0, 0]
+      }).promise;
+
+      pages.appendChild(canvas);
+    }
+
+    async function renderPdf() {
+      if (!pdfUrl) {
+        setStatus('PDF link is missing.');
+        openOriginal.hidden = true;
+        return;
+      }
+
+      openOriginal.href = pdfUrl;
+
+      try {
+        const pdf = await pdfjsLib.getDocument({ url: pdfUrl }).promise;
+        setStatus('');
+
+        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+          await renderPage(pdf, pageNumber);
+        }
+      } catch (error) {
+        setStatus('Unable to preview this PDF here. Open the original PDF instead.');
+      }
+    }
+
+    renderPdf();
+  </script>
+</body>
+</html>

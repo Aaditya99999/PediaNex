@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Kids EMR | The Better Kids Clinic</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <meta name="description" content="Install The Better Kids Clinic EMR app for quick access to pediatric clinic workflows." />
+  <link rel="canonical" href="https://www.thebetterhealth.clinic/emr/kid/download" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Better Kids Clinic" />
+  <meta property="og:title" content="Download Kids EMR | The Better Kids Clinic" />
+  <meta property="og:description" content="Install The Better Kids Clinic EMR app for quick access to pediatric clinic workflows." />
+  <meta property="og:url" content="https://www.thebetterhealth.clinic/emr/kid/download" />
+  <meta property="og:locale" content="en_IN" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef4ef;
+      --ink: #1b2a21;
+      --muted: #607067;
+      --line: #d7e2d9;
+      --brand: #166534;
+      --brand-strong: #14532d;
+      --brand-soft: #dcfce7;
+      --orange: #f97316;
+      --shadow: 0 24px 54px rgba(22, 38, 29, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 24%),
+        linear-gradient(180deg, #f6fbf4 0%, var(--bg) 100%);
+    }
+
+    main {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      padding: 42px 20px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid rgba(215, 226, 217, 0.95);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .intro-panel {
+      padding: clamp(26px, 4vw, 44px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .badge::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--orange);
+    }
+
+    h1 {
+      margin: 22px 0 14px;
+      max-width: 720px;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 16px;
+      color: #fff;
+      background: var(--brand);
+      font: inherit;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 14px 26px rgba(22, 101, 52, 0.2);
+    }
+
+    .button.secondary {
+      color: var(--brand-strong);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .phone {
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .device {
+      width: min(300px, 100%);
+      min-height: 430px;
+      padding: 18px;
+      border: 10px solid #12251a;
+      border-radius: 34px;
+      background: #f8fcf7;
+      box-shadow: 0 26px 50px rgba(18, 37, 26, 0.22);
+    }
+
+    .app-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, #166534, #22c55e);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .app-name strong,
+    .app-card strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .app-name span,
+    .app-card span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .app-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .app-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .step {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--brand);
+      font-weight: 800;
+    }
+
+    .step h2 {
+      margin: 16px 0 8px;
+      font-size: 20px;
+    }
+
+    .step p,
+    .install-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .install-note {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .install-note strong {
+      color: var(--brand-strong);
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 24px 14px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="panel intro-panel">
+        <div class="badge">Kids EMR app download</div>
+        <h1>Install Kids EMR for quick access.</h1>
+        <p class="lead">Use this page to install The Better Kids Clinic EMR on your phone, tablet, or desktop. If the install prompt does not show, open the browser menu and choose Add to Home Screen or Install app.</p>
+        <div class="actions">
+          <button class="button" id="install-button" type="button">Install Kids EMR</button>
+          <a class="button secondary" href="/emr/kid/password.html">Back to Login</a>
+        </div>
+        <p class="install-note" id="install-note">Install works from the live HTTPS website in Chrome or Edge. On iPhone, use Share, then Add to Home Screen.</p>
+      </div>
+
+      <div class="panel phone" aria-label="Kids EMR app preview">
+        <div class="device">
+          <div class="app-top">
+            <div class="mark">K</div>
+            <div class="app-name">
+              <strong>Kids EMR</strong>
+              <span>Pediatric workflows</span>
+            </div>
+          </div>
+          <div class="app-grid">
+            <div class="app-card">
+              <strong>Patients</strong>
+              <span>Pediatric visits and follow-ups</span>
+            </div>
+            <div class="app-card">
+              <strong>Prescriptions</strong>
+              <span>Clinical notes and PDF workflow</span>
+            </div>
+            <div class="app-card">
+              <strong>Growth & Vaccines</strong>
+              <span>Growth charts and vaccination records</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" aria-label="Install steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h2>Open password page</h2>
+        <p>Tap Download / Install Kids EMR from the Kids EMR password page.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h2>Install the app</h2>
+        <p>Tap Install Kids EMR, or use your browser menu and choose Add to Home Screen.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h2>Use from home screen</h2>
+        <p>Open Kids EMR from the installed icon and enter the clinic password.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let deferredPrompt;
+    const installButton = document.getElementById('install-button');
+    const installNote = document.getElementById('install-note');
+    const liveUrl = 'https://www.thebetterhealth.clinic/emr/kid/download';
+    const refreshKey = 'kids-emr-install-refresh';
+
+    async function prepareInstall() {
+      if (!('serviceWorker' in navigator) || !window.location.protocol.startsWith('http')) {
+        return;
+      }
+
+      try {
+        await navigator.serviceWorker.register('/emr/kid/sw.js', { scope: '/emr/kid/' });
+        await navigator.serviceWorker.ready;
+
+        if (!navigator.serviceWorker.controller && !sessionStorage.getItem(refreshKey)) {
+          sessionStorage.setItem(refreshKey, '1');
+          installNote.textContent = 'Preparing Kids EMR install. This page will refresh once, then tap Install Kids EMR again.';
+          window.setTimeout(() => window.location.reload(), 700);
+        }
+      } catch {
+        installNote.innerHTML = '<strong>Install setup is not ready.</strong> Refresh this page once, then try Install Kids EMR again.';
+      }
+    }
+
+    prepareInstall();
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      installNote.textContent = 'Your browser is ready. Tap Install Kids EMR to add it to this device.';
+    });
+
+    installButton.addEventListener('click', async () => {
+      if (window.location.protocol === 'file:') {
+        installNote.innerHTML = '<strong>Local file cannot install apps.</strong> Open the live HTTPS install page, then tap Install Kids EMR again.';
+        window.open(liveUrl, '_blank', 'noopener');
+        return;
+      }
+
+      if (!deferredPrompt) {
+        if ('serviceWorker' in navigator && !navigator.serviceWorker.controller && !sessionStorage.getItem(refreshKey)) {
+          sessionStorage.setItem(refreshKey, '1');
+          installNote.textContent = 'Preparing Kids EMR install. Refreshing once now.';
+          window.setTimeout(() => window.location.reload(), 500);
+          return;
+        }
+
+        installNote.innerHTML = '<strong>Install prompt is not showing yet.</strong> In Chrome or Edge, click the install icon in the address bar or open the browser menu and choose Install app. On Android, use menu then Add to Home screen. On iPhone, use Share then Add to Home Screen.';
+        return;
+      }
+
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installNote.textContent = 'If installation completed, open Kids EMR from your device home screen or app list.';
+    });
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      installNote.textContent = 'Kids EMR is already running in installed app mode on this device.';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/emr/kid",
+      "destination": "/index"
+    },
+    {
+      "source": "/emr/kid/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}

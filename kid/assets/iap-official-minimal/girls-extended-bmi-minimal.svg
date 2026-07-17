@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 188" role="img" aria-label="IAP Girls Extended BMI Charts">
+<style>
+    .axis { stroke: #111; stroke-width: 1; fill: none; }
+    .tick { stroke: #666; stroke-width: 1; }
+    .label { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: middle; }
+    .ylabel { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: end; }
+    .curve { fill: none; stroke: #8a8f96; stroke-width: 1; stroke-linecap: round; }
+    .median { fill: none; stroke: #222; stroke-width: 1; stroke-linecap: round; }
+    .percentile { fill: #444; font: 700 8px Arial, sans-serif; }
+  </style>
+<rect x="0" y="0" width="260" height="188" fill="#fff"/>
+<defs><clipPath id="clip-girls-extended-bmi-minimal-svg-0"><rect x="45" y="22" width="170" height="140"/></clipPath></defs>
+<path class="axis" d="M45 22 V162 H215"/>
+<path class="tick" d="M45 162 V156"/>
+<text class="label" x="45" y="178">0y</text>
+<path class="tick" d="M87 162 V156"/>
+<text class="label" x="87" y="178">4y</text>
+<path class="tick" d="M130 162 V156"/>
+<text class="label" x="130" y="178">8y</text>
+<path class="tick" d="M173 162 V156"/>
+<text class="label" x="173" y="178">12y</text>
+<path class="tick" d="M215 162 V156"/>
+<text class="label" x="215" y="178">18y</text>
+<path class="tick" d="M45 22 H51"/>
+<text class="ylabel" x="39" y="26">45</text>
+<path class="tick" d="M45 69 H51"/>
+<text class="ylabel" x="39" y="73">35</text>
+<path class="tick" d="M45 115 H51"/>
+<text class="ylabel" x="39" y="119">25</text>
+<path class="tick" d="M45 162 H51"/>
+<text class="ylabel" x="39" y="166">15</text>
+
+</svg>

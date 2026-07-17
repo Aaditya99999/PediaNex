@@ -1,0 +1,3116 @@
+@media (max-width: 760px) {
+  :root {
+    --mobile-bg: #f4f8f5;
+    --mobile-surface: #ffffff;
+    --mobile-border: rgba(35, 83, 55, 0.14);
+    --mobile-text: #11251b;
+    --mobile-muted: #5f7167;
+    --mobile-green: #0f7a3b;
+    --mobile-green-dark: #075b2a;
+    --mobile-shadow: 0 12px 30px rgba(18, 48, 29, 0.08);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--mobile-bg) !important;
+  }
+
+  body {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    background:
+      radial-gradient(circle at 12% -6%, rgba(34, 197, 94, 0.12), transparent 34%),
+      linear-gradient(180deg, #f7fbf8 0%, var(--mobile-bg) 42%, #eef6f1 100%) !important;
+    color: var(--mobile-text) !important;
+    padding-bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  canvas,
+  iframe,
+  video,
+  svg {
+    max-width: 100%;
+  }
+
+  .site-header,
+  .viewer-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 80 !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid var(--mobile-border) !important;
+    box-shadow: 0 8px 22px rgba(17, 37, 27, 0.07) !important;
+    backdrop-filter: blur(18px);
+  }
+
+  .topbar,
+  .viewer-header {
+    width: 100% !important;
+    min-height: 64px !important;
+    padding: calc(8px + env(safe-area-inset-top)) 14px 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .brand,
+  .brand-lockup,
+  .clinic-brand {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .brand h1,
+  .brand strong,
+  .brand-title,
+  .clinic-brand strong,
+  .viewer-header strong {
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .brand p,
+  .brand span,
+  .brand-subtitle,
+  .clinic-brand span {
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .brand-icon,
+  .brand-mark,
+  .logo-mark {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    border-radius: 12px !important;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+
+  #primary-nav,
+  .nav-links {
+    position: fixed !important;
+    top: calc(100vh - 72px) !important;
+    top: calc(100dvh - 72px - env(safe-area-inset-bottom)) !important;
+    left: 10px !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 120 !important;
+    height: 62px !important;
+    width: calc(100vw - 20px) !important;
+    max-width: none !important;
+    padding: 7px !important;
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 5px !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid var(--mobile-border) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 16px 38px rgba(17, 37, 27, 0.18) !important;
+    backdrop-filter: blur(20px);
+  }
+
+  #primary-nav::-webkit-scrollbar,
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  #primary-nav a,
+  #primary-nav button,
+  .nav-links a,
+  .nav-links button,
+  .nav-link {
+    min-width: 72px !important;
+    max-width: 104px !important;
+    height: 46px !important;
+    padding: 6px 9px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+    border-radius: 12px !important;
+    font-size: 10.5px !important;
+    line-height: 1.1 !important;
+    color: var(--mobile-muted) !important;
+  }
+
+  #primary-nav a[aria-current="page"],
+  #primary-nav a.is-active,
+  .nav-links a[aria-current="page"],
+  .nav-links a.is-active,
+  .nav-link.is-active {
+    background: #dff8e8 !important;
+    color: var(--mobile-green-dark) !important;
+    font-weight: 800 !important;
+  }
+
+  .topbar-actions,
+  .header-actions,
+  .actions,
+  .page-actions,
+  .submit-row,
+  .review-actions,
+  .rx-actions,
+  .preview-actions,
+  .form-actions {
+    width: 100% !important;
+    margin-left: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 9px !important;
+  }
+
+  .topbar > .topbar-actions,
+  .topbar > .header-actions {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+
+  main,
+  .page-shell,
+  .shell,
+  .workspace,
+  .dashboard-shell,
+  .content-shell,
+  .panel,
+  .page,
+  .app-shell {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 14px 12px 92px !important;
+  }
+
+  .page-intro,
+  .hero,
+  .section-head,
+  .panel-head,
+  .review-head,
+  .sheet-header,
+  .rx-header,
+  .dashboard-header,
+  .form-header {
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  h1 {
+    font-size: 26px !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+    margin: 0 !important;
+  }
+
+  h2 {
+    font-size: 19px !important;
+    line-height: 1.16 !important;
+    letter-spacing: 0 !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+  }
+
+  p,
+  li,
+  label,
+  small,
+  .muted,
+  .field-hint,
+  .status-note {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  .card,
+  .app-card,
+  .overview-card,
+  .action-card,
+  .form-card,
+  .preview-card,
+  .metric-card,
+  .summary-card,
+  .setting-card,
+  .stat-card,
+  .rx-card,
+  .medicine-detail-card,
+  .growth-summary-card,
+  .queue-card,
+  .review-card,
+  .qr-card,
+  .info-card,
+  .access-card,
+  .skeleton-card,
+  .worklist-summary-card,
+  .question-space-card,
+  .prescription-ui-card,
+  .storage-alert-card,
+  .account-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--mobile-border) !important;
+    background: var(--mobile-surface) !important;
+    box-shadow: var(--mobile-shadow) !important;
+  }
+
+  .card,
+  .app-card,
+  .overview-card,
+  .action-card,
+  .form-card,
+  .preview-card,
+  .metric-card,
+  .summary-card,
+  .setting-card,
+  .stat-card,
+  .rx-card,
+  .medicine-detail-card,
+  .growth-summary-card,
+  .queue-card,
+  .review-card,
+  .qr-card,
+  .info-card,
+  .access-card,
+  .skeleton-card,
+  .worklist-summary-card,
+  .question-space-card,
+  .prescription-ui-card,
+  .storage-alert-card,
+  .account-card,
+  .panel {
+    padding: 14px !important;
+  }
+
+  .grid,
+  .card-grid,
+  .field-grid,
+  .form-grid,
+  .summary-grid,
+  .stats-grid,
+  .review-grid,
+  .metric-grid,
+  .dashboard-grid,
+  .workspace,
+  .layout,
+  .content-grid,
+  .two-column,
+  .rx-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+  }
+
+  input[type="radio"] {
+    width: 20px !important;
+    height: 20px !important;
+    accent-color: var(--mobile-green) !important;
+  }
+
+  textarea {
+    min-height: 96px !important;
+  }
+
+  button,
+  .button,
+  .btn,
+  .action-btn,
+  .primary-btn,
+  .secondary-btn,
+  .ghost-btn,
+  .filter-clear-btn,
+  .chip,
+  .status-chip {
+    min-height: 44px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    touch-action: manipulation;
+  }
+
+  .chip,
+  .status-chip,
+  .queue-badge,
+  .count-chip,
+  .badge,
+  .pill,
+  .tag,
+  .tab,
+  .tabs button,
+  .tabs a,
+  .worklist-tabs button,
+  .segmented-control button,
+  .vaccine-filter-row button,
+  .filter-chip,
+  .metric-history-chip,
+  .header-mode-btn,
+  .summary-card span,
+  .worklist-summary-card span {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 34px !important;
+    height: auto !important;
+    padding: 8px 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center !important;
+  }
+
+  .summary-card span,
+  .worklist-summary-card span {
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 28px !important;
+    padding: 6px 9px !important;
+  }
+
+  .count-chip,
+  .queue-badge,
+  .badge,
+  .status-chip {
+    min-width: 72px !important;
+  }
+
+  .tabs button,
+  .tabs a,
+  .worklist-tabs button,
+  .segmented-control button,
+  .vaccine-filter-row button,
+  .header-mode-btn {
+    flex: 1 1 112px !important;
+  }
+
+  .submit-row > *,
+  .page-actions > *,
+  .review-actions > *,
+  .form-actions > *,
+  .rx-actions > * {
+    flex: 1 1 auto !important;
+    min-width: min(140px, 100%) !important;
+  }
+
+  .cloud-save-close,
+  .modal-close,
+  .dialog-close,
+  .pdf-preview-close,
+  #pdf-preview-close {
+    min-width: 44px !important;
+    width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  table {
+    min-width: 620px;
+  }
+
+  .table-wrap,
+  .table-scroll,
+  .schedule-table,
+  .vaccine-table,
+  .history-table,
+  .rx-table,
+  .prescription-table {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .search-row,
+  .search-bar,
+  .search-controls {
+    position: sticky !important;
+    top: calc(64px + env(safe-area-inset-top)) !important;
+    z-index: 70 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 10px 8px !important;
+    margin: -14px -12px 10px !important;
+    background: rgba(244, 248, 245, 0.94) !important;
+    border-bottom: 1px solid var(--mobile-border) !important;
+    backdrop-filter: blur(16px);
+  }
+
+  .search-row button,
+  .search-bar button,
+  .search-controls button {
+    width: 100% !important;
+  }
+
+  .worklist-main {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .worklist-sidebar,
+  .queue-panel,
+  .results-sidebar,
+  #results-panel {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .worklist-datebar {
+    display: grid !important;
+    grid-template-columns: 44px 1fr 44px !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .worklist-datebar .worklist-date-picker {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .worklist-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .worklist-item,
+  .worklist-item-main,
+  .patient-card,
+  .result-card {
+    min-height: 76px !important;
+    border-radius: 8px !important;
+  }
+
+  .patient-hero,
+  .patient-detail,
+  .patient-summary,
+  .selected-patient,
+  .detail-panel {
+    width: 100% !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    background: var(--mobile-surface) !important;
+    border: 1px solid var(--mobile-border) !important;
+    box-shadow: var(--mobile-shadow) !important;
+  }
+
+  .history-grid,
+  .patient-history-grid,
+  .preview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .rx-sheet,
+  .prescription-preview-card,
+  .prescription-preview-frame,
+  .pdf-page,
+  .preview-sheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .prescription-preview-card,
+  .preview-card {
+    transform: none !important;
+  }
+
+  .pdf-page canvas,
+  .prescription-preview-frame iframe,
+  .pdf-preview-frame,
+  #pdf-preview-frame {
+    width: 100% !important;
+    min-height: 420px !important;
+  }
+
+  .modal,
+  .dialog,
+  .pdf-preview-modal,
+  #pdf-preview-modal {
+    padding: 10px !important;
+  }
+
+  .modal-content,
+  .dialog-card,
+  .pdf-preview-card {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: calc(100vh - 24px) !important;
+    border-radius: 8px !important;
+  }
+
+  .chart-stage,
+  .chart-preview,
+  .growth-chart,
+  .preview-canvas-wrap {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chart-stage canvas,
+  .chart-preview canvas,
+  .growth-chart canvas {
+    max-width: none !important;
+  }
+
+  .pill-row,
+  .chip-row,
+  .tabs,
+  .segmented-control,
+  .vaccine-filter-row {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    padding-bottom: 2px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pill-row > *,
+  .chip-row > *,
+  .tabs > *,
+  .segmented-control > *,
+  .vaccine-filter-row > * {
+    flex: 0 0 auto !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  body:has(#search-input) {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#search-input) main,
+  body:has(#search-input) .page-shell {
+    padding: 10px 10px 104px !important;
+  }
+
+  body:has(#search-input) .search-row {
+    top: calc(64px + env(safe-area-inset-top)) !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    margin: -10px -10px 10px !important;
+    border-bottom: 1px solid rgba(15, 122, 59, 0.12) !important;
+    background: rgba(247, 251, 248, 0.96) !important;
+  }
+
+  body:has(#search-input) #search-input {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 14px !important;
+    border: 1px solid rgba(15, 122, 59, 0.24) !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: 0 8px 20px rgba(17, 37, 27, 0.06) !important;
+    font-weight: 700 !important;
+  }
+
+  body:has(#search-input) #clear-btn {
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    color: transparent !important;
+    border-radius: 8px !important;
+    position: relative !important;
+  }
+
+  body:has(#search-input) #clear-btn::before {
+    content: "X";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  body:has(#search-input) #new-patient-btn {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-height: 42px !important;
+    border-radius: 8px !important;
+  }
+
+  body:has(#search-input) #status-note {
+    margin: 4px 2px 10px !important;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(35, 83, 55, 0.1) !important;
+    color: var(--mobile-muted) !important;
+  }
+
+  body:has(#search-input) #results-panel {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  body:has(#search-input) .worklist-datebar {
+    padding: 10px !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    border: 1px solid var(--mobile-border) !important;
+    box-shadow: var(--mobile-shadow) !important;
+  }
+
+  body:has(#search-input) .worklist-date-top {
+    display: grid !important;
+    grid-template-columns: 44px 1fr 44px !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  body:has(#search-input) .worklist-date-pill {
+    width: 100% !important;
+    min-height: 44px !important;
+    border-radius: 8px !important;
+    background: #f7fbf8 !important;
+    color: var(--mobile-green-dark) !important;
+    font-weight: 900 !important;
+  }
+
+  body:has(#search-input) .worklist-tabs {
+    gap: 8px !important;
+    padding: 4px !important;
+    border: 1px solid rgba(15, 122, 59, 0.12) !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+  }
+
+  body:has(#search-input) .worklist-tab {
+    min-height: 42px !important;
+    border-radius: 8px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#search-input) .worklist-tab.is-active {
+    background: #dff8e8 !important;
+    color: var(--mobile-green-dark) !important;
+    box-shadow: 0 8px 18px rgba(15, 122, 59, 0.14) !important;
+  }
+
+  body:has(#search-input) .worklist-summary {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-summary-card {
+    min-height: 78px !important;
+    padding: 12px !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#search-input) .worklist-list {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-item {
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 22px rgba(17, 37, 27, 0.06) !important;
+  }
+
+  body:has(#search-input) .worklist-item.is-active {
+    border-color: rgba(15, 122, 59, 0.42) !important;
+    box-shadow: 0 12px 28px rgba(15, 122, 59, 0.12) !important;
+  }
+
+  body:has(#search-input) .worklist-item-main {
+    min-height: 78px !important;
+    padding: 12px !important;
+    display: grid !important;
+    gap: 7px !important;
+  }
+
+  body:has(#search-input) .worklist-item-head,
+  body:has(#search-input) .worklist-item-title {
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-item-name {
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body:has(#search-input) .worklist-item-meta,
+  body:has(#search-input) .worklist-item-sub,
+  body:has(#search-input) .worklist-item-phone {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  body:has(#search-input) .worklist-item-actions {
+    justify-content: flex-end !important;
+  }
+
+  body:has(#search-input) .worklist-item-queue-btn {
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-main {
+    gap: 10px !important;
+  }
+
+  body:has(#search-input) .worklist-main > section,
+  body:has(#search-input) .doctor-card,
+  body:has(#search-input) .history-panel {
+    border-radius: 8px !important;
+    background: #fff !important;
+    border: 1px solid var(--mobile-border) !important;
+    box-shadow: var(--mobile-shadow) !important;
+  }
+
+  body:has(#search-input) .doctor-card {
+    padding: 14px !important;
+  }
+
+  body:has(#search-input) .doctor-patient-meta {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 14px !important;
+    align-items: stretch !important;
+  }
+
+  body:has(#search-input) .doctor-meta-chip {
+    min-height: 40px !important;
+    width: 100% !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 12px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  body:has(#search-input) .doctor-patient-meta .continue-link {
+    width: 100% !important;
+    min-height: 48px !important;
+    height: 48px !important;
+    padding: 0 10px !important;
+    border-radius: 12px !important;
+    display: grid !important;
+    place-items: center !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    line-height: 1.1 !important;
+  }
+
+  body:has(#search-input) .doctor-patient-meta .doctor-meta-chip:first-child:last-of-type,
+  body:has(#search-input) .doctor-patient-meta .doctor-meta-chip:first-child:nth-last-child(3) {
+    grid-column: 1 / -1 !important;
+  }
+
+  body:has(#search-input) .history-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  body:has(#search-input) .history-panel {
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:has(#search-input) .history-panel .panel-content {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  body:has(#search-input) .history-panel h3,
+  body:has(#search-input) .history-panel > p,
+  body:has(#search-input) .doctor-card-note {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  body:has(#search-input) .history-panel h3 {
+    padding-top: 14px !important;
+    margin-bottom: 10px !important;
+  }
+
+  body:has(#search-input) .history-controls {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 0 14px 12px !important;
+  }
+
+  body:has(#search-input) .record-table-wrap,
+  body:has(#search-input) .doctor-card-body {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body:has(#search-input) .history-table,
+  body:has(#search-input) .record-table {
+    font-size: 12px !important;
+  }
+
+  body:has(#search-input) .record-table {
+    min-width: 560px !important;
+  }
+
+  body:has(#search-input) .carousel-arrow {
+    min-width: 38px !important;
+    width: 38px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Reference-inspired phone UI polish for all Kid EMR pages. */
+  :root {
+    --mobile-bg: #f7f8f7;
+    --mobile-surface: #ffffff;
+    --mobile-surface-soft: #f8fbf9;
+    --mobile-border: rgba(20, 74, 43, 0.10);
+    --mobile-text: #101d16;
+    --mobile-muted: #65736a;
+    --mobile-green: #079246;
+    --mobile-green-dark: #06763a;
+    --mobile-green-soft: #e9f8ef;
+    --mobile-shadow: 0 12px 32px rgba(16, 29, 22, 0.08);
+    --mobile-card-radius: 16px;
+    --mobile-control-radius: 10px;
+  }
+
+  body {
+    background: var(--mobile-bg) !important;
+    color: var(--mobile-text) !important;
+    font-family: Inter, Poppins, "Segoe UI", Arial, sans-serif !important;
+  }
+
+  .site-header,
+  .viewer-header {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 0 !important;
+    box-shadow: 0 8px 28px rgba(16, 29, 22, 0.05) !important;
+  }
+
+  .topbar,
+  .viewer-header {
+    min-height: 72px !important;
+    padding: calc(12px + env(safe-area-inset-top)) 18px 12px !important;
+  }
+
+  .brand-icon,
+  .brand-mark,
+  .logo-mark {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 10px !important;
+    background: linear-gradient(145deg, #049947, #057c3d) !important;
+    box-shadow: 0 10px 22px rgba(5, 124, 61, 0.24) !important;
+  }
+
+  .brand h1,
+  .brand strong,
+  .brand-title,
+  .clinic-brand strong,
+  .viewer-header strong {
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .brand p,
+  .brand span,
+  .brand-subtitle,
+  .clinic-brand span {
+    color: var(--mobile-muted) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+  }
+
+  main,
+  .page-shell,
+  .shell,
+  .workspace,
+  .dashboard-shell,
+  .content-shell,
+  .panel,
+  .page,
+  .app-shell {
+    padding: 14px 14px 100px !important;
+  }
+
+  h1 {
+    font-size: 25px !important;
+    font-weight: 900 !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+  }
+
+  h3 {
+    font-size: 15px !important;
+    font-weight: 900 !important;
+  }
+
+  p,
+  li,
+  label,
+  small,
+  .muted,
+  .field-hint,
+  .status-note {
+    color: var(--mobile-muted) !important;
+  }
+
+  .card,
+  .app-card,
+  .overview-card,
+  .action-card,
+  .form-card,
+  .preview-card,
+  .metric-card,
+  .summary-card,
+  .setting-card,
+  .stat-card,
+  .rx-card,
+  .medicine-detail-card,
+  .growth-summary-card,
+  .queue-card,
+  .review-card,
+  .qr-card,
+  .info-card,
+  .access-card,
+  .skeleton-card,
+  .worklist-summary-card,
+  .question-space-card,
+  .prescription-ui-card,
+  .storage-alert-card,
+  .account-card,
+  .patient-hero,
+  .patient-detail,
+  .patient-summary,
+  .selected-patient,
+  .detail-panel,
+  .doctor-card,
+  .history-panel,
+  .info-panel {
+    border-radius: var(--mobile-card-radius) !important;
+    border: 1px solid var(--mobile-border) !important;
+    background: var(--mobile-surface) !important;
+    box-shadow: var(--mobile-shadow) !important;
+  }
+
+  .action-card,
+  .app-card,
+  .overview-card,
+  .info-card,
+  .qr-card,
+  .setting-card,
+  .review-card,
+  .rx-card {
+    padding: 20px !important;
+  }
+
+  .action-card {
+    min-height: 142px !important;
+    display: grid !important;
+    grid-template-columns: 58px 1fr 20px !important;
+    align-items: center !important;
+    column-gap: 16px !important;
+    text-decoration: none !important;
+  }
+
+  .action-card::before,
+  .app-card::before,
+  .overview-card::before {
+    border-radius: 12px !important;
+  }
+
+  .action-card h3,
+  .action-card strong {
+    font-size: 17px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 6px !important;
+  }
+
+  .action-card p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  input,
+  select,
+  textarea {
+    border: 1px solid rgba(20, 74, 43, 0.12) !important;
+    background: #fff !important;
+    border-radius: var(--mobile-control-radius) !important;
+    box-shadow: inset 0 1px 0 rgba(16, 29, 22, 0.02) !important;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: rgba(7, 146, 70, 0.44) !important;
+    box-shadow: 0 0 0 3px rgba(7, 146, 70, 0.10) !important;
+  }
+
+  button,
+  .button,
+  .btn,
+  .action-btn,
+  .primary-btn,
+  .secondary-btn,
+  .ghost-btn,
+  .filter-clear-btn,
+  .continue-link,
+  .submit-btn,
+  .btn-primary,
+  .btn-secondary {
+    border-radius: var(--mobile-control-radius) !important;
+    font-weight: 900 !important;
+  }
+
+  .primary-btn,
+  .submit-btn,
+  .btn-primary,
+  .continue-link,
+  button[type="submit"] {
+    background: linear-gradient(180deg, #08a64e, #07833f) !important;
+    color: #fff !important;
+    box-shadow: 0 12px 22px rgba(7, 131, 63, 0.22) !important;
+  }
+
+  .secondary-btn,
+  .btn-secondary,
+  .ghost-btn,
+  .filter-clear-btn {
+    background: #fff !important;
+    color: var(--mobile-green-dark) !important;
+    border: 1px solid rgba(7, 131, 63, 0.22) !important;
+  }
+
+  #primary-nav,
+  .nav-links {
+    top: calc(100dvh - 72px - env(safe-area-inset-bottom)) !important;
+    height: 62px !important;
+    padding: 6px !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(20, 74, 43, 0.10) !important;
+    box-shadow: 0 14px 34px rgba(16, 29, 22, 0.14) !important;
+  }
+
+  #primary-nav a,
+  #primary-nav button,
+  .nav-links a,
+  .nav-links button,
+  .nav-link {
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 50px !important;
+    padding: 5px 4px !important;
+    display: grid !important;
+    grid-template-rows: 18px 1fr !important;
+    place-items: center !important;
+    gap: 3px !important;
+    border-radius: 12px !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    color: #5d6d63 !important;
+  }
+
+  #primary-nav a::before,
+  .nav-links a::before,
+  .nav-link::before {
+    display: block;
+    font-size: 16px;
+    line-height: 1;
+    color: currentColor;
+  }
+
+  #primary-nav a:nth-child(1)::before,
+  .nav-links a:nth-child(1)::before {
+    content: "▦";
+  }
+
+  #primary-nav a:nth-child(2)::before,
+  .nav-links a:nth-child(2)::before {
+    content: "▥";
+  }
+
+  #primary-nav a:nth-child(3)::before,
+  .nav-links a:nth-child(3)::before {
+    content: "▣";
+  }
+
+  #primary-nav a:nth-child(4)::before,
+  .nav-links a:nth-child(4)::before {
+    content: "⚙";
+  }
+
+  #primary-nav a[aria-current="page"],
+  #primary-nav a.is-active,
+  #primary-nav a.active,
+  .nav-links a[aria-current="page"],
+  .nav-links a.is-active,
+  .nav-links a.active,
+  .nav-link.is-active,
+  .nav-link.active {
+    background: var(--mobile-green-soft) !important;
+    color: var(--mobile-green-dark) !important;
+  }
+
+  #primary-nav,
+  .nav-links {
+    top: calc(100dvh - 84px - env(safe-area-inset-bottom)) !important;
+    bottom: auto !important;
+    left: 16px !important;
+    right: auto !important;
+    width: calc(100vw - 32px) !important;
+    height: 72px !important;
+    padding: 8px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-auto-flow: initial !important;
+    grid-auto-columns: initial !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(20, 74, 43, 0.12) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 16px 36px rgba(16, 29, 22, 0.16) !important;
+  }
+
+  #primary-nav a,
+  #primary-nav button,
+  .nav-links a,
+  .nav-links button,
+  .nav-link {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 6px 4px 5px !important;
+    display: grid !important;
+    grid-template-rows: 22px 1fr !important;
+    place-items: center !important;
+    gap: 4px !important;
+    border-radius: 16px !important;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #5d6d63 !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+  }
+
+  #primary-nav a::before,
+  .nav-links a::before,
+  .nav-link::before {
+    content: "" !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    border: 2px solid currentColor !important;
+    border-radius: 5px !important;
+    color: currentColor !important;
+    opacity: 0.88 !important;
+  }
+
+  #primary-nav a:nth-child(1)::before,
+  .nav-links a:nth-child(1)::before {
+    background:
+      linear-gradient(currentColor 0 0) 50% 6px / 12px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 12px / 12px 2px no-repeat !important;
+  }
+
+  #primary-nav a:nth-child(2)::before,
+  .nav-links a:nth-child(2)::before {
+    background:
+      linear-gradient(currentColor 0 0) 6px 4px / 2px 12px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 4px / 2px 12px no-repeat,
+      linear-gradient(currentColor 0 0) 12px 4px / 2px 12px no-repeat !important;
+  }
+
+  #primary-nav a:nth-child(3)::before,
+  .nav-links a:nth-child(3)::before {
+    background:
+      linear-gradient(currentColor 0 0) 50% 5px / 10px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 10px / 10px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 15px / 10px 2px no-repeat !important;
+  }
+
+  #primary-nav a:nth-child(4)::before,
+  .nav-links a:nth-child(4)::before {
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle, currentColor 0 2px, transparent 2.5px),
+      linear-gradient(currentColor 0 0) 50% 2px / 2px 4px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 14px / 2px 4px no-repeat,
+      linear-gradient(90deg, currentColor 0 4px, transparent 4px 14px, currentColor 14px 18px) 50% 50% / 18px 2px no-repeat !important;
+  }
+
+  #primary-nav a[aria-current="page"],
+  #primary-nav a.is-active,
+  #primary-nav a.active,
+  .nav-links a[aria-current="page"],
+  .nav-links a.is-active,
+  .nav-links a.active,
+  .nav-link.is-active,
+  .nav-link.active {
+    background: #e7f8ee !important;
+    border-color: rgba(8, 166, 78, 0.14) !important;
+    color: var(--mobile-green-dark) !important;
+    box-shadow: inset 0 0 0 1px rgba(8, 166, 78, 0.06) !important;
+  }
+
+  #primary-nav a,
+  #primary-nav button,
+  .nav-links a,
+  .nav-links button,
+  .nav-link {
+    position: relative !important;
+  }
+
+  #primary-nav a::before,
+  .nav-links a::before,
+  .nav-link::before {
+    content: "" !important;
+    grid-row: 1 !important;
+    width: 22px !important;
+    height: 22px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 0.95 !important;
+  }
+
+  #primary-nav a::after,
+  .nav-links a::after,
+  .nav-link::after {
+    content: none !important;
+  }
+
+  #primary-nav a:nth-child(1)::before,
+  .nav-links a:nth-child(1)::before {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 2px !important;
+    background: currentColor !important;
+    box-shadow:
+      10px 0 0 currentColor,
+      0 10px 0 currentColor,
+      10px 10px 0 currentColor !important;
+    transform: translate(-5px, -5px) !important;
+  }
+
+  #primary-nav a:nth-child(2)::before,
+  .nav-links a:nth-child(2)::before {
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid currentColor !important;
+    border-radius: 6px !important;
+    background:
+      linear-gradient(currentColor 0 0) 5px 4px / 2px 12px no-repeat,
+      linear-gradient(currentColor 0 0) 9px 4px / 2px 12px no-repeat,
+      linear-gradient(currentColor 0 0) 13px 4px / 2px 12px no-repeat !important;
+  }
+
+  #primary-nav a:nth-child(3)::before,
+  .nav-links a:nth-child(3)::before {
+    width: 18px !important;
+    height: 20px !important;
+    border: 2px solid currentColor !important;
+    border-radius: 5px !important;
+    background:
+      linear-gradient(currentColor 0 0) 50% 5px / 8px 2px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 10px / 8px 2px no-repeat !important;
+  }
+
+  #primary-nav a:nth-child(3)::after,
+  .nav-links a:nth-child(3)::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 17px !important;
+    left: 50% !important;
+    width: 8px !important;
+    height: 4px !important;
+    border-left: 2px solid currentColor !important;
+    border-bottom: 2px solid currentColor !important;
+    transform: translateX(-50%) rotate(-45deg) !important;
+  }
+
+  #primary-nav a:nth-child(4)::before,
+  .nav-links a:nth-child(4)::before {
+    width: 22px !important;
+    height: 22px !important;
+    border: 2px solid currentColor !important;
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle, currentColor 0 2px, transparent 2.5px),
+      linear-gradient(currentColor 0 0) 50% 0 / 2px 5px no-repeat,
+      linear-gradient(currentColor 0 0) 50% 100% / 2px 5px no-repeat,
+      linear-gradient(90deg, currentColor 0 5px, transparent 5px 17px, currentColor 17px 22px) 50% 50% / 22px 2px no-repeat !important;
+  }
+
+  .summary-card,
+  .worklist-summary-card,
+  .stat-card,
+  .metric-card {
+    min-height: 112px !important;
+    padding: 16px !important;
+  }
+
+  .summary-card strong,
+  .worklist-summary-card strong,
+  .stat-card strong {
+    font-size: 30px !important;
+    line-height: 1 !important;
+    color: var(--mobile-text) !important;
+  }
+
+  .summary-card span,
+  .worklist-summary-card span,
+  .status-chip {
+    color: var(--mobile-green-dark) !important;
+    background: var(--mobile-green-soft) !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .qr-card img {
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+
+  .access-card {
+    margin-top: 18px !important;
+    padding: 28px 20px !important;
+  }
+
+  .access-card h1 {
+    text-align: center !important;
+  }
+
+  .access-card .intro {
+    text-align: center !important;
+  }
+
+  body:has(#search-input) .search-row {
+    grid-template-columns: 1fr 48px !important;
+    border-radius: 0 0 16px 16px !important;
+    box-shadow: 0 12px 26px rgba(16, 29, 22, 0.06) !important;
+  }
+
+  body:has(#search-input) #search-input {
+    border-radius: 12px !important;
+  }
+
+  body:has(#search-input) #clear-btn {
+    border-radius: 12px !important;
+  }
+
+  body:has(#search-input) #new-patient-btn {
+    min-height: 44px !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+  }
+
+  body:has(#search-input) .worklist-datebar,
+  body:has(#search-input) .worklist-item,
+  body:has(#search-input) .worklist-summary-card,
+  body:has(#search-input) .doctor-card {
+    border-radius: var(--mobile-card-radius) !important;
+  }
+
+  body:has(#search-input) .worklist-item {
+    min-height: 92px !important;
+  }
+
+  body:has(#search-input) .worklist-item-name {
+    font-size: 16px !important;
+    font-weight: 900 !important;
+  }
+
+  body:has(#search-input) .doctor-patient-meta .continue-link {
+    border-radius: 12px !important;
+  }
+
+  .prescription-preview-card,
+  .pdf-preview-card,
+  .preview-card {
+    border-radius: var(--mobile-card-radius) !important;
+  }
+
+  body:has(.dashboard-panel) .dashboard-panel {
+    padding: 14px !important;
+  }
+
+  body:has(.dashboard-panel) .action-grid {
+    gap: 12px !important;
+  }
+
+  body:has(.dashboard-panel) .action-card {
+    min-height: 0 !important;
+    padding: 14px !important;
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) 18px !important;
+    grid-template-areas:
+      "icon title arrow"
+      "icon text arrow"
+      "cta cta cta" !important;
+    align-items: center !important;
+    gap: 6px 12px !important;
+  }
+
+  body:has(.dashboard-panel) .action-icon {
+    grid-area: icon !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    font-size: 20px !important;
+  }
+
+  body:has(.dashboard-panel) .action-card h3 {
+    grid-area: title !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  body:has(.dashboard-panel) .action-card p {
+    grid-area: text !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  body:has(.dashboard-panel) .action-footer {
+    grid-area: cta !important;
+    width: fit-content !important;
+    margin-top: 4px !important;
+    padding: 7px 10px !important;
+    border-radius: 10px !important;
+    background: var(--mobile-green-soft) !important;
+    color: var(--mobile-green-dark) !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    font-weight: 900 !important;
+  }
+
+  body:has(.dashboard-panel) .action-card::after {
+    content: "›";
+    grid-area: arrow !important;
+    justify-self: end !important;
+    color: var(--mobile-green-dark) !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+  }
+
+  body:has(#search-input) .worklist-datebar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-date-top {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) 56px !important;
+    gap: 10px !important;
+  }
+
+  body:has(#search-input) .worklist-date-nav,
+  body:has(#search-input) .worklist-date-pill {
+    height: 48px !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+
+  body:has(#search-input) .worklist-date-pill {
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 10px !important;
+    font-size: 14px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+  }
+
+  body:has(#search-input) .worklist-summary {
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .worklist-summary-card {
+    min-height: 78px !important;
+    padding: 12px !important;
+  }
+
+  body:has(#search-input) .worklist-summary-card strong {
+    font-size: 26px !important;
+  }
+
+  body:has(#search-input) .worklist-summary {
+    display: none !important;
+  }
+
+  body:has(#tables-root) [data-vaccination-table-wrap] {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body:has(#tables-root) .schedule-table {
+    width: max-content !important;
+    min-width: 1880px !important;
+    table-layout: fixed !important;
+  }
+
+  body:has(#tables-root) .schedule-table th:first-child,
+  body:has(#tables-root) .schedule-table td:first-child {
+    width: 96px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+  }
+
+  body:has(#tables-root) .schedule-table th:not(:first-child),
+  body:has(#tables-root) .schedule-table td:not(:first-child) {
+    width: 118px !important;
+    min-width: 118px !important;
+    max-width: 118px !important;
+  }
+
+  body:has(#tables-root) .schedule-cell {
+    min-height: 118px !important;
+    padding: 8px !important;
+    overflow: visible !important;
+  }
+
+  body:has(#tables-root) .cell-vaccine,
+  body:has(#tables-root) .cell-date,
+  body:has(#tables-root) .cell-note {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  body:has(#tables-root) .chart-head-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 48px 48px !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .chart-scroll-btn {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+  }
+
+  body:has(#tables-root) {
+    background: #f5f8f6 !important;
+  }
+
+  body:has(#tables-root) .page-shell {
+    padding: 12px 10px calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#tables-root) .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .summary-card {
+    min-height: 74px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#tables-root) .summary-card strong {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body:has(#tables-root) .status-note {
+    margin: 8px 0 !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(20, 74, 43, 0.10) !important;
+    background: #ffffff !important;
+  }
+
+  body:has(#tables-root) .panel {
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#tables-root) .panel-head {
+    padding: 12px 2px 10px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    border: 0 !important;
+  }
+
+  body:has(#tables-root) .panel-head h2 {
+    font-size: 18px !important;
+  }
+
+  body:has(#tables-root) .chart-head-actions {
+    display: none !important;
+  }
+
+  body:has(#tables-root) [data-vaccination-table-wrap] {
+    display: none !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-list {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-group {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-group-head {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 0 2px !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-group-head h3 {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-group-head span {
+    color: var(--mobile-muted) !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-cards {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card {
+    display: grid !important;
+    gap: 9px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(20, 74, 43, 0.10) !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 22px rgba(16, 29, 22, 0.06) !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card.status-given {
+    border-color: rgba(22, 101, 52, 0.22) !important;
+    background: #f0fdf4 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card.status-due {
+    border-color: rgba(37, 99, 235, 0.24) !important;
+    background: #eff6ff !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card.status-missed {
+    border-color: rgba(185, 28, 28, 0.24) !important;
+    background: #fef2f2 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 10px !important;
+    align-items: start !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card-main strong {
+    display: block !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-card-main span:not(.mobile-vaccine-status) {
+    display: block !important;
+    margin-top: 3px !important;
+    color: var(--mobile-muted) !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-status {
+    min-height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 9px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    color: var(--mobile-text) !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-meta,
+  body:has(#tables-root) .mobile-vaccine-note {
+    color: var(--mobile-muted) !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-note {
+    margin: 0 !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .mobile-vaccine-actions .cell-action {
+    width: 100% !important;
+    min-height: 42px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    background: #ffffff !important;
+  }
+
+  body:has(#tables-root) .action-panel {
+    margin: 0 0 10px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal {
+    align-items: end !important;
+    padding: 8px !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-dialog {
+    width: 100% !important;
+    max-height: calc(100dvh - 18px) !important;
+    border-radius: 18px 18px 12px 12px !important;
+    overflow: hidden !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-head {
+    min-height: 58px !important;
+    padding: 0 12px !important;
+  }
+
+  body:has(#tables-root) .vaccine-tabs {
+    flex: 1 1 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body:has(#tables-root) .vaccine-tab {
+    min-height: 42px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(20, 74, 43, 0.10) !important;
+  }
+
+  body:has(#tables-root) .vaccine-tab.is-active {
+    background: #eff6ff !important;
+    border-color: rgba(37, 99, 235, 0.34) !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-close {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-body {
+    overflow-y: auto !important;
+  }
+
+  body:has(#tables-root) .vaccine-given-layout {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  body:has(#tables-root) .vaccine-given-main,
+  body:has(#tables-root) .vaccine-brand-panel {
+    padding: 14px !important;
+  }
+
+  body:has(#tables-root) .vaccine-date-controls {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#tables-root) .calendar-day {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  body:has(#tables-root) .vaccine-brand-panel {
+    max-height: none !important;
+    border-left: 0 !important;
+    border-top: 1px solid rgba(20, 74, 43, 0.10) !important;
+  }
+
+  body:has(#tables-root) .brand-options {
+    gap: 8px !important;
+  }
+
+  body:has(#tables-root) .brand-option {
+    min-height: 42px !important;
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+    background: #f8fafc !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-foot {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  body:has(#tables-root) .vaccine-modal-foot .btn-primary,
+  body:has(#tables-root) .vaccine-modal-foot .btn-ghost {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+
+  body:has(.measurement-table) .measurement-table-wrap {
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  body:has(.measurement-table) .measurement-table tr {
+    padding: 14px !important;
+    display: grid !important;
+    gap: 10px !important;
+  }
+
+  body:has(.measurement-table) .measurement-table th {
+    margin: 0 !important;
+  }
+
+  body:has(.measurement-table) .measurement-head-stack {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    gap: 10px !important;
+  }
+
+  body:has(.measurement-table) .measurement-type {
+    min-height: 24px !important;
+    padding: 5px 10px !important;
+    margin: 0 0 6px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+  }
+
+  body:has(.measurement-table) .measurement-label {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  body:has(.measurement-table) .metric-history-control {
+    width: auto !important;
+    min-width: 104px !important;
+    max-width: 116px !important;
+    padding: 6px 8px !important;
+    border-radius: 12px !important;
+    align-self: start !important;
+  }
+
+  body:has(.measurement-table) .metric-history-toggle {
+    min-height: 28px !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+  }
+
+  body:has(.measurement-table) .metric-history-toggle .metric-toggle-ui {
+    width: 26px !important;
+    min-width: 26px !important;
+    height: 16px !important;
+  }
+
+  body:has(.measurement-table) .metric-history-toggle .metric-toggle-ui::after {
+    width: 12px !important;
+    height: 12px !important;
+    top: 2px !important;
+    left: 2px !important;
+  }
+
+  body:has(.measurement-table) .metric-history-toggle input:checked + .metric-toggle-ui::after {
+    transform: translateX(10px) !important;
+  }
+
+  body:has(.measurement-table) .measurement-table td input:not([type="checkbox"]) {
+    min-height: 54px !important;
+    height: 54px !important;
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+  }
+
+  body:has(.measurement-table) .measurement-hint {
+    margin-top: 8px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  body:has(#chart-form) .page-intro {
+    margin-bottom: 14px !important;
+  }
+
+  body:has(#chart-form) .form-card {
+    padding: 12px !important;
+  }
+
+  body:has(#chart-form) .section {
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  body:has(#chart-form) .section-head {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+  }
+
+  body:has(#chart-form) .section-title {
+    font-size: 24px !important;
+    line-height: 1.05 !important;
+  }
+
+  body:has(#chart-form) .section-head-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(112px, 0.72fr) !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  body:has(#chart-form) .record-date-chip,
+  body:has(#chart-form) #add-record-btn,
+  body:has(#chart-form) .metric-master-toggle {
+    min-height: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 12px !important;
+    font-size: 13px !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+
+  body:has(#chart-form) .record-date-chip {
+    justify-content: center !important;
+  }
+
+  body:has(#chart-form) .record-date-chip span {
+    margin-left: 2px !important;
+    font-size: 13px !important;
+  }
+
+  body:has(#chart-form) .metric-master-toggle {
+    grid-column: 1 / -1 !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    justify-content: space-between !important;
+    padding: 0 14px !important;
+    border-radius: 13px !important;
+    background: #f7fbf8 !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#chart-form) .metric-master-toggle .metric-toggle-ui {
+    order: 2 !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 22px !important;
+  }
+
+  body:has(#chart-form) .metric-master-toggle .metric-toggle-ui::after {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  body:has(#chart-form) .metric-master-toggle input:checked + .metric-toggle-ui::after {
+    transform: translateX(16px) !important;
+  }
+
+  body:has(#chart-form) .field.field-full > label {
+    margin: 14px 0 8px !important;
+    font-size: 14px !important;
+  }
+
+  body:has(#chart-form) .measurement-table-wrap {
+    border-radius: 16px !important;
+    border: 1px solid rgba(20, 74, 43, 0.12) !important;
+    background: #fff !important;
+  }
+
+  body:has(#chart-form) .measurement-table tr {
+    padding: 12px !important;
+    border-bottom: 1px solid rgba(20, 74, 43, 0.10) !important;
+  }
+
+  body:has(#chart-form) .measurement-head-stack {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+  }
+
+  body:has(#chart-form) .metric-history-control {
+    width: 78px !important;
+    min-width: 78px !important;
+    max-width: 78px !important;
+    padding: 4px 5px !important;
+    border: 1px solid rgba(20, 74, 43, 0.08) !important;
+    border-radius: 999px !important;
+    background: #f8fbf9 !important;
+  }
+
+  body:has(#chart-form) .metric-history-control-head {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  body:has(#chart-form) .metric-history-toggle {
+    min-height: 22px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+  }
+
+  body:has(#chart-form) .metric-history-toggle::after {
+    content: "Past";
+    margin-left: 4px;
+    color: var(--mobile-muted);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  body:has(#search-input) .doctor-card .doctor-card-body {
+    overflow: visible !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-controls {
+    padding: 0 0 14px !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-filter-row {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px !important;
+    align-items: end !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-filter-row label {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-date-input {
+    height: 46px !important;
+    min-height: 46px !important;
+    border-radius: 12px !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-date-shell {
+    position: relative !important;
+    min-width: 0 !important;
+    height: 46px !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-date-visible {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 44px 0 14px !important;
+    border: 1px solid var(--mobile-border) !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    color: var(--mobile-text) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    pointer-events: none !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-date-input {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    opacity: 0 !important;
+    color: transparent !important;
+    background: transparent !important;
+  }
+
+  body:has(#search-input) .doctor-card .history-filter-row .filter-clear-btn {
+    min-width: 98px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    border-radius: 12px !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table-wrap {
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    padding: 0 0 2px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body:has(#search-input) .doctor-card .record-table,
+  body:has(#search-input) .doctor-card .record-table thead,
+  body:has(#search-input) .doctor-card .record-table tbody,
+  body:has(#search-input) .doctor-card .record-table tr {
+    display: block !important;
+    width: max-content !important;
+    min-width: 100% !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table thead tr {
+    display: grid !important;
+    grid-template-columns: 82px 28px repeat(var(--history-entry-count, 1), 78px) !important;
+    gap: 6px !important;
+    align-items: end !important;
+    padding: 0 0 8px !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table thead th {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    min-width: 0 !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table thead th:nth-child(-n+2) {
+    visibility: hidden !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table thead th:nth-child(n+3) {
+    width: 78px !important;
+    min-width: 78px !important;
+    max-width: 78px !important;
+    text-align: center !important;
+    color: var(--mobile-green-dark) !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table tbody {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table tbody tr {
+    display: grid !important;
+    grid-template-columns: 82px 28px repeat(var(--history-entry-count, 1), 78px) !important;
+    gap: 6px !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table th,
+  body:has(#search-input) .doctor-card .record-table td {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table .metric-name {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table .metric-unit {
+    color: var(--mobile-muted) !important;
+    font-size: 10px !important;
+    text-align: center !important;
+    font-weight: 900 !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table .metric-value {
+    width: 78px !important;
+    min-width: 78px !important;
+    max-width: 78px !important;
+  }
+
+  body:has(#search-input) .doctor-card .record-table-input {
+    width: 78px !important;
+    max-width: 78px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 10px !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#medicine-detail-content) {
+    padding-bottom: calc(106px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#medicine-detail-content) .page-shell,
+  body:has(#medicine-detail-content) main,
+  body:has(#medicine-detail-content) .content-layout {
+    padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-detail-card,
+  body:has(#medicine-detail-content) .medicine-table-body,
+  body:has(#medicine-detail-content) .medicine-question,
+  body:has(#medicine-detail-content) .note-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-detail-card {
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-meta-strip {
+    padding: 10px !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-table-body {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-question {
+    border-radius: 14px !important;
+  }
+
+  body:has(#medicine-detail-content) .question-bar {
+    min-height: 40px !important;
+    padding: 7px 10px !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 8px !important;
+    align-items: center !important;
+    font-size: 12px !important;
+  }
+
+  body:has(#medicine-detail-content) .dose-unit-select,
+  body:has(#medicine-detail-content) .timing-mode-select {
+    width: 100% !important;
+    max-width: none !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 30px 0 10px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+
+  body:has(#medicine-detail-content) .dose-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(20, 74, 43, 0.08) !important;
+  }
+
+  body:has(#medicine-detail-content) .timing-main-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#medicine-detail-content) .timing-food-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#medicine-detail-content) .timing-extra-row,
+  body:has(#medicine-detail-content) .duration-third-row,
+  body:has(#medicine-detail-content) .duration-final-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#medicine-detail-content) .duration-row,
+  body:has(#medicine-detail-content) .timing-interval-row,
+  body:has(#medicine-detail-content) .timing-frequency-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#medicine-detail-content) .timing-row,
+  body:has(#medicine-detail-content) .duration-row {
+    gap: 1px !important;
+  }
+
+  body:has(#medicine-detail-content) .option-pill {
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 0 6px !important;
+    border-radius: 0 !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  body:has(#medicine-detail-content) .dose-row .option-pill {
+    width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    justify-self: center !important;
+    border-radius: 999px !important;
+  }
+
+  body:has(#medicine-detail-content) .dose-entry-row {
+    grid-template-columns: minmax(0, 1fr) 64px !important;
+  }
+
+  body:has(#medicine-detail-content) .medicine-question input[type="text"] {
+    height: 42px !important;
+    min-height: 42px !important;
+    font-size: 14px !important;
+  }
+
+  body:has(#medicine-detail-content) .note-area textarea {
+    min-height: 90px !important;
+    font-size: 14px !important;
+  }
+
+  body:has(#selection-detail-content) .medicine-detail-panel {
+    width: min(100% - 24px, 420px) !important;
+    max-height: calc(100dvh - 104px) !important;
+    overflow: hidden !important;
+  }
+
+  body:has(#selection-detail-content) .medicine-modal-head {
+    min-height: 72px !important;
+    padding: 12px 14px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 48px !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+
+  body:has(#selection-detail-content) .medicine-modal-title-wrap {
+    text-align: center !important;
+  }
+
+  body:has(#selection-detail-content) .medicine-modal-title-wrap h2 {
+    font-size: 20px !important;
+  }
+
+  body:has(#selection-detail-content) .modal-close-btn {
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content {
+    padding: 10px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: calc(100dvh - 190px) !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .medicine-detail-card {
+    gap: 10px !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .medicine-question,
+  body:has(#selection-detail-content) #selection-detail-content .note-area {
+    border-radius: 14px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .question-bar {
+    min-height: 38px !important;
+    padding: 7px 10px !important;
+    font-size: 13px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .selection-pill-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .selection-pill-grid.days-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .selection-pill {
+    min-height: 44px !important;
+    height: 44px !important;
+    width: 100% !important;
+    padding: 0 8px !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content .days-custom-input {
+    min-height: 46px !important;
+    height: 46px !important;
+    margin: 0 10px 10px !important;
+    width: calc(100% - 20px) !important;
+    padding: 0 12px !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+  }
+
+  body:has(#selection-detail-content) #selection-detail-content textarea {
+    min-height: 104px !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+
+  body:has(#preview-status) {
+    padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#preview-status) .page-shell {
+    padding-bottom: calc(118px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body:has(#preview-status) .content-panel {
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+
+  body:has(#preview-status) .preview-workbar {
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+
+  body:has(#preview-status) #preview-status {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 8px 10px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  body:has(#preview-status) .preview-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  body:has(#preview-status) .preview-actions .nav-enter-clinic {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(15, 122, 59, 0.22) !important;
+    background: linear-gradient(180deg, #f0fff6, #dff8e8) !important;
+    color: #0f6b3a !important;
+    box-shadow: 0 8px 18px rgba(15, 122, 59, 0.1) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+  }
+
+  body:has(#preview-status) .header-mode-toggle {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    padding: 4px !important;
+    border-radius: 14px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#preview-status) .header-mode-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 8px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  body:has(#preview-status) #download-pdf-btn,
+  body:has(#preview-status) #whatsapp-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 8px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  body:has(#preview-status) .document-stage {
+    padding: 14px 0 !important;
+    margin-top: 12px !important;
+    border-radius: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    display: grid !important;
+    justify-items: center !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body:has(#preview-status) .rx-sheet {
+    --mobile-a4-width: 794px;
+    width: var(--mobile-a4-width) !important;
+    min-width: var(--mobile-a4-width) !important;
+    max-width: none !important;
+    min-height: 1123px !important;
+    padding: var(--rx-margin-top, 38px) var(--rx-margin-right, 42px) var(--rx-margin-bottom, 38px) var(--rx-margin-left, 42px) !important;
+    transform: scale(calc((100vw - 58px) / 794)) !important;
+    transform-origin: top center !important;
+    margin: 0 auto calc((1123px * ((100vw - 58px) / 794)) - 1123px + 18px) !important;
+    border-radius: 4px !important;
+    font-size: var(--rx-font-size, 12px) !important;
+  }
+
+  body.rendering-prescription-download:has(#preview-status) .rx-sheet {
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: none !important;
+    min-height: 1123px !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  body:has(#preview-status) .rx-sheet-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  body.preview-without-header:has(#preview-status) .rx-sheet-header,
+  body:not(.print-with-header):has(#preview-status) .rx-sheet-header {
+    display: none !important;
+  }
+
+  body.print-with-header:has(#preview-status):not(.preview-without-header) .rx-sheet-header {
+    display: grid !important;
+  }
+
+  body:has(#preview-status) .patient-band {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 0.9fr) !important;
+  }
+
+  body:has(#preview-status) .mini-chart-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  body:has(#preview-status) .medicine-table-wrap {
+    overflow: visible !important;
+  }
+
+  body:has(#preview-status) .medicine-table-wrap .medicine-table {
+    min-width: 620px !important;
+  }
+
+  body:has(#password-form) {
+    min-height: 100dvh !important;
+    display: block !important;
+    padding: calc(28px + env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom)) !important;
+    background:
+      radial-gradient(circle at 20% 4%, rgba(7, 146, 70, 0.12), transparent 28%),
+      linear-gradient(180deg, #f8faf9 0%, #eef4f0 100%) !important;
+  }
+
+  body:has(#password-form) .access-card {
+    width: 100% !important;
+    max-width: 430px !important;
+    min-height: auto !important;
+    margin: min(11dvh, 76px) auto 0 !important;
+    padding: 24px 20px 22px !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 20px 44px rgba(16, 29, 22, 0.10) !important;
+  }
+
+  body:has(#password-form) .brand {
+    margin-bottom: 28px !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  body:has(#password-form) .brand-mark {
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 15px !important;
+    font-size: 24px !important;
+    flex: 0 0 auto !important;
+  }
+
+  body:has(#password-form) .brand-copy strong {
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+  }
+
+  body:has(#password-form) .brand-copy span {
+    margin-top: 5px !important;
+    font-size: 13px !important;
+  }
+
+  body:has(#password-form) h1 {
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: 31px !important;
+    line-height: 1.06 !important;
+  }
+
+  body:has(#password-form) .intro {
+    max-width: 310px !important;
+    margin: 8px 0 24px !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  body:has(#password-form) form {
+    gap: 14px !important;
+  }
+
+  body:has(#password-form) label {
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+    color: var(--mobile-text) !important;
+  }
+
+  body:has(#password-form) .pin-input {
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 16px !important;
+    border-radius: 14px !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    text-align: center !important;
+  }
+
+  body:has(#password-form) .helper {
+    margin-top: 8px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  body:has(#password-form) .error {
+    min-height: 18px !important;
+    font-size: 12px !important;
+  }
+
+  body:has(#password-form) .submit-btn {
+    width: 100% !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    border-radius: 14px !important;
+    font-size: 15px !important;
+    box-shadow: 0 14px 24px rgba(7, 131, 63, 0.22) !important;
+  }
+
+  body:has(#password-form) .download-link {
+    min-height: 44px !important;
+    margin-top: 12px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(7, 131, 63, 0.16) !important;
+    background: #fff !important;
+    color: var(--mobile-green-dark) !important;
+    font-size: 13px !important;
+    line-height: 1.1 !important;
+    text-decoration: none !important;
+  }
+
+  body.search-page {
+    min-height: 100dvh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.search-page .site-header {
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  body.search-page main,
+  body.search-page .page-shell,
+  body.search-page .search-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.search-page .page-shell {
+    padding: 10px 10px calc(108px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body.search-page .search-row {
+    position: sticky !important;
+    top: calc(64px + env(safe-area-inset-top)) !important;
+    z-index: 70 !important;
+    width: calc(100% + 20px) !important;
+    grid-template-columns: minmax(0, 1fr) 48px !important;
+    box-shadow: 0 10px 24px rgba(17, 37, 27, 0.08) !important;
+  }
+
+  body.search-page #search-input {
+    min-width: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body.search-page .results-dashboard {
+    display: block !important;
+    min-height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  body.search-page .worklist-sidebar {
+    display: block !important;
+    width: 100% !important;
+    max-height: none !important;
+    min-height: auto !important;
+    position: static !important;
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  body.search-page .worklist-datebar {
+    margin: 0 0 10px !important;
+  }
+
+  body.search-page .worklist-summary {
+    display: none !important;
+  }
+
+  body.search-page .worklist-list {
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    gap: 10px !important;
+    padding: 0 0 8px !important;
+  }
+
+  body.search-page .worklist-item {
+    width: 100% !important;
+    border: 1px solid rgba(35, 83, 55, 0.12) !important;
+    border-radius: 14px !important;
+  }
+
+  body.search-page .worklist-item.is-active {
+    border-color: rgba(15, 122, 59, 0.32) !important;
+    box-shadow: 0 12px 28px rgba(15, 122, 59, 0.1) !important;
+  }
+
+  body.search-page .worklist-item-main {
+    min-height: 88px !important;
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  body.search-page .worklist-item-head {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+  }
+
+  body.search-page .worklist-item-name {
+    font-size: 17px !important;
+  }
+
+  body.search-page .worklist-item-phone {
+    max-width: 112px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body.search-page .worklist-item-sub {
+    row-gap: 4px !important;
+  }
+
+  body.search-page .worklist-empty {
+    border: 1px solid rgba(35, 83, 55, 0.1) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+  }
+
+  body.search-page .worklist-main {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body.patient-details-page .patient-profile-page {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom)) !important;
+  }
+
+  body.patient-details-page .patient-profile-page .doctor-card {
+    padding: 0 !important;
+  }
+
+  body.patient-details-page .patient-profile-page .doctor-card-body {
+    padding-bottom: 14px !important;
+  }
+
+  body.patient-details-page .patient-profile-grid > .doctor-card:last-child {
+    width: calc(100% + 24px) !important;
+    margin-inline: -12px !important;
+  }
+
+  body.patient-details-page .patient-profile-grid > .doctor-card:last-child .doctor-card-body {
+    padding-inline: 8px !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-carousel {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    margin-inline: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-list {
+    display: flex !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-entry {
+    display: grid !important;
+    flex: 0 0 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    scroll-snap-align: start !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-entry {
+    margin: 0 !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-card,
+  body.patient-details-page .patient-profile-page .prescription-preview-surface {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-card {
+    aspect-ratio: auto !important;
+    padding: 4px !important;
+    border-radius: 12px !important;
+    background: #f6faf7 !important;
+    border: 1px solid var(--mobile-border) !important;
+    box-shadow: 0 12px 28px rgba(18, 48, 29, 0.08) !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-surface {
+    aspect-ratio: 210 / 297 !important;
+    overflow: hidden !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-frame,
+  body.patient-details-page .patient-profile-page .prescription-preview-embed {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: top center !important;
+  }
+
+  body.patient-details-page .patient-profile-page .carousel-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 52px !important;
+    height: 54px !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(216, 226, 220, 0.85) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    color: var(--mobile-green) !important;
+    box-shadow: 0 12px 28px rgba(18, 48, 29, 0.12) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  body.patient-details-page .patient-profile-page .carousel-arrow-left {
+    left: 12px !important;
+  }
+
+  body.patient-details-page .patient-profile-page .carousel-arrow-right {
+    right: 12px !important;
+  }
+
+  body.patient-details-page .patient-profile-page .prescription-preview-open-chip {
+    display: none !important;
+  }
+}

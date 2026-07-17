@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-04T03:14:35.850Z",
+  "writeMode": true,
+  "deleteOldStorage": false,
+  "stats": {
+    "patientDocsScanned": 1729,
+    "patientDocsWritten": 1729,
+    "patientDocsDeleted": 0,
+    "patientSubcollectionDocs": 3907,
+    "storageFilesScanned": 0,
+    "storageFilesCopied": 0,
+    "storageFilesDeleted": 0,
+    "relatedCollections": {
+      "clinics/kid/history": {
+        "scanned": 3955,
+        "updated": 0
+      },
+      "clinics/kid/pendingPatients": {
+        "scanned": 0,
+        "updated": 0
+      }
+    }
+  },
+  "verification": {
+    "count": 1729,
+    "firstPatientId": "TBK0001",
+    "lastPatientId": "TBK1729"
+  }
+}

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 188" role="img" aria-label="IAP Girls Height 5-18 years">
+<style>
+    .axis { stroke: #111; stroke-width: 1; fill: none; }
+    .tick { stroke: #666; stroke-width: 1; }
+    .label { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: middle; }
+    .ylabel { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: end; }
+    .curve { fill: none; stroke: #8a8f96; stroke-width: 1; stroke-linecap: round; }
+    .median { fill: none; stroke: #222; stroke-width: 1; stroke-linecap: round; }
+    .percentile { fill: #444; font: 700 8px Arial, sans-serif; }
+  </style>
+<rect x="0" y="0" width="260" height="188" fill="#fff"/>
+<defs><clipPath id="clip-girls-height-5-18-minimal-svg-0"><rect x="45" y="22" width="170" height="140"/></clipPath></defs>
+<path class="axis" d="M45 22 V162 H215"/>
+<path class="tick" d="M45 162 V156"/>
+<text class="label" x="45" y="178">5y</text>
+<path class="tick" d="M87 162 V156"/>
+<text class="label" x="87" y="178">8y</text>
+<path class="tick" d="M130 162 V156"/>
+<text class="label" x="130" y="178">11y</text>
+<path class="tick" d="M173 162 V156"/>
+<text class="label" x="173" y="178">14y</text>
+<path class="tick" d="M215 162 V156"/>
+<text class="label" x="215" y="178">18y</text>
+<path class="tick" d="M45 22 H51"/>
+<text class="ylabel" x="39" y="26">180</text>
+<path class="tick" d="M45 57 H51"/>
+<text class="ylabel" x="39" y="61">150</text>
+<path class="tick" d="M45 92 H51"/>
+<text class="ylabel" x="39" y="96">120</text>
+<path class="tick" d="M45 127 H51"/>
+<text class="ylabel" x="39" y="131">90</text>
+<path class="tick" d="M45 162 H51"/>
+<text class="ylabel" x="39" y="166">60</text>
+<g clip-path="url(#clip-girls-height-5-18-minimal-svg-0)">
+<path class="curve" d="M45.00 92.82 L51.54 89.08 L58.08 85.47 L64.62 81.85 L71.15 78.12 L77.69 74.50 L84.23 70.88 L90.77 67.15 L97.31 63.42 L103.85 59.80 L110.38 56.07 L116.92 52.45 L123.46 49.07 L130.00 45.80 L136.54 43.00 L143.08 40.55 L149.62 38.45 L156.15 36.93 L162.69 35.77 L169.23 34.83 L175.77 34.25 L182.31 33.90 L188.85 33.55 L195.38 33.43 L201.92 33.20 L208.46 33.08 L215.00 32.97"/>
+<path class="curve" d="M45.00 102.15 L51.54 98.53 L58.08 95.03 L64.62 91.42 L71.15 87.92 L77.69 84.30 L84.23 80.80 L90.77 77.18 L97.31 73.57 L103.85 69.95 L110.38 66.33 L116.92 62.83 L123.46 59.45 L130.00 56.30 L136.54 53.50 L143.08 51.05 L149.62 49.07 L156.15 47.43 L162.69 46.27 L169.23 45.33 L175.77 44.75 L182.31 44.28 L188.85 43.93 L195.38 43.70 L201.92 43.47 L208.46 43.35 L215.00 43.12"/>
+<path class="median" d="M45.00 106.58 L51.54 103.08 L58.08 99.58 L64.62 96.08 L71.15 92.70 L77.69 89.20 L84.23 85.70 L90.77 82.20 L97.31 78.70 L103.85 75.20 L110.38 71.70 L116.92 68.20 L123.46 64.82 L130.00 61.78 L136.54 58.87 L143.08 56.42 L149.62 54.43 L156.15 52.80 L162.69 51.52 L169.23 50.58 L175.77 49.88 L182.31 49.30 L188.85 48.95 L195.38 48.60 L201.92 48.37 L208.46 48.13 L215.00 47.90"/>
+<path class="curve" d="M45.00 110.78 L51.54 107.40 L58.08 104.02 L64.62 100.75 L71.15 97.37 L77.69 94.10 L84.23 90.72 L90.77 87.33 L97.31 83.95 L103.85 80.45 L110.38 77.07 L116.92 73.68 L123.46 70.30 L130.00 67.27 L136.54 64.35 L143.08 61.90 L149.62 59.80 L156.15 58.05 L162.69 56.77 L169.23 55.72 L175.77 54.90 L182.31 54.32 L188.85 53.85 L195.38 53.38 L201.92 53.03 L208.46 52.80 L215.00 52.45"/>
+<path class="curve" d="M45.00 118.60 L51.54 115.57 L58.08 112.65 L64.62 109.62 L71.15 106.70 L77.69 103.67 L84.23 100.63 L90.77 97.60 L97.31 94.57 L103.85 91.42 L110.38 88.15 L116.92 84.88 L123.46 81.73 L130.00 78.58 L136.54 75.67 L143.08 72.98 L149.62 70.77 L156.15 68.78 L162.69 67.15 L169.23 65.87 L175.77 64.82 L182.31 63.88 L188.85 63.18 L195.38 62.60 L201.92 62.02 L208.46 61.43 L215.00 60.97"/>
+</g>
+<text class="percentile" x="223" y="36">P97</text>
+<text class="percentile" x="223" y="54">P75</text>
+<text class="percentile" x="223" y="72">P50</text>
+<text class="percentile" x="223" y="90">P25</text>
+<text class="percentile" x="223" y="108">P3</text>
+</svg>

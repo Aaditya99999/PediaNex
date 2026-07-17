@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "emr-kid-dev",
+      "runtimeExecutable": "C:\\Users\\Minali\\Desktop\\PediaNex\\.claude\\run-emr-dev.bat",
+      "runtimeArgs": [],
+      "port": 5173
+    },
+    {
+      "name": "pedianex-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8123"],
+      "port": 8123
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+{
+  "version": "preview-rebuilt-2026-05-iap-no-ofc-5-18",
+  "assetVersion": "2026-05-22-growth-recalibrated",
+  "charts": [
+    {
+      "chartId": "boys-height-0-5",
+      "templateKey": "boysHeight0to5",
+      "label": "Boys Height vs Age 0-5y",
+      "sex": "male",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "height",
+      "dataKey": "height",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 40,
+      "yMax": 120,
+      "xUnit": "months",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/boys-height-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-height-0-5",
+      "templateKey": "girlsHeight0to5",
+      "label": "Girls Height vs Age 0-5y",
+      "sex": "female",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "height",
+      "dataKey": "height",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 40,
+      "yMax": 120,
+      "xUnit": "months",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/girls-height-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-weight-0-5",
+      "templateKey": "boysWeight0to5",
+      "label": "Boys Weight vs Age 0-5y",
+      "sex": "male",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "weight",
+      "dataKey": "weight",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 0,
+      "yMax": 25,
+      "xUnit": "months",
+      "yUnit": "kg",
+      "backgroundImage": "assets/iap-official-png/boys-weight-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-weight-0-5",
+      "templateKey": "girlsWeight0to5",
+      "label": "Girls Weight vs Age 0-5y",
+      "sex": "female",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "weight",
+      "dataKey": "weight",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 0,
+      "yMax": 25,
+      "xUnit": "months",
+      "yUnit": "kg",
+      "backgroundImage": "assets/iap-official-png/girls-weight-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-bmi-0-5",
+      "templateKey": "boysBmi0to5",
+      "label": "Boys BMI vs Age 0-5y",
+      "sex": "male",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "bmi",
+      "dataKey": "bmi",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 10,
+      "yMax": 25,
+      "xUnit": "months",
+      "yUnit": "kg/m2",
+      "backgroundImage": "assets/iap-official-png/boys-bmi-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-bmi-0-5",
+      "templateKey": "girlsBmi0to5",
+      "label": "Girls BMI vs Age 0-5y",
+      "sex": "female",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "bmi",
+      "dataKey": "bmi",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 10,
+      "yMax": 25,
+      "xUnit": "months",
+      "yUnit": "kg/m2",
+      "backgroundImage": "assets/iap-official-png/girls-bmi-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-ofc-0-5",
+      "templateKey": "boysHead0to5",
+      "label": "Boys OFC vs Age 0-5y",
+      "sex": "male",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "ofc",
+      "dataKey": "head",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 30,
+      "yMax": 55,
+      "xUnit": "months",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/boys-head-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-ofc-0-5",
+      "templateKey": "girlsHead0to5",
+      "label": "Girls OFC vs Age 0-5y",
+      "sex": "female",
+      "ageGroup": "0-5",
+      "referenceSource": "WHO",
+      "metric": "ofc",
+      "dataKey": "head",
+      "xMin": 0,
+      "xMax": 60,
+      "yMin": 30,
+      "yMax": 55,
+      "xUnit": "months",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/girls-head-0-5-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P15",
+        "P50",
+        "P85",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-height-5-18",
+      "templateKey": "boysHeight5to18",
+      "label": "Boys Height vs Age 5-18y",
+      "sex": "male",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "height",
+      "dataKey": "height",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 60,
+      "yMax": 210,
+      "xUnit": "years",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/boys-height-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-height-5-18",
+      "templateKey": "girlsHeight5to18",
+      "label": "Girls Height vs Age 5-18y",
+      "sex": "female",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "height",
+      "dataKey": "height",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 60,
+      "yMax": 180,
+      "xUnit": "years",
+      "yUnit": "cm",
+      "backgroundImage": "assets/iap-official-png/girls-height-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-weight-5-18",
+      "templateKey": "boysWeight5to18",
+      "label": "Boys Weight vs Age 5-18y",
+      "sex": "male",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "weight",
+      "dataKey": "weight",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 0,
+      "yMax": 100,
+      "xUnit": "years",
+      "yUnit": "kg",
+      "backgroundImage": "assets/iap-official-png/boys-weight-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "girls-weight-5-18",
+      "templateKey": "girlsWeight5to18",
+      "label": "Girls Weight vs Age 5-18y",
+      "sex": "female",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "weight",
+      "dataKey": "weight",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 10,
+      "yMax": 80,
+      "xUnit": "years",
+      "yUnit": "kg",
+      "backgroundImage": "assets/iap-official-png/girls-weight-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P25",
+        "P50",
+        "P75",
+        "P97"
+      ]
+    },
+    {
+      "chartId": "boys-bmi-5-18",
+      "templateKey": "boysBmi5to18",
+      "label": "Boys BMI vs Age 5-18y",
+      "sex": "male",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "bmi",
+      "dataKey": "bmi",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 10,
+      "yMax": 30,
+      "xUnit": "years",
+      "yUnit": "kg/m2",
+      "backgroundImage": "assets/iap-official-png/boys-bmi-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P5",
+        "P10",
+        "P25",
+        "P50",
+        "AE23",
+        "AE27"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P5",
+        "P10",
+        "P25",
+        "P50",
+        "AE23",
+        "AE27"
+      ]
+    },
+    {
+      "chartId": "girls-bmi-5-18",
+      "templateKey": "girlsBmi5to18",
+      "label": "Girls BMI vs Age 5-18y",
+      "sex": "female",
+      "ageGroup": "5-18",
+      "referenceSource": "IAP",
+      "metric": "bmi",
+      "dataKey": "bmi",
+      "xMin": 5,
+      "xMax": 18,
+      "yMin": 10,
+      "yMax": 30,
+      "xUnit": "years",
+      "yUnit": "kg/m2",
+      "backgroundImage": "assets/iap-official-png/girls-bmi-5-18-minimal.png",
+      "plotArea": {
+        "left": 0.1731,
+        "top": 0.117,
+        "right": 0.8269,
+        "bottom": 0.8617
+      },
+      "percentileLabels": [
+        "P3",
+        "P5",
+        "P10",
+        "P25",
+        "P50",
+        "AE23",
+        "AE27"
+      ],
+      "availablePercentiles": [
+        "P3",
+        "P5",
+        "P10",
+        "P25",
+        "P50",
+        "AE23",
+        "AE27"
+      ]
+    }
+  ]
+}

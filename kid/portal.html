@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Patient Portal | The Better Kids Clinic EMR</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <meta name="description" content="Patient portal for The Better Kids Clinic, letting parents view and download their child's past prescriptions." />
+  <link rel="canonical" href="https://www.thebetterhealth.clinic/emr/kid/portal" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Better Health Clinic" />
+  <meta property="og:title" content="Patient Portal | The Better Kids Clinic EMR" />
+  <meta property="og:description" content="Patient portal for The Better Kids Clinic, letting parents view and download their child's past prescriptions." />
+  <meta property="og:url" content="https://www.thebetterhealth.clinic/emr/kid/portal" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Patient Portal | The Better Kids Clinic EMR" />
+  <meta name="twitter:description" content="Patient portal for The Better Kids Clinic, letting parents view and download their child's past prescriptions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.thebetterhealth.clinic/#website",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/"
+    },
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://www.thebetterhealth.clinic/#clinic",
+      "name": "The Better Health Clinic",
+      "url": "https://www.thebetterhealth.clinic/",
+      "telephone": [
+        "+919686183999",
+        "+919513988840"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#155, 2nd Cross, 1st stage, Arekere MICO Layout, Off Bannerghatta Road",
+        "addressLocality": "Bengaluru",
+        "postalCode": "560076",
+        "addressCountry": "IN"
+      },
+      "medicalSpecialty": [
+        "Pediatrics",
+        "Pulmonology"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.thebetterhealth.clinic/emr/kid/portal#webpage",
+      "url": "https://www.thebetterhealth.clinic/emr/kid/portal",
+      "name": "Patient Portal | The Better Kids Clinic EMR",
+      "description": "Patient portal for The Better Kids Clinic, letting parents view and download their child's past prescriptions.",
+      "isPartOf": {
+        "@id": "https://www.thebetterhealth.clinic/#website"
+      },
+      "about": {
+        "@id": "https://www.thebetterhealth.clinic/#clinic"
+      }
+    }
+  ]
+}
+  </script>
+  <style>
+    :root {
+      --bg: #eef4ef;
+      --panel: #ffffff;
+      --ink: #17241c;
+      --muted: #5c6d63;
+      --faint: #8a988f;
+      --line: #dde7de;
+      --brand: #15803d;
+      --brand-dark: #14532d;
+      --brand-soft: #dcfce7;
+      --brand-strong: #14532d;
+      --danger: #b91c1c;
+      --danger-soft: #fef2f2;
+      --danger-line: #fecaca;
+      --radius-lg: 26px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-panel: 0 20px 50px rgba(20, 46, 30, 0.09), 0 2px 6px rgba(20, 46, 30, 0.04);
+      --shadow-btn: 0 14px 26px rgba(21, 128, 61, 0.26);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -10%, rgba(34, 197, 94, 0.16), transparent 32%),
+        radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.1), transparent 30%),
+        linear-gradient(180deg, #f5faf3 0%, #eaf3ec 55%, #e6f1e9 100%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 252, 248, 0.85);
+      border-bottom: 1px solid rgba(215, 226, 217, 0.95);
+      box-shadow: 0 8px 24px rgba(22, 38, 29, 0.05);
+    }
+
+    .topbar {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #34d399, #15803d);
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 10px 22px rgba(21, 128, 61, 0.28);
+    }
+
+    .brand-mark svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15.5px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+
+    .page-shell {
+      width: min(560px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .panel {
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow-panel);
+    }
+
+    .panel.is-hidden {
+      display: none;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    label .hint {
+      font-weight: 500;
+      color: var(--faint);
+      font-size: 11.5px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--line);
+      background: #fbfdfb;
+      color: var(--ink);
+      font: inherit;
+      font-size: 15.5px;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input::placeholder {
+      color: var(--faint);
+      font-weight: 500;
+    }
+
+    input:hover {
+      border-color: #c6d8ca;
+    }
+
+    input:focus {
+      border-color: var(--brand);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.14);
+    }
+
+    .patient-id-group {
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+    }
+
+    .patient-id-prefix {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 60px;
+      padding: 0 12px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid transparent;
+      background: linear-gradient(135deg, var(--brand-soft), #cdf3d8);
+      color: var(--brand-strong);
+      font-weight: 800;
+      font-size: 15.5px;
+      letter-spacing: 0.03em;
+    }
+
+    .patient-id-group input {
+      flex: 1;
+      min-width: 0;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+
+    .dob-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      gap: 8px;
+    }
+
+    .dob-group input {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-primary {
+      position: relative;
+      margin-top: 4px;
+      min-height: 52px;
+      border: 0;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #fff;
+      font: inherit;
+      font-size: 15.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(21, 128, 61, 0.32);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.72;
+      cursor: default;
+      transform: none;
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-spinner {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255, 255, 255, 0.4);
+      border-top-color: #fff;
+      display: none;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .btn-primary.is-loading .btn-spinner {
+      display: inline-block;
+    }
+
+    .btn-primary.is-loading .btn-label,
+    .btn-primary.is-loading .btn-icon {
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .form-message {
+      display: none;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .form-message svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .form-message.is-visible {
+      display: flex;
+    }
+
+    .form-message.is-error {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border: 1px solid var(--danger-line);
+    }
+
+    .form-message.is-info {
+      background: #f4f8f5;
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+
+    .results-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .results-panel.is-visible {
+      display: grid;
+      gap: 14px;
+      animation: rise 0.28s ease forwards;
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .results-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 2px;
+    }
+
+    .results-head-text h2 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .results-head-text span {
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+
+    .results-head button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      background: none;
+      color: var(--brand-dark);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 8px 4px;
+    }
+
+    .results-head button svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .visit-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .visit-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: #fbfdfb;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .visit-card:hover {
+      border-color: #c6d8ca;
+      box-shadow: 0 8px 20px rgba(20, 46, 30, 0.06);
+    }
+
+    .visit-card-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .visit-card-dot {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+    }
+
+    .visit-card-dot svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .visit-card-text {
+      min-width: 0;
+    }
+
+    .visit-card-date {
+      font-weight: 700;
+      font-size: 14.5px;
+      white-space: nowrap;
+    }
+
+    .visit-card-sub {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .visit-card-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .visit-card-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 40px;
+      padding: 0 15px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .visit-card-actions a svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .visit-card-actions a:hover {
+      transform: translateY(-1px);
+    }
+
+    .visit-card-actions a.is-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--brand-soft), #cdf3d8);
+      color: var(--brand-strong);
+    }
+
+    .empty-state,
+    .loading-state {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 10px;
+      padding: 30px 20px;
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--line);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .empty-state-icon,
+    .loading-state-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+    }
+
+    .empty-state-icon svg,
+    .loading-state-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .empty-state p,
+    .loading-state p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      max-width: 34ch;
+    }
+
+    .loading-state-icon {
+      animation: pulse 1.1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .loading-panel {
+      display: none;
+    }
+
+    .loading-panel.is-visible {
+      display: block;
+    }
+
+    .footnote {
+      text-align: center;
+      color: var(--faint);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+    }
+
+    .footnote a {
+      color: var(--brand-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
+      .page-shell {
+        padding: 28px 0 56px;
+        gap: 18px;
+      }
+
+      .panel {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .dob-group {
+        grid-template-columns: 1fr 1fr 1.3fr;
+        gap: 6px;
+      }
+
+      .visit-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .visit-card-actions {
+        justify-content: stretch;
+      }
+
+      .visit-card-actions a {
+        flex: 1;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-app.css" />
+  <style>
+    @media (max-width: 760px) {
+      body {
+        padding-bottom: 0 !important;
+      }
+
+      .page-shell,
+      .panel {
+        padding-bottom: 14px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2 4.5 5.6 4a4.7 4.7 0 0 1 6.4 2 4.7 4.7 0 0 1 6.4-2c3.6.5 5.2 4.2 3.6 7.7C19.5 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <strong>The Better Kids Clinic</strong>
+          <span>Patient Portal</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <section id="lookup-panel" class="panel">
+      <form id="lookup-form">
+        <label for="patient-id-number">
+          Patient ID
+          <div class="patient-id-group">
+            <span class="patient-id-prefix">TBK</span>
+            <input id="patient-id-number" name="patientIdNumber" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0000" autocomplete="off" required>
+          </div>
+        </label>
+        <label>
+          Date of birth
+          <div class="dob-group">
+            <input id="dob-day" name="dobDay" type="text" inputmode="numeric" placeholder="DD" maxlength="2" required>
+            <input id="dob-month" name="dobMonth" type="text" inputmode="numeric" placeholder="MM" maxlength="2" required>
+            <input id="dob-year" name="dobYear" type="text" inputmode="numeric" placeholder="YYYY" maxlength="4" required>
+          </div>
+          <span class="hint">Must match the date of birth given at registration.</span>
+        </label>
+        <button id="lookup-submit" class="btn-primary" type="submit">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m21 21-4.3-4.3M18 11a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="btn-label">View my records</span>
+          <span class="btn-spinner"></span>
+        </button>
+        <p id="form-message" class="form-message">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="form-message-text"></span>
+        </p>
+      </form>
+    </section>
+
+    <div id="loading-panel" class="loading-panel">
+      <div class="loading-state">
+        <div class="loading-state-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p>Looking up your records...</p>
+      </div>
+    </div>
+
+    <section id="results-panel" class="results-panel">
+      <div class="results-head">
+        <div class="results-head-text">
+          <h2 id="results-title">Visit history</h2>
+          <span id="results-subtitle"></span>
+        </div>
+        <button id="results-reset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18 3 12l6-6M3 12h12a5 5 0 0 1 5 5v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Search again
+        </button>
+      </div>
+      <div id="visit-list" class="visit-list"></div>
+    </section>
+
+    <p class="footnote">Trouble finding your records? Call the clinic at <a href="tel:+919686183999">+91 96861 83999</a>.</p>
+  </div>
+
+  <script type="module">
+    import { collection, doc, getDoc, getDocs, orderBy, query, where } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js';
+    import { getDownloadURL, ref } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-storage.js';
+    import { db, storage } from './lib/firebase-init.js';
+
+    const CLINIC_FIREBASE_NAMESPACE = 'clinics/kid';
+    const FIREBASE_COLLECTIONS = {
+      patients: `${CLINIC_FIREBASE_NAMESPACE}/patients`,
+      history: `${CLINIC_FIREBASE_NAMESPACE}/history`
+    };
+
+    const PATIENT_ID_PREFIX = 'TBK';
+    const PATIENT_ID_WIDTH = 4;
+
+    const lookupForm = document.getElementById('lookup-form');
+    const patientIdNumberInput = document.getElementById('patient-id-number');
+    const dobDayInput = document.getElementById('dob-day');
+    const dobMonthInput = document.getElementById('dob-month');
+    const dobYearInput = document.getElementById('dob-year');
+    const lookupSubmit = document.getElementById('lookup-submit');
+    const formMessage = document.getElementById('form-message');
+    const formMessageText = document.getElementById('form-message-text');
+    const lookupPanel = document.getElementById('lookup-panel');
+    const loadingPanel = document.getElementById('loading-panel');
+    const resultsPanel = document.getElementById('results-panel');
+    const resultsTitle = document.getElementById('results-title');
+    const resultsSubtitle = document.getElementById('results-subtitle');
+    const resultsReset = document.getElementById('results-reset');
+    const visitList = document.getElementById('visit-list');
+
+    const NO_MATCH_MESSAGE = "We couldn't find a match for that patient ID and date of birth. Please check and try again.";
+
+    const LOCKOUT_STORAGE_KEY = 'kidPortalLookupState';
+    const MAX_ATTEMPTS_BEFORE_LOCKOUT = 5;
+    const BASE_LOCKOUT_MS = 30 * 1000;
+    const MAX_LOCKOUT_MS = 10 * 60 * 1000;
+
+    function getLookupState() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(LOCKOUT_STORAGE_KEY) || '{}');
+        return {
+          attempts: Number(parsed.attempts) || 0,
+          lockoutLevel: Number(parsed.lockoutLevel) || 0,
+          lockedUntil: Number(parsed.lockedUntil) || 0
+        };
+      } catch {
+        return { attempts: 0, lockoutLevel: 0, lockedUntil: 0 };
+      }
+    }
+
+    function setLookupState(state) {
+      try {
+        localStorage.setItem(LOCKOUT_STORAGE_KEY, JSON.stringify(state));
+      } catch {
+        // Ignore storage failures (private browsing, storage disabled, etc.).
+      }
+    }
+
+    function recordFailedAttempt() {
+      const state = getLookupState();
+      state.attempts += 1;
+      if (state.attempts >= MAX_ATTEMPTS_BEFORE_LOCKOUT) {
+        state.lockoutLevel += 1;
+        state.lockedUntil = Date.now() + Math.min(BASE_LOCKOUT_MS * (2 ** (state.lockoutLevel - 1)), MAX_LOCKOUT_MS);
+        state.attempts = 0;
+      }
+      setLookupState(state);
+    }
+
+    function clearLookupState() {
+      setLookupState({ attempts: 0, lockoutLevel: 0, lockedUntil: 0 });
+    }
+
+    function formatCooldownRemaining(ms) {
+      const totalSeconds = Math.max(1, Math.ceil(ms / 1000));
+      if (totalSeconds < 60) {
+        return `${totalSeconds} second${totalSeconds === 1 ? '' : 's'}`;
+      }
+      const minutes = Math.ceil(totalSeconds / 60);
+      return `${minutes} minute${minutes === 1 ? '' : 's'}`;
+    }
+
+    const ICON_CALENDAR = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="5" width="17" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    const ICON_VIEW = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7-10.5-7-10.5-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>';
+    const ICON_EMPTY = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3h8l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+    function getNormalizedPatientId(value) {
+      return String(value || '').trim().toUpperCase().replace(/#@#\d+$/i, '');
+    }
+
+    function buildPatientIdFromNumber(rawNumber) {
+      const digits = String(rawNumber || '').trim().replace(/\D/g, '');
+      if (!digits) {
+        return '';
+      }
+      return `${PATIENT_ID_PREFIX}${digits.padStart(PATIENT_ID_WIDTH, '0')}`;
+    }
+
+    function parseDobInput(dayValue, monthValue, yearValue) {
+      const day = Number.parseInt(dayValue.trim(), 10);
+      const month = Number.parseInt(monthValue.trim(), 10);
+      const year = Number.parseInt(yearValue.trim(), 10);
+
+      if (!day || !month || !yearValue.trim().match(/^\d{4}$/)) {
+        return '';
+      }
+
+      const parsed = new Date(year, month - 1, day);
+
+      if (
+        Number.isNaN(parsed.getTime()) ||
+        parsed.getFullYear() !== year ||
+        parsed.getMonth() !== month - 1 ||
+        parsed.getDate() !== day
+      ) {
+        return '';
+      }
+
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+
+    function showFormMessage(text, type = 'error') {
+      formMessageText.textContent = text;
+      formMessage.classList.remove('is-error', 'is-info');
+      formMessage.classList.add('is-visible', type === 'error' ? 'is-error' : 'is-info');
+    }
+
+    function clearFormMessage() {
+      formMessageText.textContent = '';
+      formMessage.classList.remove('is-visible', 'is-error', 'is-info');
+    }
+
+    function formatDateDisplay(dateValue) {
+      if (!dateValue) {
+        return 'Date not recorded';
+      }
+      const parsed = new Date(dateValue);
+      if (Number.isNaN(parsed.getTime())) {
+        return String(dateValue);
+      }
+      return parsed.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function isPublicPdfUrl(value) {
+      return /^(https?:|blob:|data:)/i.test(String(value || '').trim());
+    }
+
+    function normalizeStoragePath(value) {
+      const rawValue = String(value || '').trim();
+      if (!rawValue || isPublicPdfUrl(rawValue)) {
+        return '';
+      }
+      try {
+        return decodeURIComponent(rawValue).replace(/^\/+/, '');
+      } catch {
+        return rawValue.replace(/^\/+/, '');
+      }
+    }
+
+    async function resolvePrescriptionPdfUrl(record) {
+      const directUrl = String(record?.downloadURL || record?.downloadUrl || record?.pdfURL || record?.pdfUrl || '').trim();
+      if (isPublicPdfUrl(directUrl)) {
+        return directUrl;
+      }
+      const storagePath = normalizeStoragePath(
+        record?.storagePath || record?.fullPath || record?.filePath || record?.pdfPath || record?.path || record?.prescriptionSaveId
+      );
+      if (!storagePath || !storage) {
+        return '';
+      }
+      try {
+        return await getDownloadURL(ref(storage, storagePath));
+      } catch {
+        return '';
+      }
+    }
+
+    function getVisitSortValue(entry) {
+      const value = entry.createdAtIso || entry.createdAt || entry.savedAt || entry.updatedAt || '';
+      const parsed = new Date(value);
+      return Number.isNaN(parsed.getTime()) ? 0 : parsed.getTime();
+    }
+
+    function renderVisitCard(entry, pdfUrl) {
+      const card = document.createElement('div');
+      card.className = 'visit-card';
+
+      const main = document.createElement('div');
+      main.className = 'visit-card-main';
+
+      const dot = document.createElement('div');
+      dot.className = 'visit-card-dot';
+      dot.innerHTML = ICON_CALENDAR;
+      main.appendChild(dot);
+
+      const text = document.createElement('div');
+      text.className = 'visit-card-text';
+
+      const dateLine = document.createElement('div');
+      dateLine.className = 'visit-card-date';
+      dateLine.textContent = formatDateDisplay(entry.createdAtIso || entry.createdAt || entry.savedAt || entry.updatedAt);
+      text.appendChild(dateLine);
+
+      if (!pdfUrl) {
+        const sub = document.createElement('div');
+        sub.className = 'visit-card-sub';
+        sub.textContent = 'PDF not available for this visit yet.';
+        text.appendChild(sub);
+      }
+
+      main.appendChild(text);
+      card.appendChild(main);
+
+      if (pdfUrl) {
+        const actions = document.createElement('div');
+        actions.className = 'visit-card-actions';
+
+        const viewLink = document.createElement('a');
+        viewLink.href = pdfUrl;
+        viewLink.target = '_blank';
+        viewLink.rel = 'noopener';
+        viewLink.className = 'is-primary';
+        viewLink.innerHTML = `${ICON_VIEW}<span>View</span>`;
+        actions.appendChild(viewLink);
+
+        card.appendChild(actions);
+      }
+
+      return card;
+    }
+
+    async function renderVisits(entries) {
+      visitList.innerHTML = '';
+
+      if (!entries.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.innerHTML = `
+          <div class="empty-state-icon">${ICON_EMPTY}</div>
+          <p>No saved prescriptions were found for this patient yet.</p>
+        `;
+        visitList.appendChild(empty);
+        return;
+      }
+
+      const sorted = [...entries].sort((a, b) => getVisitSortValue(b) - getVisitSortValue(a));
+
+      for (const entry of sorted) {
+        const pdfUrl = await resolvePrescriptionPdfUrl(entry);
+        visitList.appendChild(renderVisitCard(entry, pdfUrl));
+      }
+    }
+
+    function setLoading(isLoading) {
+      loadingPanel.classList.toggle('is-visible', isLoading);
+      lookupSubmit.classList.toggle('is-loading', isLoading);
+      lookupSubmit.disabled = isLoading;
+    }
+
+    async function handleLookup(event) {
+      event.preventDefault();
+      clearFormMessage();
+      resultsPanel.classList.remove('is-visible');
+
+      const lookupState = getLookupState();
+      const cooldownRemaining = lookupState.lockedUntil - Date.now();
+      if (cooldownRemaining > 0) {
+        showFormMessage(`Too many attempts. Please try again in ${formatCooldownRemaining(cooldownRemaining)}.`);
+        return;
+      }
+
+      const patientId = getNormalizedPatientId(buildPatientIdFromNumber(patientIdNumberInput.value));
+      const dob = parseDobInput(dobDayInput.value, dobMonthInput.value, dobYearInput.value);
+
+      if (!patientId) {
+        showFormMessage('Please enter the number from your patient ID.');
+        return;
+      }
+
+      if (!dob) {
+        showFormMessage('Please enter a valid date of birth.');
+        return;
+      }
+
+      if (!db) {
+        showFormMessage('Records are not available right now. Please try again later.');
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const patientSnapshot = await getDoc(doc(db, FIREBASE_COLLECTIONS.patients, patientId));
+
+        if (!patientSnapshot.exists() || String(patientSnapshot.data()?.dob || '') !== dob) {
+          recordFailedAttempt();
+          showFormMessage(NO_MATCH_MESSAGE);
+          return;
+        }
+
+        clearLookupState();
+
+        const historyQuery = query(
+          collection(db, FIREBASE_COLLECTIONS.history),
+          where('patientId', '==', patientId),
+          orderBy('createdAtIso', 'desc')
+        );
+
+        let entries = [];
+        try {
+          const snapshot = await getDocs(historyQuery);
+          entries = snapshot.docs.map((docSnapshot) => ({ id: docSnapshot.id, ...docSnapshot.data() }));
+        } catch {
+          const fallbackSnapshot = await getDocs(
+            query(collection(db, FIREBASE_COLLECTIONS.history), where('patientId', '==', patientId))
+          );
+          entries = fallbackSnapshot.docs.map((docSnapshot) => ({ id: docSnapshot.id, ...docSnapshot.data() }));
+        }
+
+        resultsTitle.textContent = `Visit history for ${patientId}`;
+        resultsSubtitle.textContent = entries.length === 1 ? '1 visit found' : `${entries.length} visits found`;
+        lookupPanel.classList.add('is-hidden');
+        resultsPanel.classList.add('is-visible');
+        await renderVisits(entries);
+        resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (error) {
+        showFormMessage(error?.message || 'Something went wrong while loading records. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    lookupForm.addEventListener('submit', handleLookup);
+    resultsReset.addEventListener('click', () => {
+      resultsPanel.classList.remove('is-visible');
+      lookupPanel.classList.remove('is-hidden');
+      clearFormMessage();
+      patientIdNumberInput.value = '';
+      dobDayInput.value = '';
+      dobMonthInput.value = '';
+      dobYearInput.value = '';
+      lookupPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      patientIdNumberInput.focus();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 188" role="img" aria-label="IAP Boys Height 5-18 years">
+<style>
+    .axis { stroke: #111; stroke-width: 1; fill: none; }
+    .tick { stroke: #666; stroke-width: 1; }
+    .label { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: middle; }
+    .ylabel { fill: #222; font: 9.5px Arial, sans-serif; text-anchor: end; }
+    .curve { fill: none; stroke: #8a8f96; stroke-width: 1; stroke-linecap: round; }
+    .median { fill: none; stroke: #222; stroke-width: 1; stroke-linecap: round; }
+    .percentile { fill: #444; font: 700 8px Arial, sans-serif; }
+  </style>
+<rect x="0" y="0" width="260" height="188" fill="#fff"/>
+<defs><clipPath id="clip-boys-height-5-18-minimal-svg-0"><rect x="45" y="22" width="170" height="140"/></clipPath></defs>
+<path class="axis" d="M45 22 V162 H215"/>
+<path class="tick" d="M45 162 V156"/>
+<text class="label" x="45" y="178">5y</text>
+<path class="tick" d="M87 162 V156"/>
+<text class="label" x="87" y="178">8y</text>
+<path class="tick" d="M130 162 V156"/>
+<text class="label" x="130" y="178">11y</text>
+<path class="tick" d="M173 162 V156"/>
+<text class="label" x="173" y="178">14y</text>
+<path class="tick" d="M215 162 V156"/>
+<text class="label" x="215" y="178">18y</text>
+<path class="tick" d="M45 22 H51"/>
+<text class="ylabel" x="39" y="26">210</text>
+<path class="tick" d="M45 50 H51"/>
+<text class="ylabel" x="39" y="54">180</text>
+<path class="tick" d="M45 78 H51"/>
+<text class="ylabel" x="39" y="82">150</text>
+<path class="tick" d="M45 106 H51"/>
+<text class="ylabel" x="39" y="110">120</text>
+<path class="tick" d="M45 134 H51"/>
+<text class="ylabel" x="39" y="138">90</text>
+<path class="tick" d="M45 162 H51"/>
+<text class="ylabel" x="39" y="166">60</text>
+<g clip-path="url(#clip-boys-height-5-18-minimal-svg-0)">
+<path class="curve" d="M45.00 106.56 L51.54 103.48 L58.08 100.40 L64.62 97.32 L71.15 94.24 L77.69 91.16 L84.23 88.17 L90.77 85.28 L97.31 82.39 L103.85 79.59 L110.38 76.69 L116.92 73.89 L123.46 71.00 L130.00 68.11 L136.54 65.21 L143.08 62.32 L149.62 59.43 L156.15 56.81 L162.69 54.29 L169.23 52.15 L175.77 50.28 L182.31 48.69 L188.85 47.48 L195.38 46.45 L201.92 45.52 L208.46 44.59 L215.00 43.75"/>
+<path class="curve" d="M45.00 113.09 L51.54 110.29 L58.08 107.40 L64.62 104.51 L71.15 101.71 L77.69 98.91 L84.23 96.20 L90.77 93.49 L97.31 90.79 L103.85 88.17 L110.38 85.56 L116.92 82.95 L123.46 80.24 L130.00 77.53 L136.54 74.73 L143.08 71.93 L149.62 69.13 L156.15 66.43 L162.69 63.91 L169.23 61.57 L175.77 59.61 L182.31 57.84 L188.85 56.44 L195.38 55.13 L201.92 53.92 L208.46 52.80 L215.00 51.68"/>
+<path class="median" d="M45.00 116.36 L51.54 113.56 L58.08 110.85 L64.62 108.05 L71.15 105.35 L77.69 102.73 L84.23 100.03 L90.77 97.51 L97.31 94.99 L103.85 92.47 L110.38 89.95 L116.92 87.43 L123.46 84.81 L130.00 82.20 L136.54 79.49 L143.08 76.69 L149.62 73.99 L156.15 71.28 L162.69 68.76 L169.23 66.52 L175.77 64.47 L182.31 62.60 L188.85 61.11 L195.38 59.71 L201.92 58.40 L208.46 57.19 L215.00 55.97"/>
+<path class="curve" d="M45.00 119.44 L51.54 116.83 L58.08 114.21 L64.62 111.60 L71.15 108.99 L77.69 106.37 L84.23 103.85 L90.77 101.43 L97.31 99.00 L103.85 96.67 L110.38 94.24 L116.92 91.81 L123.46 89.39 L130.00 86.77 L136.54 84.25 L143.08 81.55 L149.62 78.93 L156.15 76.32 L162.69 73.80 L169.23 71.47 L175.77 69.41 L182.31 67.55 L188.85 65.96 L195.38 64.47 L201.92 63.16 L208.46 61.85 L215.00 60.55"/>
+<path class="curve" d="M45.00 125.60 L51.54 123.17 L58.08 120.75 L64.62 118.32 L71.15 115.99 L77.69 113.65 L84.23 111.32 L90.77 109.08 L97.31 106.93 L103.85 104.79 L110.38 102.64 L116.92 100.49 L123.46 98.35 L130.00 96.01 L136.54 93.68 L143.08 91.35 L149.62 88.92 L156.15 86.49 L162.69 84.16 L169.23 81.92 L175.77 79.87 L182.31 78.00 L188.85 76.32 L195.38 74.83 L201.92 73.33 L208.46 71.84 L215.00 70.44"/>
+</g>
+<text class="percentile" x="223" y="36">P97</text>
+<text class="percentile" x="223" y="54">P75</text>
+<text class="percentile" x="223" y="72">P50</text>
+<text class="percentile" x="223" y="90">P25</text>
+<text class="percentile" x="223" y="108">P3</text>
+</svg>

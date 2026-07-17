@@ -1,0 +1,25 @@
+{
+  "name": "better-kids-emr",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node ./scripts/ensure-iap-assets.mjs",
+    "dev": "vite",
+    "import:csv": "node ./scripts/import-kid-csvs.mjs",
+    "migrate:patient-ids": "node ./scripts/reassign-kid-patient-ids.mjs",
+    "backfill:csv-prescription-pdfs": "node ./scripts/backfill-csv-prescription-pdfs.mjs",
+    "prebuild": "node ./scripts/ensure-iap-assets.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  },
+  "dependencies": {
+    "firebase": "^12.13.0",
+    "firebase-admin": "^13.10.0",
+    "jspdf": "^3.0.3",
+    "pdfjs-dist": "^5.6.205"
+  }
+}

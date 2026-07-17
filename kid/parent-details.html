@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Parent Details | The Better Kids Clinic EMR</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="manifest" href="/emr/kid/site.webmanifest" />
+  <script type="module" src="./auth-guard.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef4ef;
+      --panel: #fcfdf8;
+      --panel-strong: #ffffff;
+      --ink: #1b2a21;
+      --muted: #607067;
+      --line: #d7e2d9;
+      --brand: #166534;
+      --brand-soft: #dcfce7;
+      --brand-strong: #14532d;
+      --danger: #b91c1c;
+      --shadow: 0 18px 45px rgba(22, 38, 29, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 28%),
+        linear-gradient(180deg, #f5faf3 0%, #edf5ef 100%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 252, 248, 0.88);
+      border-bottom: 1px solid rgba(215, 226, 217, 0.95);
+      box-shadow: 0 8px 24px rgba(22, 38, 29, 0.05);
+    }
+
+    .topbar {
+      width: min(980px, calc(100% - 28px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, #166534, #22c55e);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(22, 101, 52, 0.22);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: #5f6f66;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-link:hover {
+      background: var(--brand-soft);
+      color: var(--brand-strong);
+    }
+
+    .page-shell {
+      width: min(980px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+    }
+
+    .page-intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.05;
+    }
+
+    .patient-chip {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--brand-strong);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .edit-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid rgba(215, 226, 217, 0.95);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .age-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: var(--panel-strong);
+      color: var(--ink);
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: rgba(22, 101, 52, 0.5);
+      box-shadow: 0 0 0 4px rgba(22, 101, 52, 0.12);
+    }
+
+    .side-panel {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(241, 248, 243, 0.92), rgba(255, 255, 255, 0.82));
+    }
+
+    .side-panel h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .status {
+      min-height: 42px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .status.ready {
+      border-color: rgba(22, 101, 52, 0.24);
+      color: var(--brand-strong);
+      background: rgba(220, 252, 231, 0.45);
+    }
+
+    .status.error {
+      border-color: rgba(185, 28, 28, 0.22);
+      color: var(--danger);
+      background: rgba(254, 226, 226, 0.55);
+    }
+
+    .button-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    button,
+    .button-link {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      padding: 0 16px;
+      font: inherit;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 12px 22px rgba(22, 101, 52, 0.18);
+    }
+
+    .btn-secondary,
+    .button-link {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    @media (max-width: 760px) {
+      .topbar,
+      .page-shell {
+        width: min(100% - 20px, 980px);
+      }
+
+      .page-intro,
+      .edit-card {
+        grid-template-columns: 1fr;
+      }
+
+      .page-intro {
+        display: grid;
+        align-items: start;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="/emr/kid/search">
+        <div class="brand-mark">🩺</div>
+        <div class="brand-copy">
+          <strong>The Better Health Clinic</strong>
+          <span>Growth Monitoring Portal</span>
+        </div>
+      </a>
+      <a class="nav-link" href="/emr/kid/search">Enter Clinic</a>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-intro">
+      <div>
+        <h1>Edit Parent Details</h1>
+      </div>
+      <div id="patient-chip" class="patient-chip">Patient -</div>
+    </section>
+
+    <section class="edit-card">
+      <form id="parent-details-form">
+        <div class="field-grid">
+          <div class="field">
+            <label for="child-name">Child name</label>
+            <input id="child-name" name="childName" type="text" autocomplete="off" required>
+          </div>
+
+          <div class="field">
+            <label for="parent-name">Parent name</label>
+            <input id="parent-name" name="parentName" type="text" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="dob">Date of birth</label>
+            <input id="dob" name="dob" type="date">
+          </div>
+
+          <div class="field">
+            <label for="age-value">Age</label>
+            <div class="age-row">
+              <input id="age-years" name="ageYears" type="number" min="0" step="1" inputmode="numeric" placeholder="yrs">
+              <input id="age-months" name="ageMonths" type="number" min="0" max="11" step="1" inputmode="numeric" placeholder="mnths">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email">
+          </div>
+        </div>
+      </form>
+
+      <aside class="side-panel">
+        <h2>Patient record</h2>
+        <div id="save-status" class="status">Loading patient details...</div>
+        <div class="button-stack">
+          <button id="save-btn" class="btn-primary" type="submit" form="parent-details-form">Save details</button>
+          <a id="back-link" class="button-link" href="prescription-growth-chart-dashboard.html">Back</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module">
+    import { doc, getDoc, serverTimestamp, setDoc } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js';
+    import { db } from './lib/firebase-init.js';
+
+    const CLINIC_FIREBASE_NAMESPACE = 'clinics/kid';
+    const FIREBASE_COLLECTIONS = {
+      patients: `${CLINIC_FIREBASE_NAMESPACE}/patients`
+    };
+    const CLINIC_LOCAL_STORAGE_PREFIX = CLINIC_FIREBASE_NAMESPACE.replace(/\//g, ':');
+    const clinicStorageKey = (key) => `${CLINIC_LOCAL_STORAGE_PREFIX}:${key}`;
+    const LOCAL_PATIENT_DETAIL_CACHE_PREFIX = clinicStorageKey('patientDetailCache');
+    const PATIENT_DETAIL_CACHE_TTL_MS = 5 * 60 * 1000;
+
+    const params = new URLSearchParams(window.location.search);
+    const patientId = String(params.get('patientId') || '').trim().toUpperCase();
+    const returnTo = params.get('returnTo') || (patientId
+      ? `prescription-growth-chart-dashboard.html?patientId=${encodeURIComponent(patientId)}`
+      : 'prescription-growth-chart-dashboard.html');
+
+    const form = document.getElementById('parent-details-form');
+    const saveBtn = document.getElementById('save-btn');
+    const saveStatus = document.getElementById('save-status');
+    const patientChip = document.getElementById('patient-chip');
+    const backLink = document.getElementById('back-link');
+    const ageYearsInput = document.getElementById('age-years');
+    const ageMonthsInput = document.getElementById('age-months');
+
+    function setStatus(message, tone = '') {
+      saveStatus.textContent = message;
+      saveStatus.className = `status${tone ? ` ${tone}` : ''}`;
+    }
+
+    function getPatientDetailCacheKey(id) {
+      return `${LOCAL_PATIENT_DETAIL_CACHE_PREFIX}:${String(id || '').trim().toUpperCase()}`;
+    }
+
+    function writePatientDetailCache(id, record) {
+      try {
+        localStorage.setItem(getPatientDetailCacheKey(id), JSON.stringify({
+          savedAt: Date.now(),
+          record
+        }));
+      } catch (error) {
+        console.warn(`Unable to update patient detail cache: ${error.message}`);
+      }
+    }
+
+    function readPatientDetailCache(id) {
+      try {
+        const raw = localStorage.getItem(getPatientDetailCacheKey(id));
+        if (!raw) return null;
+        const cache = JSON.parse(raw);
+        if (!cache?.savedAt || Date.now() - Number(cache.savedAt) > PATIENT_DETAIL_CACHE_TTL_MS) {
+          return null;
+        }
+        return cache.record || null;
+      } catch {
+        return null;
+      }
+    }
+
+    function normalizePhone(value) {
+      const digits = String(value || '').replace(/\D/g, '');
+      if (!digits) {
+        return '';
+      }
+      return digits.length > 10 ? digits.slice(-10) : digits;
+    }
+
+    function parseAgePart(value) {
+      const numeric = Number.parseInt(String(value || '').trim(), 10);
+      return Number.isFinite(numeric) && numeric >= 0 ? numeric : NaN;
+    }
+
+    function formatDateInputValue(dateValue) {
+      const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
+      if (Number.isNaN(date.getTime())) {
+        return '';
+      }
+
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    function getAgeMonthsFromDob(dobValue, referenceDate = new Date()) {
+      if (!dobValue) {
+        return NaN;
+      }
+
+      const dob = new Date(dobValue);
+      const targetDate = referenceDate instanceof Date ? referenceDate : new Date(referenceDate);
+      if (Number.isNaN(dob.getTime()) || Number.isNaN(targetDate.getTime()) || dob > targetDate) {
+        return NaN;
+      }
+
+      return ((targetDate.getTime() - dob.getTime()) / (365.25 * 24 * 60 * 60 * 1000)) * 12;
+    }
+
+    function getDobFromAgeSnapshot(ageSnapshot, referenceDate = new Date()) {
+      if (!Number.isFinite(ageSnapshot?.ageMonths)) {
+        return '';
+      }
+
+      const referenceTime = referenceDate instanceof Date ? referenceDate.getTime() : new Date(referenceDate).getTime();
+      if (Number.isNaN(referenceTime)) {
+        return '';
+      }
+
+      const dobTime = referenceTime - (ageSnapshot.ageMonths * (365.25 / 12) * 24 * 60 * 60 * 1000);
+      return formatDateInputValue(new Date(dobTime));
+    }
+
+    function parseStoredAgeRecord(record = {}) {
+      const years = parseAgePart(record.ageYears ?? record.ageValue ?? record.age);
+      const months = parseAgePart(record.ageMonths);
+      if (!Number.isFinite(years) && !Number.isFinite(months)) {
+        return null;
+      }
+
+      return {
+        years: Number.isFinite(years) ? years : 0,
+        months: Number.isFinite(months) ? months : 0
+      };
+    }
+
+    function formatAgeSummaryLabelFromMonths(months) {
+      if (!Number.isFinite(months) || months < 0) {
+        return '';
+      }
+
+      if (months < 12) {
+        const roundedMonths = Math.min(11, Math.max(1, Math.round(months)));
+        return `${roundedMonths} mnths`;
+      }
+
+      const years = Math.round((months / 12) * 10) / 10;
+      const yearsText = Number.isInteger(years) ? String(Math.trunc(years)) : years.toFixed(1);
+      return `${yearsText} yrs`;
+    }
+
+    function getAgeSnapshotAtDate(record = {}, referenceDate = new Date()) {
+      const dobMonths = getAgeMonthsFromDob(record.dob, referenceDate);
+      if (Number.isFinite(dobMonths)) {
+        const displayAgeUnit = dobMonths < 12 ? 'months' : 'years';
+        const displayAgeValue = displayAgeUnit === 'months'
+          ? Math.min(11, Math.max(1, Math.round(dobMonths)))
+          : (Math.round((dobMonths / 12) * 10) / 10);
+        return {
+          source: 'dob',
+          ageMonths: dobMonths,
+          ageYears: dobMonths / 12,
+          ageValue: displayAgeValue,
+          ageUnit: displayAgeUnit,
+          ageRecordedAt: '',
+          label: formatAgeSummaryLabelFromMonths(dobMonths)
+        };
+      }
+
+      const parsedAge = parseStoredAgeRecord(record);
+      if (!parsedAge) {
+        return {
+          source: '',
+          ageMonths: NaN,
+          ageYears: NaN,
+          ageYearsInput: '',
+          ageMonthsInput: '',
+          ageRecordedAt: '',
+          label: ''
+        };
+      }
+
+      const referenceTime = referenceDate instanceof Date ? referenceDate.getTime() : new Date(referenceDate).getTime();
+      const recordedAt = new Date(record.ageRecordedAt || record.updatedAt || record.savedAt || referenceDate);
+      const recordedAtTime = recordedAt.getTime();
+      const elapsedMonths = Number.isFinite(referenceTime) && !Number.isNaN(recordedAtTime)
+        ? ((referenceTime - recordedAtTime) / (365.25 * 24 * 60 * 60 * 1000)) * 12
+        : 0;
+      const baseMonths = (parsedAge.years * 12) + parsedAge.months;
+      const totalMonths = Math.max(0, baseMonths + elapsedMonths);
+      const displayYears = Math.floor(totalMonths / 12);
+      const displayMonths = Math.min(11, Math.max(0, Math.round(totalMonths - (displayYears * 12))));
+
+      return {
+        source: 'age',
+        ageMonths: totalMonths,
+        ageYears: totalMonths / 12,
+        ageYearsInput: displayYears,
+        ageMonthsInput: displayMonths,
+        ageRecordedAt: Number.isNaN(recordedAtTime) ? '' : recordedAt.toISOString(),
+        label: formatAgeSummaryLabelFromMonths(totalMonths)
+      };
+    }
+
+    function syncAgeFormFromRecord(record = {}) {
+      const ageSnapshot = getAgeSnapshotAtDate(record, new Date());
+      if (ageYearsInput) {
+        ageYearsInput.value = Number.isFinite(ageSnapshot.ageYearsInput) ? String(ageSnapshot.ageYearsInput) : '';
+      }
+      if (ageMonthsInput) {
+        ageMonthsInput.value = Number.isFinite(ageSnapshot.ageMonthsInput) ? String(ageSnapshot.ageMonthsInput) : '';
+      }
+      if (!record.dob && ageSnapshot.label) {
+        form.elements.dob.value = getDobFromAgeSnapshot(ageSnapshot, new Date());
+      }
+    }
+
+    function syncAgeFormFromDob() {
+      if (!form.elements.dob.value) {
+        ageYearsInput.value = '';
+        ageMonthsInput.value = '';
+        return;
+      }
+
+      syncAgeFormFromRecord({ dob: form.elements.dob.value });
+    }
+
+    function syncDobFromAgeForm() {
+      const ageYears = parseAgePart(ageYearsInput?.value);
+      const ageMonths = parseAgePart(ageMonthsInput?.value);
+      if (!Number.isFinite(ageYears) && !Number.isFinite(ageMonths)) {
+        return;
+      }
+      const ageSnapshot = {
+        ageMonths: ((Number.isFinite(ageYears) ? ageYears : 0) * 12) + (Number.isFinite(ageMonths) ? ageMonths : 0)
+      };
+      const nextDob = getDobFromAgeSnapshot(ageSnapshot, new Date());
+      if (nextDob) {
+        form.elements.dob.value = nextDob;
+      }
+    }
+
+    function fillForm(record = {}) {
+      form.elements.childName.value = record.childName || '';
+      form.elements.parentName.value = record.parentName || '';
+      form.elements.phone.value = record.phone || record.mobileNumber || '';
+      form.elements.dob.value = record.dob || '';
+      form.elements.gender.value = record.gender || '';
+      form.elements.email.value = record.email || '';
+      syncAgeFormFromRecord(record);
+    }
+
+    async function loadPatient() {
+      patientChip.textContent = patientId ? `Patient ${patientId}` : 'Patient -';
+      backLink.href = returnTo;
+
+      if (!patientId) {
+        setStatus('Missing patient ID. Open this page from the consultation header.', 'error');
+        saveBtn.disabled = true;
+        return;
+      }
+
+      const cached = readPatientDetailCache(patientId);
+      if (cached) {
+        fillForm(cached);
+        setStatus('Loaded recent patient details.', 'ready');
+      }
+
+      if (!db) {
+        setStatus(cached ? 'Showing recent details. Cloud sync is unavailable.' : 'Cloud records are unavailable.', cached ? 'ready' : 'error');
+        saveBtn.disabled = !cached;
+        return;
+      }
+
+      try {
+        const snapshot = await getDoc(doc(db, FIREBASE_COLLECTIONS.patients, patientId));
+        if (!snapshot.exists()) {
+          setStatus(cached ? 'Showing recent details. Patient record was not found online.' : 'Patient record was not found online.', cached ? 'ready' : 'error');
+          return;
+        }
+
+        const record = { id: snapshot.id, ...snapshot.data(), patientId };
+        fillForm(record);
+        writePatientDetailCache(patientId, record);
+        setStatus('Loaded patient details.', 'ready');
+      } catch (error) {
+        setStatus(`Unable to load online record: ${error.message}`, cached ? 'ready' : 'error');
+      }
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!patientId || !db) {
+        setStatus(!patientId ? 'Missing patient ID.' : 'Cloud records are unavailable.', 'error');
+        return;
+      }
+
+      const nextRecord = {
+        patientId,
+        childName: form.elements.childName.value.trim(),
+        parentName: form.elements.parentName.value.trim(),
+        phone: normalizePhone(form.elements.phone.value),
+        mobileNumber: normalizePhone(form.elements.phone.value),
+        dob: form.elements.dob.value,
+        ageYears: '',
+        ageMonths: '',
+        ageRecordedAt: '',
+        age: '',
+        gender: form.elements.gender.value,
+        email: form.elements.email.value.trim(),
+        updatedAt: serverTimestamp()
+      };
+
+      if (!nextRecord.childName) {
+        form.elements.childName.focus();
+        setStatus('Child name is required.', 'error');
+        return;
+      }
+
+      const enteredAgeYears = parseAgePart(ageYearsInput.value);
+      const enteredAgeMonths = parseAgePart(ageMonthsInput.value);
+      const ageSnapshot = form.elements.dob.value
+        ? getAgeSnapshotAtDate({ dob: form.elements.dob.value }, new Date())
+        : {
+          ageYearsInput: Number.isFinite(enteredAgeYears) ? enteredAgeYears : 0,
+          ageMonthsInput: Number.isFinite(enteredAgeMonths) ? enteredAgeMonths : 0,
+          ageMonths: ((Number.isFinite(enteredAgeYears) ? enteredAgeYears : 0) * 12) + (Number.isFinite(enteredAgeMonths) ? enteredAgeMonths : 0),
+          label: formatAgeSummaryLabelFromMonths(((Number.isFinite(enteredAgeYears) ? enteredAgeYears : 0) * 12) + (Number.isFinite(enteredAgeMonths) ? enteredAgeMonths : 0))
+        };
+
+      if (!form.elements.dob.value && !Number.isFinite(enteredAgeYears) && !Number.isFinite(enteredAgeMonths)) {
+        ageYearsInput.focus();
+        setStatus('Enter age when date of birth is blank.', 'error');
+        return;
+      }
+
+      nextRecord.ageYears = Number.isFinite(ageSnapshot.ageYearsInput) ? ageSnapshot.ageYearsInput : '';
+      nextRecord.ageMonths = Number.isFinite(ageSnapshot.ageMonthsInput) ? ageSnapshot.ageMonthsInput : '';
+      nextRecord.ageRecordedAt = new Date().toISOString();
+      nextRecord.age = ageSnapshot.label || '';
+
+      saveBtn.disabled = true;
+      setStatus('Saving patient details...');
+
+      try {
+        await setDoc(doc(db, FIREBASE_COLLECTIONS.patients, patientId), nextRecord, { merge: true });
+        writePatientDetailCache(patientId, {
+          ...nextRecord,
+          updatedAt: new Date().toISOString()
+        });
+        setStatus('Patient details saved.', 'ready');
+        window.setTimeout(() => {
+          window.location.href = returnTo;
+        }, 450);
+      } catch (error) {
+        setStatus(`Unable to save patient details: ${error.message}`, 'error');
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+
+    form.elements.dob.addEventListener('input', syncAgeFormFromDob);
+    form.elements.dob.addEventListener('change', syncAgeFormFromDob);
+    ageYearsInput.addEventListener('input', syncDobFromAgeForm);
+    ageYearsInput.addEventListener('change', syncDobFromAgeForm);
+    ageMonthsInput.addEventListener('input', syncDobFromAgeForm);
+    ageMonthsInput.addEventListener('change', syncDobFromAgeForm);
+
+    loadPatient();
+  </script>
+</body>
+</html>
