@@ -258,16 +258,16 @@
   /* Works everywhere — Docon's device-carousel idea, tied to the real installable PWA */
   .everywhere-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
   @media (max-width:800px){ .everywhere-grid{grid-template-columns:1fr;} }
-  .ew-card{border-radius:20px; padding:26px 22px 68px; position:relative; overflow:hidden; color:#fff;}
+  .ew-card{border-radius:20px; padding:22px 20px 70px; position:relative; overflow:hidden; color:#fff;}
   .ew-card.c-blue{background:var(--blue-deep);}
   .ew-card.c-green{background:var(--green-deep);}
   .ew-card.c-amber{background:var(--amber-deep);}
-  .ew-card .ew-frame{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); border-radius:12px; padding:12px; transform:rotate(-3deg);}
-  .ew-card .ew-frame .ew-bar{display:flex; gap:5px; margin-bottom:8px;}
-  .ew-card .ew-frame .ew-bar span{width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.5);}
-  .ew-card .ew-frame .ew-line{height:7px; border-radius:3px; background:rgba(255,255,255,.32); margin-bottom:6px;}
-  .ew-card .ew-frame .ew-line:last-child{margin-bottom:0; width:60%;}
-  .ew-card .ew-label{position:absolute; left:22px; bottom:22px; font-family:var(--display); font-weight:700; font-size:var(--text-md);}
+  .ew-card .ew-frame{background:#0b1520; border-radius:14px; padding:6px 6px 0; overflow:hidden; box-shadow:0 18px 34px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.18); height:190px;}
+  .ew-card .ew-frame img{width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:6px 6px 0 0;}
+  .ew-card.c-blue .ew-frame{transform:rotate(-4deg);}
+  .ew-card.c-green .ew-frame{transform:rotate(3deg);}
+  .ew-card.c-amber .ew-frame{transform:rotate(-3deg);}
+  .ew-card .ew-label{position:absolute; left:22px; bottom:22px; font-family:var(--display); font-weight:700; font-size:var(--text-md); z-index:2;}
 
   /* Origin section */
   .origin{background:var(--blue-deep); border-radius:24px; padding:52px 44px; color:#EEF3FA;}
@@ -551,7 +551,12 @@
           <p>Fitness, leave, discharge, and COVID-19 templates, ready to go: pick one and the patient's name, age, and guardian fill in on their own. Print it, send it on WhatsApp, or save it to the record.</p>
         </div>
         <div class="fscreen">
-          <div class="fbar"><span></span><span></span><span></span></div>
+          <div class="fbar" style="justify-content:center; gap:8px;">
+            <span style="width:16px; height:16px; border-radius:5px; background:var(--blue); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;" aria-hidden="true">
+              <svg width="9" height="9" viewBox="0 0 14 14"><path d="M1 9 C 3 9, 3 3, 5 3 C 7 3, 7 7, 9 7 C 10.5 7, 11.5 5, 13 5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span style="width:auto; height:auto; border-radius:0; background:none; font-family:var(--display); font-weight:700; font-size:var(--text-sm); color:var(--ink); white-space:nowrap;">PediaNex &middot; The best EMR for doctors</span>
+          </div>
           <div class="fbody" style="padding:12px 14px;">
             <img src="assets/sample-certificate.png" alt="Sample fitness certificate with clinic letterhead and patient details filled in automatically" style="width:100%; height:auto; border-radius:8px; display:block;" loading="lazy" />
           </div>
@@ -569,15 +574,15 @@
       </div>
       <div class="everywhere-grid">
         <div class="ew-card c-blue">
-          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-frame"><img src="assets/sample-device-desktop.png" alt="PediaNex prescription builder on a reception desktop screen" loading="lazy" /></div>
           <div class="ew-label">Desktop</div>
         </div>
         <div class="ew-card c-green">
-          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-frame"><img src="assets/sample-device-tablet.png" alt="PediaNex standalone growth chart tool on a doctor's tablet" loading="lazy" /></div>
           <div class="ew-label">Tablet</div>
         </div>
         <div class="ew-card c-amber">
-          <div class="ew-frame"><div class="ew-bar"><span></span><span></span><span></span></div><div class="ew-line"></div><div class="ew-line"></div><div class="ew-line"></div></div>
+          <div class="ew-frame"><img src="assets/sample-device-phone.png" alt="PediaNex parent portal lookup on a phone" loading="lazy" /></div>
           <div class="ew-label">Phone</div>
         </div>
       </div>
