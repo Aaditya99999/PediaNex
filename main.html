@@ -45,13 +45,13 @@
 </script>
 <style>
   :root{
-    --paper:#081420; --surface:#0E1F30; --surface-2:#132A3E;
-    --ink:#EAF1FA; --ink-soft:#B7C6D6; --muted:#7E92A5;
-    --blue:#5AA6F2; --blue-deep:#123A61; --blue-tint:#132943;
-    --amber:#EFB35E; --amber-soft:#332508; --amber-deep:#8A5A0F;
-    --green:#4FCB93; --green-soft:#0F2E20; --green-deep:#0F6B4C;
-    --line:rgba(234,241,250,0.16); --line-soft:rgba(234,241,250,0.08);
-    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px rgba(0,0,0,.4);
+    --paper:#FFFFFF; --surface:#F5F7FA; --surface-2:#EDF1F6;
+    --ink:#0A0A0A; --ink-soft:#3D3D3D; --muted:#6B7280;
+    --blue:#2F6FED; --blue-deep:#12275C; --blue-tint:#E8EFFE;
+    --amber:#4A5A80; --amber-soft:#EEF1F7; --amber-deep:#3E4E70;
+    --green:#1D63E0; --green-soft:#E6EFFE; --green-deep:#1B3E7A;
+    --line:rgba(10,10,10,0.12); --line-soft:rgba(10,10,10,0.06);
+    --shadow:0 1px 2px rgba(10,20,40,.08),0 14px 30px rgba(10,20,40,.10);
     --radius:16px;
     --display:"Bricolage Grotesque",system-ui,sans-serif;
     --ui:"Public Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -150,7 +150,7 @@
     position:absolute;
     left:-2px; right:-2px; bottom:-2px;
     height:6px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 8 2, 16 8 T 32 8 T 48 8 T 64 8 T 80 8 T 100 8' fill='none' stroke='%23EFB35E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 8 2, 16 8 T 32 8 T 48 8 T 64 8 T 80 8 T 100 8' fill='none' stroke='%2390A4C7' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat:repeat-x;
     background-size:34px 6px;
     opacity:.5;
@@ -276,7 +276,7 @@
   .ew-card .ew-label{position:absolute; right:16px; bottom:14px; font-family:var(--display); font-weight:700; font-size:var(--text-sm); letter-spacing:.01em; z-index:2; text-shadow:0 2px 10px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.4);}
 
   /* Origin section */
-  .origin{background:var(--blue-deep); border-radius:24px; padding:52px 44px; color:#EEF3FA;}
+  .origin{background:var(--blue-deep); border-radius:24px; padding:52px 44px; color:#EAF0FF;}
   .origin .eyebrow{color:#9DC2ED;}
   .origin .eyebrow::before{background:#9DC2ED;}
   .origin h2{color:#fff; margin:14px 0 18px;}
@@ -298,7 +298,7 @@
   .roadmap-group.featured .rg-label{color:var(--amber-deep);}
   .roadmap-item{padding:12px 0; border-top:1px solid var(--line-soft);}
   .roadmap-group > .roadmap-item:first-of-type{border-top:none; padding-top:0;}
-  .roadmap-group.featured .roadmap-item{border-top-color:rgba(138,90,15,.18);}
+  .roadmap-group.featured .roadmap-item{border-top-color:rgba(62,78,112,.25);}
   .roadmap-item h4{font-size:var(--text-sm); font-weight:700; margin:0 0 4px;}
   .roadmap-item p{font-size:var(--text-sm); color:var(--muted); margin:0;}
 
